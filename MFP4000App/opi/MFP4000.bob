@@ -1,0 +1,887 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>Display</name>
+  <macros>
+    <P>fl:</P>
+    <R>MFP4000</R>
+  </macros>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <class>TITLE</class>
+    <text>MFP4000</text>
+    <x use_class="true">0</x>
+    <y use_class="true">0</y>
+    <width>550</width>
+    <height>31</height>
+    <font use_class="true">
+      <font name="Header 1" family="Liberation Sans" style="BOLD" size="22.0">
+      </font>
+    </font>
+    <foreground_color use_class="true">
+      <color name="Text" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <transparent use_class="true">true</transparent>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_1</name>
+    <text>BEEF:</text>
+    <x>292</x>
+    <y>160</y>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="20.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="tabs" version="2.0.0">
+    <name>Tabs</name>
+    <tabs>
+      <tab>
+        <name>Status</name>
+        <children>
+          <widget type="label" version="2.0.0">
+            <name>Label_10</name>
+            <text>CH1</text>
+            <x>120</x>
+            <y>9</y>
+            <width>62</width>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_11</name>
+            <text>CH2</text>
+            <x>213</x>
+            <y>9</y>
+            <width>62</width>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_12</name>
+            <text>CH3</text>
+            <x>305</x>
+            <y>9</y>
+            <width>62</width>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_13</name>
+            <text>CH4</text>
+            <x>395</x>
+            <y>9</y>
+            <width>62</width>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_14</name>
+            <text>Output</text>
+            <x>21</x>
+            <y>53</y>
+            <width>69</width>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="led" version="2.0.0">
+            <name>LED_1</name>
+            <pv_name>$(P)$(R):gOut1</pv_name>
+            <x>129</x>
+            <y>49</y>
+            <width>26</width>
+            <height>28</height>
+          </widget>
+          <widget type="led" version="2.0.0">
+            <name>LED_3</name>
+            <pv_name>$(P)$(R):gOut2</pv_name>
+            <x>217</x>
+            <y>49</y>
+            <width>26</width>
+            <height>28</height>
+          </widget>
+          <widget type="led" version="2.0.0">
+            <name>LED_4</name>
+            <pv_name>$(P)$(R):gOut3</pv_name>
+            <x>309</x>
+            <y>51</y>
+            <width>26</width>
+            <height>28</height>
+          </widget>
+          <widget type="led" version="2.0.0">
+            <name>LED_5</name>
+            <pv_name>$(P)$(R):gOut4</pv_name>
+            <x>403</x>
+            <y>51</y>
+            <width>26</width>
+            <height>28</height>
+          </widget>
+          <widget type="slide_button" version="2.0.0">
+            <name>Slide Button</name>
+            <pv_name>$(P)$(R):sOut1</pv_name>
+            <label></label>
+            <x>124</x>
+            <y>83</y>
+            <width>50</width>
+          </widget>
+          <widget type="slide_button" version="2.0.0">
+            <name>Slide Button_1</name>
+            <pv_name>$(P)$(R):sOut2</pv_name>
+            <label></label>
+            <x>213</x>
+            <y>83</y>
+            <width>50</width>
+          </widget>
+          <widget type="slide_button" version="2.0.0">
+            <name>Slide Button_2</name>
+            <pv_name>$(P)$(R):sOut3</pv_name>
+            <label></label>
+            <x>305</x>
+            <y>84</y>
+            <width>50</width>
+          </widget>
+          <widget type="slide_button" version="2.0.0">
+            <name>Slide Button_3</name>
+            <pv_name>$(P)$(R):sOut4</pv_name>
+            <label></label>
+            <x>399</x>
+            <y>85</y>
+            <width>50</width>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_15</name>
+            <text>Sense</text>
+            <x>23</x>
+            <y>143</y>
+            <width>69</width>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="led" version="2.0.0">
+            <name>LED_7</name>
+            <pv_name>$(P)$(R):gSense1</pv_name>
+            <x>131</x>
+            <y>139</y>
+            <width>26</width>
+            <height>28</height>
+          </widget>
+          <widget type="led" version="2.0.0">
+            <name>LED_8</name>
+            <pv_name>$(P)$(R):gSense2</pv_name>
+            <x>219</x>
+            <y>139</y>
+            <width>26</width>
+            <height>28</height>
+          </widget>
+          <widget type="led" version="2.0.0">
+            <name>LED_9</name>
+            <pv_name>$(P)$(R):gSense3</pv_name>
+            <x>311</x>
+            <y>141</y>
+            <width>26</width>
+            <height>28</height>
+          </widget>
+          <widget type="led" version="2.0.0">
+            <name>LED_10</name>
+            <pv_name>$(P)$(R):gSense4</pv_name>
+            <x>405</x>
+            <y>141</y>
+            <width>26</width>
+            <height>28</height>
+          </widget>
+          <widget type="slide_button" version="2.0.0">
+            <name>Slide Button_4</name>
+            <pv_name>$(P)$(R):sSense1</pv_name>
+            <label></label>
+            <x>126</x>
+            <y>173</y>
+            <width>50</width>
+          </widget>
+          <widget type="slide_button" version="2.0.0">
+            <name>Slide Button_5</name>
+            <pv_name>$(P)$(R):sSense2</pv_name>
+            <label></label>
+            <x>215</x>
+            <y>173</y>
+            <width>50</width>
+          </widget>
+          <widget type="slide_button" version="2.0.0">
+            <name>Slide Button_6</name>
+            <pv_name>$(P)$(R):sSense3</pv_name>
+            <label></label>
+            <x>307</x>
+            <y>174</y>
+            <width>50</width>
+          </widget>
+          <widget type="slide_button" version="2.0.0">
+            <name>Slide Button_7</name>
+            <pv_name>$(P)$(R):sSense4</pv_name>
+            <label></label>
+            <x>401</x>
+            <y>175</y>
+            <width>50</width>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>Setpoint</name>
+        <children>
+          <widget type="label" version="2.0.0">
+            <name>Label_2</name>
+            <text>CH1</text>
+            <x>71</x>
+            <y>23</y>
+            <width>62</width>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="textupdate" version="2.0.0">
+            <name>Text Update</name>
+            <pv_name>$(P)$(R):gVolt1</pv_name>
+            <x>68</x>
+            <y>52</y>
+            <width>88</width>
+            <height>24</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_4</name>
+            <text>CH2</text>
+            <x>164</x>
+            <y>23</y>
+            <width>62</width>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="textupdate" version="2.0.0">
+            <name>Text Update_1</name>
+            <pv_name>$(P)$(R):gVolt2</pv_name>
+            <x>161</x>
+            <y>52</y>
+            <width>88</width>
+            <height>24</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_5</name>
+            <text>CH3</text>
+            <x>256</x>
+            <y>23</y>
+            <width>62</width>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="textupdate" version="2.0.0">
+            <name>Text Update_2</name>
+            <pv_name>$(P)$(R):gVolt3</pv_name>
+            <x>253</x>
+            <y>52</y>
+            <width>88</width>
+            <height>24</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_6</name>
+            <text>CH4</text>
+            <x>346</x>
+            <y>23</y>
+            <width>62</width>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="textupdate" version="2.0.0">
+            <name>Text Update_3</name>
+            <pv_name>$(P)$(R):gVolt4</pv_name>
+            <x>343</x>
+            <y>52</y>
+            <width>88</width>
+            <height>24</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="textupdate" version="2.0.0">
+            <name>Text Update_4</name>
+            <pv_name>$(P)$(R):gCur1</pv_name>
+            <x>68</x>
+            <y>79</y>
+            <width>88</width>
+            <height>24</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="textupdate" version="2.0.0">
+            <name>Text Update_5</name>
+            <pv_name>$(P)$(R):gCur2</pv_name>
+            <x>161</x>
+            <y>79</y>
+            <width>88</width>
+            <height>24</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="textupdate" version="2.0.0">
+            <name>Text Update_6</name>
+            <pv_name>$(P)$(R):gCur3</pv_name>
+            <x>254</x>
+            <y>79</y>
+            <width>88</width>
+            <height>24</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="textupdate" version="2.0.0">
+            <name>Text Update_7</name>
+            <pv_name>$(P)$(R):gCur4</pv_name>
+            <x>344</x>
+            <y>79</y>
+            <width>88</width>
+            <height>24</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="spinner" version="2.0.0">
+            <name>Spinner</name>
+            <pv_name>$(P)$(R):sVolt1</pv_name>
+            <x>68</x>
+            <y>123</y>
+            <width>88</width>
+            <height>22</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="spinner" version="2.0.0">
+            <name>Spinner_1</name>
+            <pv_name>$(P)$(R):sVolt2</pv_name>
+            <x>159</x>
+            <y>123</y>
+            <width>88</width>
+            <height>22</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="spinner" version="2.0.0">
+            <name>Spinner_2</name>
+            <pv_name>$(P)$(R):sVolt3</pv_name>
+            <x>253</x>
+            <y>123</y>
+            <width>88</width>
+            <height>22</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="spinner" version="2.0.0">
+            <name>Spinner_3</name>
+            <pv_name>$(P)$(R):sVolt4</pv_name>
+            <x>341</x>
+            <y>123</y>
+            <width>88</width>
+            <height>22</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="spinner" version="2.0.0">
+            <name>Spinner_4</name>
+            <pv_name>$(P)$(R):sCur1</pv_name>
+            <x>68</x>
+            <y>149</y>
+            <width>88</width>
+            <height>22</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="spinner" version="2.0.0">
+            <name>Spinner_5</name>
+            <pv_name>$(P)$(R):sCur2</pv_name>
+            <x>159</x>
+            <y>149</y>
+            <width>88</width>
+            <height>22</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="spinner" version="2.0.0">
+            <name>Spinner_6</name>
+            <pv_name>$(P)$(R):sCur3</pv_name>
+            <x>253</x>
+            <y>149</y>
+            <width>88</width>
+            <height>22</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="spinner" version="2.0.0">
+            <name>Spinner_7</name>
+            <pv_name>$(P)$(R):sCur4</pv_name>
+            <x>341</x>
+            <y>149</y>
+            <width>88</width>
+            <height>22</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_3</name>
+            <text>Volt</text>
+            <x>15</x>
+            <y>52</y>
+            <width>52</width>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_7</name>
+            <text>Curr</text>
+            <x>15</x>
+            <y>79</y>
+            <width>52</width>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_8</name>
+            <text>Volt</text>
+            <x>11</x>
+            <y>120</y>
+            <width>52</width>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_9</name>
+            <text>Curr</text>
+            <x>11</x>
+            <y>147</y>
+            <width>52</width>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>Output</name>
+        <children>
+          <widget type="label" version="2.0.0">
+            <name>Label_16</name>
+            <text>CH1</text>
+            <x>67</x>
+            <y>41</y>
+            <width>62</width>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="textupdate" version="2.0.0">
+            <name>Text Update_9</name>
+            <pv_name>$(P)$(R):gActVolt1</pv_name>
+            <x>64</x>
+            <y>70</y>
+            <width>88</width>
+            <height>24</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_17</name>
+            <text>CH2</text>
+            <x>160</x>
+            <y>41</y>
+            <width>62</width>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="textupdate" version="2.0.0">
+            <name>Text Update_10</name>
+            <pv_name>$(P)$(R):gActVolt2</pv_name>
+            <x>157</x>
+            <y>70</y>
+            <width>88</width>
+            <height>24</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_18</name>
+            <text>CH3</text>
+            <x>252</x>
+            <y>41</y>
+            <width>62</width>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="textupdate" version="2.0.0">
+            <name>Text Update_11</name>
+            <pv_name>$(P)$(R):gActVolt3</pv_name>
+            <x>249</x>
+            <y>70</y>
+            <width>88</width>
+            <height>24</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_19</name>
+            <text>CH4</text>
+            <x>342</x>
+            <y>41</y>
+            <width>62</width>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="textupdate" version="2.0.0">
+            <name>Text Update_12</name>
+            <pv_name>$(P)$(R):gActVolt4</pv_name>
+            <x>339</x>
+            <y>70</y>
+            <width>88</width>
+            <height>24</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="textupdate" version="2.0.0">
+            <name>Text Update_13</name>
+            <pv_name>$(P)$(R):gActCur1</pv_name>
+            <x>64</x>
+            <y>97</y>
+            <width>88</width>
+            <height>24</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="textupdate" version="2.0.0">
+            <name>Text Update_14</name>
+            <pv_name>$(P)$(R):gActCur2</pv_name>
+            <x>157</x>
+            <y>97</y>
+            <width>88</width>
+            <height>24</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="textupdate" version="2.0.0">
+            <name>Text Update_15</name>
+            <pv_name>$(P)$(R):gActCur3</pv_name>
+            <x>250</x>
+            <y>97</y>
+            <width>88</width>
+            <height>24</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="textupdate" version="2.0.0">
+            <name>Text Update_16</name>
+            <pv_name>$(P)$(R):gActCur4</pv_name>
+            <x>340</x>
+            <y>97</y>
+            <width>88</width>
+            <height>24</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_20</name>
+            <text>Volt</text>
+            <x>11</x>
+            <y>70</y>
+            <width>52</width>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_21</name>
+            <text>Curr</text>
+            <x>11</x>
+            <y>97</y>
+            <width>52</width>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+        </children>
+      </tab>
+    </tabs>
+    <y>276</y>
+    <width>503</width>
+    <height>260</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="20.0">
+      </font>
+    </font>
+    <active_tab>1</active_tab>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>LED_2</name>
+    <pv_name>$(P)$(R):getBEEP</pv_name>
+    <x>372</x>
+    <y>160</y>
+    <width>26</width>
+    <height>28</height>
+  </widget>
+  <widget type="slide_button" version="2.0.0">
+    <name>Slide Button_8</name>
+    <pv_name>$(P)$(R):setBEEP</pv_name>
+    <label></label>
+    <x>423</x>
+    <y>160</y>
+    <width>56</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_22</name>
+    <text>Volt:</text>
+    <y>160</y>
+    <width>64</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="20.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_8</name>
+    <pv_name>$(P)$(R):gActVolt</pv_name>
+    <x>64</x>
+    <y>160</y>
+    <width>181</width>
+    <height>24</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="20.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_23</name>
+    <text>Cur:</text>
+    <y>194</y>
+    <width>64</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="20.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_17</name>
+    <pv_name>$(P)$(R):gActCur</pv_name>
+    <x>64</x>
+    <y>194</y>
+    <width>184</width>
+    <height>24</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="20.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_24</name>
+    <text>Volt Setpoint:</text>
+    <y>94</y>
+    <width>154</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="20.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_18</name>
+    <pv_name>$(P)$(R):gVolt</pv_name>
+    <x>131</x>
+    <y>94</y>
+    <width>140</width>
+    <height>24</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="20.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_25</name>
+    <text>Cur Setpoint:</text>
+    <y>128</y>
+    <width>122</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="20.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_19</name>
+    <pv_name>$(P)$(R):gCur</pv_name>
+    <x>131</x>
+    <y>128</y>
+    <width>140</width>
+    <height>24</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="20.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_26</name>
+    <text>Effective channel:</text>
+    <y>230</y>
+    <width>194</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="20.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_20</name>
+    <pv_name>$(P)$(R):gInst</pv_name>
+    <x>190</x>
+    <y>230</y>
+    <width>129</width>
+    <height>24</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="20.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>Combo Box</name>
+    <pv_name>$(P)$(R):sInst</pv_name>
+    <x>368</x>
+    <y>230</y>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="20.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Entry</name>
+    <pv_name>$(P)$(R):sVolt</pv_name>
+    <x>303</x>
+    <y>94</y>
+    <width>133</width>
+    <height>24</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="20.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Entry_1</name>
+    <pv_name>$(P)$(R):sCur</pv_name>
+    <x>303</x>
+    <y>128</y>
+    <width>133</width>
+    <height>24</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="20.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_27</name>
+    <text>Power</text>
+    <x>292</x>
+    <y>194</y>
+    <width>64</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="20.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>LED_6</name>
+    <pv_name>$(P)$(R):gOutp</pv_name>
+    <x>372</x>
+    <y>194</y>
+    <width>26</width>
+    <height>28</height>
+  </widget>
+  <widget type="slide_button" version="2.0.0">
+    <name>Slide Button_9</name>
+    <pv_name>$(P)$(R):sOutp</pv_name>
+    <label></label>
+    <x>423</x>
+    <y>194</y>
+    <width>56</width>
+  </widget>
+</display>

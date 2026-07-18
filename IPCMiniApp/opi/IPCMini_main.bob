@@ -1,0 +1,945 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <macros>
+    <P>Pre:</P>
+    <R>IPCMini:</R>
+  </macros>
+  <width>520</width>
+  <height>730</height>
+  <background_color>
+    <color red="240" green="240" blue="240">
+    </color>
+  </background_color>
+  <actions>
+  </actions>
+  <grid_step_x>6</grid_step_x>
+  <grid_step_y>6</grid_step_y>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <text>IPCMini Varian</text>
+    <x>6</x>
+    <y>6</y>
+    <width>155</width>
+    <height>25</height>
+    <font>
+      <font name="Header 1" family="Liberation Sans" style="BOLD" size="22.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="progressbar" version="2.0.0">
+    <name>Progress Bar</name>
+    <pv_name>$(P)$(R)PressureCH1</pv_name>
+    <x>6</x>
+    <y>180</y>
+    <width>511</width>
+    <height>97</height>
+    <fill_color>
+      <color red="0" green="0" blue="255">
+      </color>
+    </fill_color>
+    <background_color>
+      <color red="200" green="200" blue="200">
+      </color>
+    </background_color>
+    <actions>
+    </actions>
+    <minimum>1.0E-10</minimum>
+    <maximum>0.1</maximum>
+    <log_scale>true</log_scale>
+  </widget>
+  <widget type="meter" version="3.0.0">
+    <name>Meter</name>
+    <pv_name>$(P)$(R)CurrentCH1</pv_name>
+    <x>270</x>
+    <y>294</y>
+    <width>245</width>
+    <height>111</height>
+    <show_limits>false</show_limits>
+    <actions>
+    </actions>
+    <minimum>1.0E-6</minimum>
+    <maximum>0.01</maximum>
+    <needle_color>
+      <color red="255" green="0" blue="0">
+      </color>
+    </needle_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_1</name>
+    <text>Pressure</text>
+    <x>186</x>
+    <y>156</y>
+    <width>80</width>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_2</name>
+    <text>Current</text>
+    <x>270</x>
+    <y>275</y>
+    <width>80</width>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_3</name>
+    <text>Voltage</text>
+    <x>12</x>
+    <y>275</y>
+    <width>80</width>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="meter" version="3.0.0">
+    <name>Meter_1</name>
+    <pv_name>$(P)$(R)VoltageCH1</pv_name>
+    <x>12</x>
+    <y>294</y>
+    <width>245</width>
+    <height>111</height>
+    <show_limits>false</show_limits>
+    <actions>
+    </actions>
+    <maximum>7000.0</maximum>
+    <needle_color>
+      <color red="255" green="0" blue="0">
+      </color>
+    </needle_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_2</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(P)$(R)HV</pv_name>
+        <value>1</value>
+      </action>
+    </actions>
+    <text>HV ON</text>
+    <x>12</x>
+    <y>414</y>
+    <width>245</width>
+    <height>43</height>
+    <background_color>
+      <color red="240" green="240" blue="240">
+      </color>
+    </background_color>
+    <tooltip>$(actions)</tooltip>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>LED</name>
+    <pv_name>$(P)$(R)HV_RBV</pv_name>
+    <x>344</x>
+    <y>470</y>
+    <width>169</width>
+    <height>39</height>
+    <off_color>
+      <color red="0" green="100" blue="0">
+      </color>
+    </off_color>
+    <foreground_color>
+      <color red="192" green="192" blue="192">
+      </color>
+    </foreground_color>
+    <line_color>
+      <color red="150" green="150" blue="150">
+      </color>
+    </line_color>
+    <square>true</square>
+    <actions>
+    </actions>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_3</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(P)$(R)HV</pv_name>
+        <value>0</value>
+      </action>
+    </actions>
+    <text>HV OFF</text>
+    <x>270</x>
+    <y>414</y>
+    <width>245</width>
+    <height>43</height>
+    <background_color>
+      <color red="240" green="240" blue="240">
+      </color>
+    </background_color>
+    <tooltip>$(actions)</tooltip>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update</name>
+    <pv_name>$(P)$(R)PressureCH1</pv_name>
+    <x>270</x>
+    <y>156</y>
+    <width>103</width>
+    <background_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <format>2</format>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_1</name>
+    <pv_name>$(P)$(R)HV_RBV</pv_name>
+    <x>171</x>
+    <y>474</y>
+    <width>166</width>
+    <height>31</height>
+    <background_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_4</name>
+    <text>HV</text>
+    <x>12</x>
+    <y>474</y>
+    <width>151</width>
+    <height>31</height>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button</name>
+    <actions>
+      <action type="open_display">
+        <file>IPCMini_config.opi</file>
+        <target>window</target>
+      </action>
+    </actions>
+    <text>Configuration</text>
+    <x>12</x>
+    <y>522</y>
+    <width>241</width>
+    <height>40</height>
+    <background_color>
+      <color red="240" green="240" blue="240">
+      </color>
+    </background_color>
+    <tooltip>$(actions)</tooltip>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_5</name>
+    <text>Model</text>
+    <x>6</x>
+    <y>67</y>
+    <width>80</width>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_2</name>
+    <pv_name>$(P)$(R)Model</pv_name>
+    <x>90</x>
+    <y>67</y>
+    <width>103</width>
+    <background_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_6</name>
+    <text>Status</text>
+    <x>203</x>
+    <y>76</y>
+    <width>51</width>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_3</name>
+    <pv_name>$(P)$(R)Satus</pv_name>
+    <x>258</x>
+    <y>76</y>
+    <width>103</width>
+    <background_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_7</name>
+    <text>Error</text>
+    <x>203</x>
+    <y>101</y>
+    <width>51</width>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_4</name>
+    <pv_name>$(P)$(R)ErrorCode</pv_name>
+    <x>258</x>
+    <y>101</y>
+    <width>103</width>
+    <background_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="byte_monitor" version="2.0.0">
+    <name>Byte Monitor</name>
+    <pv_name>$(P)$(R)ErrorCode</pv_name>
+    <x>366</x>
+    <y>67</y>
+    <width>157</width>
+    <height>67</height>
+    <square>true</square>
+    <off_color>
+      <color red="0" green="100" blue="0">
+      </color>
+    </off_color>
+    <on_color>
+      <color red="0" green="255" blue="0">
+      </color>
+    </on_color>
+    <foreground_color>
+      <color red="192" green="192" blue="192">
+      </color>
+    </foreground_color>
+    <font>
+      <font family="Sans" style="REGULAR" size="7.920792079207921">
+      </font>
+    </font>
+    <labels>
+      <text>RZ</text>
+      <text>RZ</text>
+      <text>Over T</text>
+      <text>RZ</text>
+      <text>RZ</text>
+      <text>Interlock</text>
+      <text>Short</text>
+      <text>Protect</text>
+    </labels>
+    <actions>
+    </actions>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_8</name>
+    <text>SN</text>
+    <x>6</x>
+    <y>95</y>
+    <width>80</width>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_5</name>
+    <pv_name>$(P)$(R)ModelSN</pv_name>
+    <x>90</x>
+    <y>95</y>
+    <width>103</width>
+    <background_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_9</name>
+    <text>Label</text>
+    <x>6</x>
+    <y>120</y>
+    <width>80</width>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_6</name>
+    <pv_name>$(P)$(R)Label_RBV</pv_name>
+    <x>90</x>
+    <y>120</y>
+    <width>103</width>
+    <background_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>Group</name>
+    <macros>
+      <P>Pre:</P>
+      <R>IPCMini:</R>
+    </macros>
+    <x>570</x>
+    <y>96</y>
+    <width>567</width>
+    <height>257</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="rectangle" version="2.0.0">
+      <name>Rectangle_6</name>
+      <width>567</width>
+      <height>257</height>
+      <line_width>1</line_width>
+      <line_color>
+        <color red="0" green="0" blue="0">
+        </color>
+      </line_color>
+      <background_color>
+        <color red="255" green="230" blue="179">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED_40</name>
+      <pv_name>$(P)$(R):getS1.B5</pv_name>
+      <x>384</x>
+      <y>216</y>
+      <width>30</width>
+      <height>30</height>
+      <off_color>
+        <color name="MAJOR" red="255" green="0" blue="0">
+        </color>
+      </off_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_31</name>
+      <text>Warning</text>
+      <x>434</x>
+      <y>206</y>
+      <width>111</width>
+      <height>40</height>
+      <font>
+        <font family="Loma" style="REGULAR" size="28.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="STOP" red="255" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <rules>
+        <rule name="Visable" prop_id="visible" out_exp="false">
+          <exp bool_exp="pv0=0">
+            <value>true</value>
+          </exp>
+          <pv_name>$(P)$(R):getS1.B5</pv_name>
+        </rule>
+      </rules>
+    </widget>
+    <widget type="polyline" version="2.0.0">
+      <name>Polyline_21</name>
+      <x>432</x>
+      <y>60</y>
+      <width>1</width>
+      <height>142</height>
+      <points>
+        <point x="0.5598330716131557" y="142.61044857981142">
+        </point>
+        <point x="0.0" y="0.0">
+        </point>
+      </points>
+      <line_width>1</line_width>
+      <line_color>
+        <color red="0" green="0" blue="0">
+        </color>
+      </line_color>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Action Button_10</name>
+      <actions>
+        <action type="write_pv">
+          <pv_name>$(P)$(R)HV</pv_name>
+          <value>1</value>
+          <description>WritePV</description>
+        </action>
+      </actions>
+      <text>HV ON</text>
+      <x>449</x>
+      <y>138</y>
+      <width>83</width>
+      <height>26</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Action Button_11</name>
+      <actions>
+        <action type="write_pv">
+          <pv_name>$(P)$(R)HV</pv_name>
+          <value>0</value>
+          <description>WritePV</description>
+        </action>
+      </actions>
+      <text>HV OFF</text>
+      <x>450</x>
+      <y>169</y>
+      <width>83</width>
+      <height>26</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_47</name>
+      <text>IPCMini Monitoring Interface</text>
+      <x>45</x>
+      <width>444</width>
+      <height>49</height>
+      <font>
+        <font family="Loma" style="REGULAR" size="32.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="STOP" red="255" green="0" blue="0">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_48</name>
+      <text>Current:</text>
+      <x>17</x>
+      <y>73</y>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_9</name>
+      <pv_name>$(P)$(R)CurrentCH1</pv_name>
+      <x>17</x>
+      <y>93</y>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>2</format>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_49</name>
+      <text>Voltage:</text>
+      <x>17</x>
+      <y>113</y>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_10</name>
+      <pv_name>$(P)$(R)VoltageCH1</pv_name>
+      <x>17</x>
+      <y>133</y>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>2</format>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_50</name>
+      <text>Vacuum:</text>
+      <x>17</x>
+      <y>153</y>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_11</name>
+      <pv_name>$(P)$(R)PressureCH1</pv_name>
+      <x>17</x>
+      <y>173</y>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>2</format>
+    </widget>
+    <widget type="rectangle" version="2.0.0">
+      <name>Rectangle_7</name>
+      <x>7</x>
+      <y>59</y>
+      <width>545</width>
+      <height>144</height>
+      <line_width>1</line_width>
+      <line_color>
+        <color red="0" green="0" blue="0">
+        </color>
+      </line_color>
+      <background_color>
+        <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="polyline" version="2.0.0">
+      <name>Polyline_22</name>
+      <x>124</x>
+      <y>60</y>
+      <width>1</width>
+      <height>142</height>
+      <points>
+        <point x="0.5598330716131557" y="142.61044857981142">
+        </point>
+        <point x="0.0" y="0.0">
+        </point>
+      </points>
+      <line_width>1</line_width>
+      <line_color>
+        <color red="0" green="0" blue="0">
+        </color>
+      </line_color>
+    </widget>
+    <widget type="polyline" version="2.0.0">
+      <name>Polyline_23</name>
+      <x>124</x>
+      <y>132</y>
+      <width>427</width>
+      <height>1</height>
+      <points>
+        <point x="427.55333165091486" y="0.9994579775679711">
+        </point>
+        <point x="0.0" y="0.0">
+        </point>
+      </points>
+      <line_width>1</line_width>
+      <line_color>
+        <color red="0" green="0" blue="0">
+        </color>
+      </line_color>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED_42</name>
+      <pv_name>$(P)$(R)ErrorCode.B2</pv_name>
+      <x>126</x>
+      <y>69</y>
+      <width>25</width>
+      <height>25</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_51</name>
+      <text>OVER_T</text>
+      <x>161</x>
+      <y>69</y>
+      <width>89</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_52</name>
+      <text>LOCK</text>
+      <x>161</x>
+      <y>101</y>
+      <width>63</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED_43</name>
+      <pv_name>$(P)$(R)ErrorCode.B5</pv_name>
+      <x>126</x>
+      <y>101</y>
+      <width>25</width>
+      <height>25</height>
+    </widget>
+    <widget type="polyline" version="2.0.0">
+      <name>Polyline_24</name>
+      <x>262</x>
+      <y>60</y>
+      <width>1</width>
+      <height>142</height>
+      <points>
+        <point x="0.5598330716131557" y="142.61044857981142">
+        </point>
+        <point x="0.0" y="0.0">
+        </point>
+      </points>
+      <line_width>1</line_width>
+      <line_color>
+        <color red="0" green="0" blue="0">
+        </color>
+      </line_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_58</name>
+      <text>TempPower:</text>
+      <x>136</x>
+      <y>144</y>
+      <width>114</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_12</name>
+      <pv_name>$(P)$(R)TemperaturePower</pv_name>
+      <x>136</x>
+      <y>173</y>
+      <width>114</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>2</format>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_54</name>
+      <text>SHORT</text>
+      <x>303</x>
+      <y>101</y>
+      <width>88</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED_45</name>
+      <pv_name>$(P)$(R)ErrorCode.B6</pv_name>
+      <x>268</x>
+      <y>101</y>
+      <width>25</width>
+      <height>25</height>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED_44</name>
+      <pv_name>$(P)$(R)ErrorCode.B7</pv_name>
+      <x>268</x>
+      <y>69</y>
+      <width>25</width>
+      <height>25</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_53</name>
+      <text>PROTECT</text>
+      <x>303</x>
+      <y>69</y>
+      <width>119</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_13</name>
+      <pv_name>$(P)$(R)Status</pv_name>
+      <x>278</x>
+      <y>173</y>
+      <width>114</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_59</name>
+      <text>Status:</text>
+      <x>278</x>
+      <y>144</y>
+      <width>114</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED_1</name>
+      <pv_name>$(P)$(R)HV_RBV</pv_name>
+      <x>440</x>
+      <y>87</y>
+      <width>100</width>
+      <height>25</height>
+      <off_color>
+        <color red="0" green="100" blue="0">
+        </color>
+      </off_color>
+      <foreground_color>
+        <color red="192" green="192" blue="192">
+        </color>
+      </foreground_color>
+      <line_color>
+        <color red="150" green="150" blue="150">
+        </color>
+      </line_color>
+      <square>true</square>
+      <actions>
+      </actions>
+    </widget>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_7</name>
+    <pv_name>$(P)$(R)TemperaturePower</pv_name>
+    <x>643</x>
+    <y>463</y>
+    <width>103</width>
+    <background_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+</display>

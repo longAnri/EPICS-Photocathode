@@ -1,0 +1,6 @@
+file "$(MODBUS)/db/int64in.template"{
+pattern
+{R,		PORT,		OFFSET,		DATA_TYPE,		SCAN}
+{O:Uptime,	OUT_Word_In,	0x45,		64-bit word,		"I/O Intr"}
+
+}

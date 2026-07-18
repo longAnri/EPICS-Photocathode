@@ -1,0 +1,83 @@
+# protocol file for Programmable DC Power Suppies(MFP2001)
+# Long Feng (feng98716@gmail.com)
+# 12/12/2025
+
+replytimeout = 1000;
+readtimeout  = 1000;
+Terminator = CR LF;
+
+# IEEE 488.2 general command
+getIDN { out "*IDN?"; 	in 	"%s,"
+							"%(\$1:model)d,"
+							"%(\$1:hardware)d,"
+							"%(\$1:software)f";
+}
+
+setLOC { out "SYST:LOC"; }
+setREM { out "SYST:REM"; }
+setBEEP { out "SYST:BEEP %1d"}
+getBEEP { out "SYST:BEEP?"; in "%1d"; }
+
+# APPly Command
+setAPVOLT { out "APP:VOLT %(A).3f,%(B).3f,%(C).3f,%(D).3f,%(E).3f";}
+
+getAPVOLT { out "APP:VOLT?";	in "%f,"
+								"%(\$1:gVolt2)f,"
+								"%(\$1:gVolt3)f,"
+								"%(\$1:gVolt4)f,"
+								"%(\$1:gVolt5)f";}
+
+setAPCUR { out "APP:CURR %(A).4f,%(B).4f,%(C)f,%(D).4f,%(E).4f";}
+
+getAPCUR { out "APP:CURR?";	in "%f,"
+								"%(\$1:gCur2)f,"
+								"%(\$1:gCur3)f,"
+								"%(\$1:gCur4)f,"
+								"%(\$1:gCur5)f";}
+
+setAPOUT { out "APP:OUT %(A)d,%(B)d,%(C)d,%(D)d,%(E)d";}
+
+getAPOUT { out "APP:OUT?";	in "%1d,"
+								"%(\$1:gOut2)d,"
+								"%(\$1:gOut3)d,"
+								"%(\$1:gOut4)d,"
+								"%(\$1:gOut5)d";}
+setAPSENSE { out "APP:SENS %(A)d,%(B)d,%(C)d,%(D)d,%(E)d";}
+
+getAPSENSE { out "APP:SENS?";	in "%1d,"
+								"%(\$1:gSense2)d,"
+								"%(\$1:gSense3)d,"
+								"%(\$1:gSense4)d,"
+								"%(\$1:gSense5)d";}
+
+# Measure Command
+getMVOLT { out "MEAS:VOLT?"; in "%f";}
+
+getMVOLTA { out "MEAS:VOLT:ALL?";	in "%f,"
+								"%(\$1:gActVolt2)f,"
+								"%(\$1:gActVolt3)f,"
+								"%(\$1:gActVolt4)f,"
+								"%(\$1:gActVolt5)f";}
+getMCUR { out "MEAS:CURR?"; in "%f";}
+
+getMCURA { out "MEAS:CURR:ALL?";	in "%f,"
+								"%(\$1:gActCur2)f,"
+								"%(\$1:gActCur3)f,"
+								"%(\$1:gActCur4)f,"
+								"%(\$1:gActCur5)f";}
+
+# Output Command
+setOUTP { out "OUTP %1d";}
+getOUTP { out "OUTP?"; in "%1d";}
+
+# Voltage Command
+setVOLT { out "VOLT %f";}
+getVOLT { out "VOLT?"; in "%f";}
+
+# Current Command
+setCUR { out "CURR %f";}
+getCUR { out "CURR?"; in "%f";}
+
+# Instrument
+setINST { out "INST %{1|2|3|4|5}";}
+getINST { out "INST?"; in "%{1|2|3|4|5}";}

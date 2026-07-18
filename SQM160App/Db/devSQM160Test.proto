@@ -1,0 +1,28 @@
+# Stream Device Protocol for the SQM-160 Film Thickness Monitor
+# Long Feng 11/6/2024
+
+replytimeout = 200;
+readtimeout  = 200;
+
+getFilmPar {
+    out "!%%A%(\$1:filmNumber)d?%<crc14>";
+    in  "!%*2r%(\$1:gFilmNumber)d%8c"
+#        " %(\$1:gFilmNumber)d"
+        " %(\$1:gDensity)f"
+        " %(\$1:gFilmTooling)d"
+        " %(\$1:gZ-Ratio)f"
+        " %(\$1:gFinalThickness)f"
+        " %(\$1:gThicknessSetpoint)f"
+        " %(\$1:gTimeSetpoint)d"
+        " %(\$1:gSensorAve)d"
+        "%*2r";
+}
+
+setFilmPar {
+	out "!WA%(A)02d%(\$1:sFilmName)-8s %(C)05.2f %(D)03d %(E)05.3f %(F)08.3f %(G)08.3f %(H)04d %(J)02d%<crc14>";
+	in "!%*4r";
+}
+Active_Film {
+  out "!$D%d%<crc14>";
+  in  "!%*4r";
+}

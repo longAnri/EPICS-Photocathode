@@ -1,0 +1,99 @@
+readXGS {
+    out "#aa01";
+    in  "%2x%(\1:Slot2_Code)x%(\1:Slot3_Code)x%(\1:Slot4_Code)x%(\1:Slot5_Code)x%(\1:Slot6_Code)x";
+}
+
+readPressure {
+    out "#aa01";
+    in	"%e";
+}
+
+readVersions {
+    out "#aa05";
+    in	"%f,%(\1:Slot2_Version)f,%(\1:Slot3_Version)f,%(\1:Slot4_Version)f,%(\1:Slot5_Version)f,%(\1:Slot6_Version)f";
+}
+
+reset {
+    out "#aa06";
+}
+
+readPipe {
+    out "#aa06";
+    in	"%e,%(\1:Slot2_Value)e,%(\1:Slot3_Value)e,%(\1:Slot4_Value)e,%(\1:Slot5_Value)e,%(\1:Slot6_Value)e";
+}
+
+# Setting and reading units
+setTorr { out "#aa10"; }
+setmbar { out "#aa11"; }
+setPar { out "#aa12"; }
+readUnit { 
+    out "#aa13";
+    in	"%2d";
+}
+
+# Setting and reading lock
+setLockOff { out "#aa20"; }
+setLockOn { out "#aa21"; }
+readLockStatus {
+    out "#aa22";
+    in	"%2d";
+}
+
+# Setting and reading Auto
+setAutoOn { out "#aaB0cn1cn2x.xE-xx"; }
+readAutoOn {
+    out "#aaB1cn";
+    in	"cn%e";
+}
+
+assignPipe { out "#aa16cn%2d"; }
+readPipeType { out "#aa17cn"; in "%2d";}
+
+setEmissionOff { out "#aa30cn"; }
+setEmissionOn1 { out "#aa31cn"; }
+readEmission { out "#aa32cn"; in "%2d"; }
+setEmissionOn2 { out "#aa33cn"; }
+
+readLit { out "#aa34cn"; in "%2d"; }
+
+setAutoFilAdvanceOff { out "#aa35"; }
+setAutoFilAdvanceOn { out "#aa36"; }
+readAutoFilAdvance { out "#aa37"; in "%2d"; }
+
+setDegassOff { out "#aa40cn"; }
+setDegassOn { out "#aa41cn"; }
+readDegass { out "#aa42cn"; in "%2d"; }
+
+readGasCorrection {
+    out "#aa50cn";
+    in	"%.3f";
+}
+setGasCorrection { out "#aa51cn%.3f"; }
+
+readRadCurrent { out "#aa52cn"; in "%.3f"; }
+setRadCurrent { out "#aa53cn%.3f"; }
+
+readSensitivity { out "#aa54cn"; in "%.3f"; }
+setSensitivity { out "#aa55cn%.3f"; }
+
+readSetpointSta { out "#aa03"; in "00%x"; }
+readAsSetpoint { out "#aa04cn"; in "00%x"; }
+
+readSetpoint { out "#aa5Fh"; in "%d"; }
+setSetpoint { out "#aa5Eh%d"; }
+
+setSpActPr { out "#aa6cn%e"; }
+setSpActDel { out "#aaCh%.1f"; }
+setSpCloPr { out "#aa7hcn%e"; }
+setSpCloDel { out "#aaDh%.1f"; }
+readSpActPr { out "#aa8h"; in "%e"; }
+readSpActDel { out "#aaEh"; in "%.1f"; } 
+readSpCloPr { out "#aa9h"; in "%e"; }
+readSpCloPr { out "#aaFh"; in "%.1f"; }
+
+corCNV { out "#aaA1cn"; }
+setAtmos { out "aaA3%e"; }
+
+readCNVAtmos { out "#aa4Ecn"; in "%d"; }
+setCNVAtmos { out "#aa4Fcn%d"; }
+

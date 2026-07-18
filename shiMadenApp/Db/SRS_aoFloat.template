@@ -1,0 +1,23 @@
+#record(ao, "$(P)$(R)") {
+#    field(DESC, "Original value")
+#	field(EGU, "$(EGU)")
+#	field(PREC,	"1")
+#}
+
+#record(calcout, "$(P)$(R)_SEND") {
+#    field(DTYP, "asynInt32")
+#    field(INPA, "$(P)$(R) CP")
+#    field(CALC, "A*10")
+#    field(OUT, "@asyn($(PORT) $(OFFSET))$(DATA_TYPE)")
+#}
+
+record(ao, "$(P)$(R)")
+{
+	field(DTYP, "asynInt32")
+	field(OUT, "@asyn($(PORT) $(OFFSET))$(DATA_TYPE)") 
+	field(LINR,	"SLOPE")
+	field(EGU, "$(EGU)") 
+	field(ESLO, "0.1")
+	field(EOFF, "0") 
+	field(PREC,	"1")
+}

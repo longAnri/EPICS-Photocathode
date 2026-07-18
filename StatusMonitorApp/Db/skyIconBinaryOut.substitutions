@@ -1,0 +1,10 @@
+file "$(MODBUS)/db/bi_word.template"{
+pattern
+{       R,              PORT,           OFFSET,       ZNAM,	ONAM}
+{IconStatus_Bake,    	skyIcon_In,     0x0E,         Off,   	On}
+{IconStatus_7kV,        skyIcon_In,     0x0A,         Off,      On}
+{IconStatus_5kV,        skyIcon_In,     0x0B,         Off,      On}
+{IconStatus_3kV,        skyIcon_In,     0x0C,         Off,      On}
+{IconStatus_Reset,      skyIcon_In,     0x0D,         Off,      On}
+
+}

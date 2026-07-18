@@ -1,0 +1,10 @@
+record(calc, "$(P)$(R)") {
+    field(DTYP, "asynInt32")
+    field(INPA,  "@asyn($(PORT) 0)INT16")
+    field(EGU, "℃  ")
+    field(PREC, "1")
+	field(CALC,	"A>1000?HHHH:A/10")
+	field(HIHI,	"1000")
+	field(HHSV, "MAJOR")
+	field(SCAN, "I/O Intr")
+}

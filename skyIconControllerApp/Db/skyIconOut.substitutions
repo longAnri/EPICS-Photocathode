@@ -1,0 +1,11 @@
+file "$(MODBUS)/db/bo_bit.template"{
+pattern
+{       R,              PORT,           OFFSET,       ZNAM, ONAM}
+{IconStatus_Bake_S,     skyIcon_D,      0x0E,         Off,      On}
+{IconStatus_7kV_S,      skyIcon_D,      0x0A,         Off,      On}
+{IconStatus_5kV_S,      skyIcon_D,      0x0B,         Off,      On}
+{IconStatus_3kV_S,      skyIcon_D,      0x0C,         Off,      On}
+{IconStatus_Reset,      skyIcon_D,      0x0D,         Off,      On}
+
+}
+

@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2024-12-11 09:31:31 by flon-->
+<display version="2.0.0">
+  <name>Display</name>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <class>TITLE</class>
+    <text>Status Monitor System</text>
+    <width>550</width>
+    <height>31</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="24.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>DoseStatus</name>
+    <x>20</x>
+    <y>31</y>
+    <width>630</width>
+    <height>129</height>
+    <widget type="combo" version="2.0.0">
+      <name>Combo Box_1</name>
+      <pv_name>Sensor1:States</pv_name>
+      <x>362</x>
+      <y>12</y>
+    </widget>
+    <widget type="multi_state_led" version="2.0.0">
+      <name>LED (Multi State)</name>
+      <pv_name>Sensor1:Status</pv_name>
+      <x>520</x>
+      <y>12</y>
+      <width>30</width>
+      <height>30</height>
+      <states>
+        <state>
+          <value>0</value>
+          <label>1</label>
+          <color>
+            <color name="OK" red="0" green="255" blue="0">
+            </color>
+          </color>
+        </state>
+        <state>
+          <value>1</value>
+          <label>2</label>
+          <color>
+            <color name="MINOR" red="255" green="128" blue="0">
+            </color>
+          </color>
+        </state>
+        <state>
+          <value>2</value>
+          <label>3</label>
+          <color>
+            <color name="MAJOR" red="255" green="0" blue="0">
+            </color>
+          </color>
+        </state>
+      </states>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>Combo Box_3</name>
+      <pv_name>Sensor2:States</pv_name>
+      <x>362</x>
+      <y>56</y>
+    </widget>
+    <widget type="multi_state_led" version="2.0.0">
+      <name>LED (Multi State)_3</name>
+      <pv_name>Sensor2:Status</pv_name>
+      <x>520</x>
+      <y>56</y>
+      <width>30</width>
+      <height>30</height>
+      <states>
+        <state>
+          <value>0</value>
+          <label>1</label>
+          <color>
+            <color name="OK" red="0" green="255" blue="0">
+            </color>
+          </color>
+        </state>
+        <state>
+          <value>1</value>
+          <label>2</label>
+          <color>
+            <color name="MINOR" red="255" green="128" blue="0">
+            </color>
+          </color>
+        </state>
+        <state>
+          <value>2</value>
+          <label>3</label>
+          <color>
+            <color name="MAJOR" red="255" green="0" blue="0">
+            </color>
+          </color>
+        </state>
+      </states>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_2</name>
+      <pv_name>Sensor1:Dose</pv_name>
+      <x>142</x>
+      <y>22</y>
+      <width>70</width>
+      <precision>2</precision>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_3</name>
+      <pv_name>Sensor2:Dose</pv_name>
+      <x>142</x>
+      <y>56</y>
+      <width>70</width>
+      <precision>2</precision>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_5</name>
+      <text>Sensor1:</text>
+      <x>32</x>
+      <y>22</y>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_6</name>
+      <text>Sensor2:</text>
+      <x>32</x>
+      <y>56</y>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_4</name>
+      <pv_name>Sensor1:Units</pv_name>
+      <x>222</x>
+      <y>22</y>
+      <width>60</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_5</name>
+      <pv_name>Sensor2:Units</pv_name>
+      <x>222</x>
+      <y>56</y>
+      <width>60</width>
+    </widget>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_7</name>
+    <text>AlarmValue1:</text>
+    <x>30</x>
+    <y>160</y>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Entry_2</name>
+    <pv_name>Sensor1:AlarmValue</pv_name>
+    <x>130</x>
+    <y>160</y>
+    <width>89</width>
+    <precision>2</precision>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>LED_2</name>
+    <pv_name>Sensor1:Alarm</pv_name>
+    <x>249</x>
+    <y>160</y>
+    <on_color>
+      <color name="MAJOR" red="255" green="0" blue="0">
+      </color>
+    </on_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_8</name>
+    <text>AlarmValue2:</text>
+    <x>367</x>
+    <y>160</y>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Entry_3</name>
+    <pv_name>Sensor2:AlarmValue</pv_name>
+    <x>477</x>
+    <y>160</y>
+    <width>80</width>
+    <precision>2</precision>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>LED_3</name>
+    <pv_name>Sensor2:Alarm</pv_name>
+    <x>577</x>
+    <y>160</y>
+    <on_color>
+      <color name="MAJOR" red="255" green="0" blue="0">
+      </color>
+    </on_color>
+  </widget>
+  <widget type="databrowser" version="2.0.0">
+    <name>Data Browser</name>
+    <file>Sensor.plt</file>
+    <y>210</y>
+    <width>660</width>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>History curve</name>
+    <actions>
+      <action type="open_display">
+        <description>History Curve</description>
+        <file>history.bob</file>
+        <target>tab</target>
+      </action>
+    </actions>
+    <x>670</x>
+    <y>70</y>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+</display>

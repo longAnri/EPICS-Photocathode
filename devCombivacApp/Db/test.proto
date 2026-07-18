@@ -1,0 +1,14 @@
+
+OutTerminator = CR;
+InTerminator = CR;
+
+readPressure{
+    out "RPV%(\$1:Channel)d";
+    in  "%(\$1:Status)d,\t%g";
+}
+
+readVersion{
+    out "RVN";
+    in  "%f";
+}
+

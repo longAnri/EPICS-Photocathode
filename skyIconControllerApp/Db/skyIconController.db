@@ -1,0 +1,172 @@
+record(ai, "$(P)$(R):getVolt")
+{
+    field(DESC, "get volt")
+    field(DTYP, "stream")
+    field(INP,  "@skyIconController.proto getV() $(PORT)")
+    field(EGU, "V")
+	field(PREC,	"2")
+    field(SCAN, "1 second")
+}
+
+record(ai, "$(P)$(R):getI")
+{
+    field(DESC, "get current")
+    field(DTYP, "stream")
+    field(INP,  "@skyIconController.proto getI() $(PORT)")
+    field(EGU,  "A")
+	field(PREC,	"2")
+    field(SCAN, "1 second")
+}
+
+record(ai, "$(P)$(R):getP")
+{
+    field(DESC, "get pressure")
+    field(DTYP, "stream")
+    field(INP,  "@skyIconController.proto getP() $(PORT)")
+    field(EGU,  "Pa")
+	field(PREC,	"2")
+    field(SCAN, "1 second")
+}
+record(ai, "$(P)$(R):getHP")
+{
+    field(DESC, "Protection value")
+    field(DTYP, "stream")
+    field(INP,  "@skyIconController.proto getHP() $(PORT)")
+    field(EGU,  "Pa")
+	field(PREC,	"2")
+    field(SCAN, "1 second")
+}
+
+record(ai, "$(P)$(R):getLP")
+{
+    field(DESC, "Pressure hysteresis")
+    field(DTYP, "stream")
+    field(INP,  "@skyIconController.proto getLP() $(PORT)")
+	field(PREC,	"2")
+    field(EGU,  "Pa")
+    field(SCAN, "1 second")
+}
+
+record(ai, "$(P)$(R):getEA")
+{
+    field(DESC, "device address")
+    field(DTYP, "stream")
+    field(INP,  "@skyIconController.proto getEA() $(PORT)")
+    field(SCAN, "1 second")
+}
+
+record(ai, "$(P)$(R):getPI")
+{
+    field(DESC, "protection current")
+    field(DTYP, "stream")
+    field(INP,  "@skyIconController.proto getPI() $(PORT)")
+    field(SCAN, "1 second")
+}
+
+record(mbbiDirect, "$(P)$(R):getS1")
+{
+    field(DESC, "status")
+    field(DTYP, "stream")
+    field(INP,  "@skyIconController.proto getS1() $(PORT)")
+    field(NOBT,	"8")
+    field(SCAN, "1 second")
+}
+
+record(mbbiDirect, "$(P)$(R):getS2")
+{
+    field(DESC, "status")
+    field(DTYP, "stream")
+    field(INP,  "@skyIconController.proto getS2() $(PORT)")
+    field(NOBT,	"8")
+    field(SCAN, "1 second")
+}
+
+record(bo, "$(P)$(R):set3kV")
+{
+    field(DESC, "Set volt")
+    field(DTYP, "stream")
+	field(VAL,	"0")
+    field(OUT,  "@skyIconController.proto set3kV() $(PORT)")
+}
+
+record(bo, "$(P)$(R):set5kV")
+{
+    field(DESC, "Set volt")
+    field(DTYP, "stream")
+	field(VAL,	"0")
+    field(OUT,  "@skyIconController.proto set5kV() $(PORT)")
+}
+
+record(bo, "$(P)$(R):set7kV")
+{
+    field(DESC, "Set volt")
+    field(DTYP, "stream")
+	field(VAL,	"0")
+    field(OUT,  "@skyIconController.proto set7kV() $(PORT)")
+}
+record(bo, "$(P)$(R):setHV")
+{
+    field(DESC, "set volt")
+    field(DTYP, "stream")
+    field(OUT,  "@skyIconController.proto setHV() $(PORT)")
+}
+
+record(bo, "$(P)$(R):setOnBake")
+{
+    field(DESC, "set bake")
+    field(DTYP, "stream")
+    field(OUT,  "@skyIconController.proto setOnBake() $(PORT)")
+}
+record(bo, "$(P)$(R):setOffBake")
+{
+    field(DESC, "set bake")
+    field(DTYP, "stream")
+    field(OUT,  "@skyIconController.proto setOffBake() $(PORT)")
+}
+
+record(ao, "$(P)$(R):setHP")
+{
+    field(DESC, "protection pressure")
+    field(DTYP, "stream")
+    field(OUT,  "@skyIconController.proto setHP() $(PORT)")
+	field(PREC,	"2")
+    field(EGU,  "Pa")
+}
+
+record(ao, "$(P)$(R):setLP")
+{
+    field(DESC, "Pressure hysteresis")
+    field(DTYP, "stream")
+    field(OUT,  "@skyIconController.proto setLP() $(PORT)")
+	field(PREC,	"2")
+    field(EGU,  "Pa")
+}
+record(ao, "$(P)$(R):setEA")
+{
+    field(DESC, "device address")
+    field(DTYP, "stream")
+    field(OUT,  "@skyIconController.proto getEA() $(PORT)")
+}
+
+record(ao, "$(P)$(R):setPI")
+{
+    field(DESC, "protection current")
+    field(DTYP, "stream")
+    field(OUT,  "@skyIconController.proto setPI() $(PORT)")
+    field(FLNK,	"$(P)$(R):getPI")
+}
+
+record(bo, "$(P)$(R):setReset")
+{
+    field(DESC, "Reset")
+    field(DTYP, "stream")
+    field(OUT,  "@skyIconController.proto setReset() $(PORT)")
+    field(FLNK,	"$(P)$(R):reset_RB")
+}
+
+record(stringin, "$(P)$(R):reset_RB")
+{
+    field(DESC, "Reset")
+    field(DTYP, "stream")
+    field(INP,  "@skyIconController.proto setReset() $(PORT)")
+}

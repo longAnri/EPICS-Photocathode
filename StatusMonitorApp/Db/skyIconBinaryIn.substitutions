@@ -1,0 +1,14 @@
+file "$(MODBUS)/db/bi_word.template"{
+pattern
+{       R,              PORT,           OFFSET, MASK,           ZNAM,   		ONAM,    	ZSV,           OSV,            SCAN}
+{IconStatus_Remote,   	skyIcon_In,    	2,      0x01,     	Remote_Control,    	Local_Control   NO_ALARM,      MINOR,          "I/O Intr"}
+{IconStatus_Bake,    	skyIcon_In,     2,      0x02,           Off,         		On		NO_ALARM,      MINOR,          "I/O Intr"}
+{IconStatus_Failure,    skyIcon_In,     2,      0x04,           Fine,        		Faulty,		NO_ALARM,      MINOR,          "I/O Intr"}
+{IconStatus_Run, 	skyIcon_In,     2,      0x10,           Stop,         		Running,	NO_ALARM,      MINOR,          "I/O Intr"}
+{IconStatus_7kv,        skyIcon_In,     2,      0x20,           Off,                   	On,        	NO_ALARM,      MINOR,          "I/O Intr"}
+{IconStatus_5kv,        skyIcon_In,     2,      0x40,           Off,                    On,             NO_ALARM,      MINOR,          "I/O Intr"}
+{IconStatus_3kv,        skyIcon_In,     2,      0x80,           Off,                    On,             NO_ALARM,      MINOR,          "I/O Intr"}
+{IconStatus_Protection, skyIcon_In,     2,      0x100,          Off,                    On,             NO_ALARM,      MINOR,          "I/O Intr"}
+{IconStatus_Interlock,  skyIcon_In,     2,      0x200,          Off,                    On,             NO_ALARM,      MINOR,          "I/O Intr"}
+
+}

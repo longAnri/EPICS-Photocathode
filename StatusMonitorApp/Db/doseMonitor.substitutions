@@ -1,0 +1,7 @@
+# The substitutions file of doseMonitor.db
+
+file "db/doseMonitor.db"{
+	pattern{ S, P }
+		{ "Sensor1", "SI1" }
+#		{ "Sensor2", "SI2" }
+}

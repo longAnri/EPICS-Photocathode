@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>Display</name>
+  <macros>
+    <P>Emission:</P>
+    <R>fl</R>
+  </macros>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <class>TITLE</class>
+    <text>My Display</text>
+    <x use_class="true">0</x>
+    <y use_class="true">0</y>
+    <width>550</width>
+    <height>31</height>
+    <font use_class="true">
+      <font name="Header 1" family="Liberation Sans" style="BOLD" size="22.0">
+      </font>
+    </font>
+    <foreground_color use_class="true">
+      <color name="Text" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <transparent use_class="true">true</transparent>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_5</name>
+    <text>Software Version</text>
+    <x>17</x>
+    <y>67</y>
+    <width>130</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="20.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_1</name>
+    <pv_name>$(P)$(R):RVN</pv_name>
+    <x>147</x>
+    <y>67</y>
+    <width>300</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="20.0">
+      </font>
+    </font>
+    <format>5</format>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_14</name>
+    <text>Adress(RS485)</text>
+    <x>17</x>
+    <y>97</y>
+    <width>140</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="20.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_4</name>
+    <pv_name>$(P)$(R):RSA</pv_name>
+    <x>17</x>
+    <y>121</y>
+    <width>130</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="20.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_15</name>
+    <text>Adress Set</text>
+    <x>171</x>
+    <y>97</y>
+    <width>130</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="20.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Entry</name>
+    <pv_name>$(P)$(R):SSA</pv_name>
+    <x>171</x>
+    <y>121</y>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="20.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(P)$(R):SAC</pv_name>
+        <value>1</value>
+        <description>WritePV</description>
+      </action>
+    </actions>
+    <pv_name>$(P)$(R):SAC</pv_name>
+    <text>Save</text>
+    <x>623</x>
+    <y>67</y>
+    <width>70</width>
+    <height>20</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="20.0">
+      </font>
+    </font>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="tabs" version="2.0.0">
+    <name>Tabs</name>
+    <tabs>
+      <tab>
+        <name>Intrument settings</name>
+        <children>
+          <widget type="combo" version="2.0.0">
+            <name>Combo Box_4</name>
+            <pv_name>$(P)$(R):Serial</pv_name>
+            <x>589</x>
+            <y>222</y>
+            <width>112</width>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="combo" version="2.0.0">
+            <name>Combo Box_3</name>
+            <pv_name>$(P)$(R):Baudrate</pv_name>
+            <x>463</x>
+            <y>222</y>
+            <width>107</width>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="combo" version="2.0.0">
+            <name>Combo Box_2</name>
+            <pv_name>$(P)$(R):Brightness</pv_name>
+            <x>317</x>
+            <y>224</y>
+            <width>107</width>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="combo" version="2.0.0">
+            <name>Combo Box</name>
+            <pv_name>$(P)$(R):Unit</pv_name>
+            <x>62</x>
+            <y>222</y>
+            <width>107</width>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_24</name>
+            <text>Set</text>
+            <x>15</x>
+            <y>222</y>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_16</name>
+            <text>Unit</text>
+            <x>65</x>
+            <y>33</y>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_18</name>
+            <text>Brightness</text>
+            <x>313</x>
+            <y>35</y>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_21</name>
+            <text>Baudrate</text>
+            <x>463</x>
+            <y>33</y>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_22</name>
+            <text>Serial</text>
+            <x>601</x>
+            <y>33</y>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="radio" version="2.0.0">
+            <name>Radio Button_8</name>
+            <pv_name>$(P)$(R):RGP_Serial</pv_name>
+            <x>589</x>
+            <y>63</y>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+            <items>
+              <item>Item 1</item>
+              <item>Item 2</item>
+            </items>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_23</name>
+            <text>Read </text>
+            <x>15</x>
+            <y>79</y>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="radio" version="2.0.0">
+            <name>Radio Button_3</name>
+            <pv_name>$(P)$(R):RGP_Unit</pv_name>
+            <x>65</x>
+            <y>63</y>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+            <items>
+              <item>Item 1</item>
+              <item>Item 2</item>
+            </items>
+          </widget>
+          <widget type="radio" version="2.0.0">
+            <name>Radio Button_5</name>
+            <pv_name>$(P)$(R):RGP_Brightness</pv_name>
+            <x>313</x>
+            <y>65</y>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+            <items>
+              <item>Item 1</item>
+              <item>Item 2</item>
+            </items>
+          </widget>
+          <widget type="radio" version="2.0.0">
+            <name>Radio Button_7</name>
+            <pv_name>$(P)$(R):RGP_Baudrate</pv_name>
+            <x>463</x>
+            <y>63</y>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+            <items>
+              <item>Item 1</item>
+              <item>Item 2</item>
+            </items>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_19</name>
+            <text>Digit</text>
+            <x>185</x>
+            <y>36</y>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="radio" version="2.0.0">
+            <name>Radio Button_6</name>
+            <pv_name>$(P)$(R):RGP_Display_Number</pv_name>
+            <x>185</x>
+            <y>66</y>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+            <items>
+              <item>Item 1</item>
+              <item>Item 2</item>
+            </items>
+          </widget>
+          <widget type="combo" version="2.0.0">
+            <name>Combo Box_5</name>
+            <pv_name>$(P)$(R):Display_Number</pv_name>
+            <x>189</x>
+            <y>225</y>
+            <width>110</width>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>IONIVAC</name>
+        <children>
+          <widget type="radio" version="2.0.0">
+            <name>Radio Button_21</name>
+            <pv_name>$(P)$(R):SetOnType</pv_name>
+            <x>82</x>
+            <y>226</y>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+            <items>
+              <item>Item 1</item>
+              <item>Item 2</item>
+            </items>
+          </widget>
+          <widget type="radio" version="2.0.0">
+            <name>Radio Button_22</name>
+            <pv_name>$(P)$(R):SetOffType</pv_name>
+            <x>264</x>
+            <y>226</y>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+            <items>
+              <item>Item 1</item>
+              <item>Item 2</item>
+            </items>
+          </widget>
+          <widget type="radio" version="2.0.0">
+            <name>Radio Button_14</name>
+            <pv_name>$(P)$(R):OnType</pv_name>
+            <x>82</x>
+            <y>58</y>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+            <items>
+              <item>Item 1</item>
+              <item>Item 2</item>
+            </items>
+          </widget>
+          <widget type="radio" version="2.0.0">
+            <name>Radio Button_15</name>
+            <pv_name>$(P)$(R):OffType</pv_name>
+            <x>264</x>
+            <y>58</y>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+            <items>
+              <item>Item 1</item>
+              <item>Item 2</item>
+            </items>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_27</name>
+            <text>Swtich-on</text>
+            <x>82</x>
+            <y>24</y>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_28</name>
+            <text>Switch-off</text>
+            <x>264</x>
+            <y>24</y>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_29</name>
+            <text>Swich-on Vallue</text>
+            <x>408</x>
+            <y>24</y>
+            <width>130</width>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_35</name>
+            <text>Swich-off Vallue</text>
+            <x>584</x>
+            <y>24</y>
+            <width>130</width>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="textupdate" version="2.0.0">
+            <name>Text Update_11</name>
+            <pv_name>$(P)$(R):SwitchOff</pv_name>
+            <x>590</x>
+            <y>74</y>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="textentry" version="3.0.0">
+            <name>Text Entry_3</name>
+            <pv_name>$(P)$(R):SetOffValue</pv_name>
+            <x>602</x>
+            <y>238</y>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="textentry" version="3.0.0">
+            <name>Text Entry_2</name>
+            <pv_name>$(P)$(R):SetOnValue</pv_name>
+            <x>408</x>
+            <y>238</y>
+            <width>110</width>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_37</name>
+            <text>Set</text>
+            <x>25</x>
+            <y>240</y>
+            <width>55</width>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="textupdate" version="2.0.0">
+            <name>Text Update_9</name>
+            <pv_name>$(P)$(R):SwitchOn</pv_name>
+            <x>412</x>
+            <y>74</y>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_36</name>
+            <text>Read</text>
+            <x>15</x>
+            <y>70</y>
+            <width>55</width>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+          </widget>
+        </children>
+      </tab>
+    </tabs>
+    <y>164</y>
+    <width>778</width>
+    <height>388</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="18.0">
+      </font>
+    </font>
+    <active_tab>1</active_tab>
+  </widget>
+  <widget type="xyplot" version="2.0.0">
+    <name>X/Y Plot</name>
+    <x>956</x>
+    <y>612</y>
+    <width>1</width>
+    <height>1</height>
+  </widget>
+</display>

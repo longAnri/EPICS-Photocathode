@@ -1,0 +1,9 @@
+record(mbbi, "$(P)$(R)") {
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PORT) $(OFFSET))INT16")
+    field(ZRST, "$(Unit1)")
+    field(ONST, "$(Unit2)")
+    field(TWST, "$(Unit3)")
+    field(SCAN, "I/O Intr")
+}
+

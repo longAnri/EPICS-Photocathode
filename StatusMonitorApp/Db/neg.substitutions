@@ -1,0 +1,81 @@
+file "$(MODBUS)/db/bi_word.template"{
+pattern
+{	R,		PORT,		OFFSET,	MASK,		ZNAM,	ONAM,	 ZSV,		OSV,		SCAN}
+{G:Serial_Number,	GEN_Word_In,	0,	0xFFFFFFFF, 	Low,	High,	 NO_ALARM,	MAJOR, 		"I/O Intr"}
+{G:Board_Major_Number, 	GEN_Word_In,    1,      0xFF0000, 	Low, 	High, 	 NO_ALARM,      MAJOR,          "I/O Intr"}
+{G:Board_Middle_Number, GEN_Word_In,    1,      0xFF00, 	Low, 	High, 	 NO_ALARM,      MAJOR,          "I/O Intr"}
+{G:Board_Minor_Number,	GEN_Word_In,    1,      0xFF, 		Low, 	High, 	 NO_ALARM,      MAJOR,          "I/O Intr"}
+{G:SW_Major_Number,	GEN_Word_In,    2,      0xFF0000,       Low, 	High, 	 NO_ALARM,      MAJOR,          "I/O Intr"}
+{G:SW_Middle_Number,   	GEN_Word_In,    2,      0xFF00,         Low, 	High, 	 NO_ALARM,      MAJOR,          "I/O Intr"}
+{G:SW_Minor_Number,    	GEN_Word_In,    2,      0xFF,           Low, 	High, 	 NO_ALARM,      MAJOR,          "I/O Intr"}
+{G:Auxvhigh,       	GEN_Word_In,    0x40,   0x40,           Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{G:Auxvlow,	        GEN_Word_In,    0x40,   0x20,           Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{G:Glbovert,            GEN_Word_In,    0x40,   0x10,           Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{G:Glbilimit,           GEN_Word_In,    0x40,   0x08,           Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{G:ACVhigh,             GEN_Word_In,    0x40,   0x04,           Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{G:ACVbad,              GEN_Word_In,    0x40,   0x02,           Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{G:ACVlow,	        GEN_Word_In,    0x40,   0x01,           Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{G:Auxvhigh_Pending,	GEN_Word_In,    0x42,   0x40,           Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{G:Auxvlow_Pending,	GEN_Word_In,    0x42,   0x20,           Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{G:Glbovert_Pending,	GEN_Word_In,    0x42,   0x10,           Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{G:Glbilimit_Pending,	GEN_Word_In,    0x42,   0x08,           Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{G:ACVhigh_Pending,	GEN_Word_In,    0x42,   0x04,           Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{G:ACVbad_Pending,	GEN_Word_In,    0x42,   0x02,           Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{G:ACVlow_Pending,	GEN_Word_In,    0x42,   0x01,           Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{G:Vis_Alarm_type,      GEN_Word_In,    0x42,   0x01,           Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{G:Power_Status,	GEN_Word_In,    0x48,   0xFFFF,         Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{G:Available_Channels,  GEN_Word_In,    0x49,   0xFFFF,         Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+
+{O:Serial_Number,       OUT_Word_In,    0,      0xFFFFFFFF,     Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{O:SW_Major_Number,     OUT_Word_In,    2,      0xFF0000,       Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{O:SW_Middle_Number,    OUT_Word_In,    2,      0xFF00,         Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{O:SW_Minor_Number,     OUT_Word_In,    2,      0xFF,           Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{O:ERROR,               OUT_Word_In,    0x40,   0x100,          Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{O:Sts_Protection,      OUT_Word_In,    0x40,   0x80,           Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{O:Opencirc,            OUT_Word_In,    0x40,   0x40,           Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{O:Alarm,   	        OUT_Word_In,    0x40,   0x20,           Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{O:Finished,            OUT_Word_In,    0x40,   0x10,           Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{O:Hold,                OUT_Word_In,    0x40,   0x08,           Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{O:Ramp,                OUT_Word_In,    0x40,   0x04,           Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{O:Idle,                OUT_Word_In,    0x40,   0x02,           Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{O:Off,                 OUT_Word_In,    0x40,   0x01,           Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{O:Finished_Flag,       OUT_Word_In,    0x41,   0x8000,         Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{O:Overloadport_Flag,   OUT_Word_In,    0x41,   0x800,          Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{O:Interlock_Flag,      OUT_Word_In,    0x41,   0x400,          Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{O:Insulost_Flag,       OUT_Word_In,    0x41,   0x200,          Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{O:Opencirc_Flag,       OUT_Word_In,    0x41,   0x100,          Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{O:Sortcirc_Flag,       OUT_Word_In,    0x41,   0x80,           Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{O:Auxvbad_Flag,        OUT_Word_In,    0x41,   0x40,           Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{O:TC_Open,             OUT_Word_In,    0x41,   0x20,           Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{O:Overpower,           OUT_Word_In,    0x41,   0x10,           Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{O:Overcurrent,         OUT_Word_In,    0x41,   0x08,           Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{O:Overvoltage,         OUT_Word_In,    0x41,   0x04,           Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{O:Overtemp,            OUT_Word_In,    0x41,   0x02,           Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{O:Vbulk,	        OUT_Word_In,    0x41,   0x01,           Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{O:Finished_Pending,    OUT_Word_In,    0x43,   0x8000,         Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{O:Overloadport_Pending,OUT_Word_In,    0x43,   0x800,          Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{O:Interlock_Pending,   OUT_Word_In,    0x43,   0x400,          Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{O:Insulost_Pending,    OUT_Word_In,    0x43,   0x200,          Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{O:Opencirc_Pending,    OUT_Word_In,    0x43,   0x100,          Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{O:Sortcirc_Pending,    OUT_Word_In,    0x43,   0x80,           Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{O:Auxvbad_Pending,     OUT_Word_In,    0x43,   0x40,           Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{O:TC_Open_Pending,     OUT_Word_In,    0x43,   0x20,           Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{O:Overpower_Pending,   OUT_Word_In,    0x43,   0x10,           Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{O:Overcurrent_Pending, OUT_Word_In,    0x43,   0x08,           Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{O:Overvoltage_Pending, OUT_Word_In,    0x43,   0x04,           Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{O:Overtemp_Pending,    OUT_Word_In,    0x43,   0x02,           Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{O:Vbulk_Pending,       OUT_Word_In,    0x43,   0x01,           Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+
+
+{Auxvhigh_Pending,      GEN_Word_In,    0x42,   0x40,           Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{Auxvlow_Pending,       GEN_Word_In,    0x42,   0x20,           Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{Glbovert_Pending,      GEN_Word_In,    0x42,   0x10,           Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{Glbilimit_Pending,     GEN_Word_In,    0x42,   0x08,           Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{ACVhigh_Pending,       GEN_Word_In,    0x42,   0x04,           Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{ACVbad_Pending,        GEN_Word_In,    0x42,   0x02,           Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{ACVlow_Pending,        GEN_Word_In,    0x42,   0x01,           Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{Vis_Alarm_type,        GEN_Word_In,    0x42,   0x01,           Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{Power_Status,          GEN_Word_In,    0x48,   0xFFFF,         Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+{Available_Channels,    GEN_Word_In,    0x49,   0xFFFF,         Stoped, Running, NO_ALARM,      MAJOR,          "I/O Intr"}
+
+}

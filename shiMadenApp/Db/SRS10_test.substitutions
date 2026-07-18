@@ -1,0 +1,93 @@
+#file "$(MODBUS)/db/int64in.template" {
+file "$(TOP)/db/SRS_aiFloat.template" {
+pattern
+{   P,      R,          PORT,       OFFSET,		DATA_TYPE,	EGU   	}
+{   SRS:,   PV,         SRS10_In1,  0,        	INT16, 		"℃  "	}
+{   SRS:,   SV,         SRS10_In1,  1,        	INT16,		"℃  "	}
+{   SRS:,   OUT1R,      SRS10_In1,  2,        	INT16,		"℃  "	}
+{   SRS:,   OUT2R,      SRS10_In1,  3,        	INT16,		"℃  "	}
+{   SRS:,   HC1,        SRS10_In2,  0,        	INT16,		"A"		}
+{   SRS:,   HC2,        SRS10_In2,  1,		  	INT16,		"A"		}
+{   SRS:,   FIX_SV1R,   SRS10_In6,	0,        	INT16,      "℃  "   }
+{   SRS:,   FIX_SV2R,   SRS10_In6,	1,        	INT16,      "℃  "   }
+{   SRS:,   FIX_SV3R,   SRS10_In6,	2,        	INT16,      "℃  "   }
+{   SRS:,   SV_LR,      SRS10_In7,  0,          INT16,      "℃  "   }
+{   SRS:,   SV_HR,      SRS10_In7,  1,          INT16,      "℃  "   }
+{   SRS:,   O11_LR,     SRS10_In8,	5,			INT16,      "%"     }
+{   SRS:,   O11_HR,     SRS10_In8,	6,          INT16,      "%"     }
+{   SRS:,   O12_LR,     SRS10_In9,	3,       INT16,      "%"     }
+{   SRS:,   O12_HR,     SRS10_In9,	4,       INT16,      "%"     }
+{   SRS:,   O13_LR,     SRS10_In10,	5,       INT16,      "%"     }
+{   SRS:,   O13_HR,     SRS10_In10,	6,       INT16,      "%"     }
+{   SRS:,   SC_LR,		SRS10_In15,	0,       INT16,      "%"     }
+{   SRS:,   SC_HR,		SRS10_In15,	1,       INT16,      "%"     }
+
+}
+
+file "$(MODBUS)/db/int64in.template" {
+pattern
+{   P,      R,          PORT,       OFFSET,		DATA_TYPE,	SCAN   		}
+{   SRS:,   SV_NoR,    	SRS10_In1,  6,        	INT16,		"I/O Intr"	}
+{   SRS:,   EXE_PID,    SRS10_In1,  7,        	INT16,		"I/O Intr"	}
+{   SRS:,   E_NPTN,		SRS10_In4,  1,        	INT16,		"I/O Intr"	}
+{   SRS:,   E_NPRG,		SRS10_In5,  0,        	INT16,		"I/O Intr"	}
+{   SRS:,   E_SPTN,		SRS10_In5,  1,        	INT16,		"I/O Intr"	}
+{   SRS:,   E_PID,		SRS10_In1,  3,        	INT16,		"I/O Intr"	}
+{   SRS:,   PB1R,		SRS10_In8,	0,			INT16,		"I/O Intr"	}
+{   SRS:,   IT1R,		SRS10_In8,	1,			INT16,		"I/O Intr"	}
+{   SRS:,   DT1R,		SRS10_In8,	2,			INT16,		"I/O Intr"	}
+{   SRS:,   DF1R,		SRS10_In8,	4,			INT16,		"I/O Intr"	}
+{   SRS:,   SF1R,		SRS10_In8,	7,			INT16,		"I/O Intr"	}
+{   SRS:,   PB2R,		SRS10_In8,	8,			INT16,		"I/O Intr"	}
+{   SRS:,   IT2R,		SRS10_In8,	9,			INT16,		"I/O Intr"	}
+{   SRS:,   DT2R,		SRS10_In9,	0,			INT16,		"I/O Intr"	}
+{   SRS:,   DF2R,		SRS10_In9,	2,       	INT16,		"I/O Intr"	}
+{   SRS:,   SF2R,		SRS10_In9,	5,			INT16,		"I/O Intr"	}
+{   SRS:,   PB3R,		SRS10_In10,	0,			INT16,		"I/O Intr"	}
+{   SRS:,   IT3R,		SRS10_In10,	1,			INT16,		"I/O Intr"	}
+{   SRS:,   DT3R,		SRS10_In10,	2,			INT16,		"I/O Intr"	}
+{   SRS:,   DF3R,		SRS10_In10,	4,			INT16,		"I/O Intr"	}
+{   SRS:,   SF3R,		SRS10_In10,	7,			INT16,		"I/O Intr"	}
+{   SRS:,   O1_CYCR,	SRS10_In11,	1,			INT16,		"I/O Intr"	}
+{   SRS:,   SOFTD1R,	SRS10_In12,	0,			INT16,		"I/O Intr"	}
+{   SRS:,   PV_GR,		SRS10_In13,	0,			INT16,		"I/O Intr"	}
+{   SRS:,   PV_BR,		SRS10_In13,	1,			INT16,		"I/O Intr"	}
+{   SRS:,   PV_FR,		SRS10_In13,	2,			INT16,		"I/O Intr"	}
+{   SRS:,   EV1_MDR,	SRS10_In16,	0,			INT16,		"I/O Intr"	}
+{   SRS:,   EV1_SPR,	SRS10_In16,	1,			INT16,		"I/O Intr"	}
+{   SRS:,   EV1_DFR,	SRS10_In16,	2,			INT16,		"I/O Intr"	}
+{   SRS:,   EV1_STBR,	SRS10_In16,	3,			INT16,		"I/O Intr"	}
+{   SRS:,   EV2_MDR,	SRS10_In17,	0,			INT16,		"I/O Intr"	}
+{   SRS:,   EV2_SPR,	SRS10_In17,	1,			INT16,		"I/O Intr"	}
+{   SRS:,   EV2_DFR,	SRS10_In17,	2,			INT16,		"I/O Intr"	}
+{   SRS:,   EV2_STBR,	SRS10_In17,	3,			INT16,		"I/O Intr"	}
+{   SRS:,   EV3_MDR,	SRS10_In18,	0,			INT16,		"I/O Intr"	}
+{   SRS:,   EV3_SPR,	SRS10_In18,	1,			INT16,		"I/O Intr"	}
+{   SRS:,   EV3_DFR,	SRS10_In18,	2,			INT16,		"I/O Intr"	}
+{   SRS:,   EV3_STBR,	SRS10_In18,	3,			INT16,		"I/O Intr"	}
+}
+
+file "$(TOP)/db/SRS_mbbi.template" {
+pattern
+{   P,      R,          PORT,       OFFSET,   	Unit1,	Unit2,	Unit3	}
+{   SRS:,   UnitR,		SRS10_In14,	0,			"℃ ",	"F",	"K"		}
+}
+file "$(MODBUS)/db/mbbiDirect.template" {
+pattern
+{   P,      R,          PORT,       OFFSET,		MASK,           SCAN		}
+{   SRS:,   EXE_FLG,    SRS10_In1,  4,			0xFFF,          "I/O Intr"  }
+{   SRS:,   EV_FLG,     SRS10_In1,  5,			0x0F,           "I/O Intr"  }
+{   SRS:,   DI_FLG,     SRS10_In2,  2,			0x0F,           "I/O Intr"  }
+{   SRS:,   EV_LAC,     SRS10_In3,  0,          0x0F,           "I/O Intr"  }
+{   SRS:,   EV_ACT,     SRS10_In3,  1,          0x0F,           "I/O Intr"  }
+{   SRS:,   E_PRG,      SRS10_In4,  0,          0x0F,           "I/O Intr"  }
+}
+
+file "$(TOP)/db/SRS_bi.template" {
+pattern
+{   P,      R,          PORT,           OFFSET,     ZNAM,       ONAM        }
+{   SRS:,   MR1R,       SRS10_In8,     	3,          None,       RESET       }
+{   SRS:,   MR2R,       SRS10_In9,     	1,       	None,       RESET       }
+{   SRS:,   MR3R,       SRS10_In10,     3,			None,       RESET       }
+{   SRS:,   ACTMDR,     SRS10_In11,     0,			RA,			DA			}
+}

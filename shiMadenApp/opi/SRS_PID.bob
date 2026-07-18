@@ -1,0 +1,859 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>Display</name>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <class>TITLE</class>
+    <text>PID</text>
+    <x use_class="true">0</x>
+    <y use_class="true">0</y>
+    <width>550</width>
+    <height>31</height>
+    <font use_class="true">
+      <font name="Header 1" family="Liberation Sans" style="BOLD" size="22.0">
+      </font>
+    </font>
+    <foreground_color use_class="true">
+      <color name="Text" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <transparent use_class="true">true</transparent>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>PID Controller</name>
+    <x>47</x>
+    <y>54</y>
+    <width>742</width>
+    <height>446</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="18.0">
+      </font>
+    </font>
+    <widget type="group" version="2.0.0">
+      <name>OUT1</name>
+      <y>4</y>
+      <width>676</width>
+      <height>386</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="18.0">
+        </font>
+      </font>
+      <widget type="label" version="2.0.0">
+        <name>Label_23</name>
+        <text>SF1:</text>
+        <x>4</x>
+        <y>2</y>
+        <width>38</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="textentry" version="3.0.0">
+        <name>Text Entry_12</name>
+        <pv_name>SRS:SF1S</pv_name>
+        <x>69</x>
+        <y>5</y>
+        <width>60</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_25</name>
+        <text>O11_L:</text>
+        <x>4</x>
+        <y>29</y>
+        <width>58</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="textentry" version="3.0.0">
+        <name>Text Entry_14</name>
+        <pv_name>SRS:O11_LS</pv_name>
+        <x>69</x>
+        <y>33</y>
+        <width>60</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_27</name>
+        <text>O11_H:</text>
+        <x>4</x>
+        <y>56</y>
+        <width>58</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="textentry" version="3.0.0">
+        <name>Text Entry_16</name>
+        <pv_name>SRS:O11_HS</pv_name>
+        <x>69</x>
+        <y>59</y>
+        <width>60</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update</name>
+        <pv_name>SRS:SF1R</pv_name>
+        <x>144</x>
+        <y>5</y>
+        <width>60</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_1</name>
+        <pv_name>SRS:O11_LR</pv_name>
+        <x>144</x>
+        <y>33</y>
+        <width>60</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_2</name>
+        <pv_name>SRS:O11_HR</pv_name>
+        <x>144</x>
+        <y>59</y>
+        <width>60</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_44</name>
+        <text>PB1</text>
+        <x>223</x>
+        <y>5</y>
+        <width>38</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="textentry" version="3.0.0">
+        <name>Text Entry_33</name>
+        <pv_name>SRS:PB1S</pv_name>
+        <x>269</x>
+        <y>8</y>
+        <width>60</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_45</name>
+        <text>IT1</text>
+        <x>223</x>
+        <y>32</y>
+        <width>58</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="textentry" version="3.0.0">
+        <name>Text Entry_34</name>
+        <pv_name>SRS:IT1S</pv_name>
+        <x>269</x>
+        <y>36</y>
+        <width>60</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_46</name>
+        <text>DT1</text>
+        <x>223</x>
+        <y>59</y>
+        <width>58</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="textentry" version="3.0.0">
+        <name>Text Entry_35</name>
+        <pv_name>SRS:DT1S</pv_name>
+        <x>269</x>
+        <y>62</y>
+        <width>60</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_3</name>
+        <pv_name>SRS:PB1R</pv_name>
+        <x>344</x>
+        <y>8</y>
+        <width>60</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_4</name>
+        <pv_name>SRS:IT1R</pv_name>
+        <x>344</x>
+        <y>36</y>
+        <width>60</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_5</name>
+        <pv_name>SRS:DT1R</pv_name>
+        <x>344</x>
+        <y>62</y>
+        <width>60</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_47</name>
+        <text>DF1</text>
+        <x>425</x>
+        <y>8</y>
+        <width>38</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="textentry" version="3.0.0">
+        <name>Text Entry_36</name>
+        <pv_name>SRS:DF1S</pv_name>
+        <x>471</x>
+        <y>11</y>
+        <width>60</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_6</name>
+        <pv_name>SRS:DF1R</pv_name>
+        <x>546</x>
+        <y>11</y>
+        <width>60</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_48</name>
+        <text>SF2</text>
+        <x>4</x>
+        <y>111</y>
+        <width>38</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="textentry" version="3.0.0">
+        <name>Text Entry_37</name>
+        <pv_name>SRS:SF2S</pv_name>
+        <x>69</x>
+        <y>114</y>
+        <width>60</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_49</name>
+        <text>O12_L</text>
+        <x>4</x>
+        <y>138</y>
+        <width>58</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="textentry" version="3.0.0">
+        <name>Text Entry_38</name>
+        <pv_name>SRS:O12_LS</pv_name>
+        <x>69</x>
+        <y>142</y>
+        <width>60</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_50</name>
+        <text>O12_H:</text>
+        <x>4</x>
+        <y>165</y>
+        <width>58</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="textentry" version="3.0.0">
+        <name>Text Entry_39</name>
+        <pv_name>SRS:O12_HS</pv_name>
+        <x>69</x>
+        <y>168</y>
+        <width>60</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_7</name>
+        <pv_name>SRS:SF2R</pv_name>
+        <x>144</x>
+        <y>114</y>
+        <width>60</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_8</name>
+        <pv_name>SRS:O12_LR</pv_name>
+        <x>144</x>
+        <y>142</y>
+        <width>60</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_9</name>
+        <pv_name>SRS:O12_HR</pv_name>
+        <x>144</x>
+        <y>168</y>
+        <width>60</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_51</name>
+        <text>PB2</text>
+        <x>223</x>
+        <y>114</y>
+        <width>38</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="textentry" version="3.0.0">
+        <name>Text Entry_40</name>
+        <pv_name>SRS:PB2S</pv_name>
+        <x>269</x>
+        <y>117</y>
+        <width>60</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_52</name>
+        <text>IT2</text>
+        <x>223</x>
+        <y>141</y>
+        <width>58</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="textentry" version="3.0.0">
+        <name>Text Entry_41</name>
+        <pv_name>SRS:IT2S</pv_name>
+        <x>269</x>
+        <y>145</y>
+        <width>60</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_53</name>
+        <text>DT2</text>
+        <x>223</x>
+        <y>168</y>
+        <width>58</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="textentry" version="3.0.0">
+        <name>Text Entry_42</name>
+        <pv_name>SRS:DT2S</pv_name>
+        <x>269</x>
+        <y>171</y>
+        <width>60</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_10</name>
+        <pv_name>SRS:PB2R</pv_name>
+        <x>344</x>
+        <y>117</y>
+        <width>60</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_11</name>
+        <pv_name>SRS:IT2R</pv_name>
+        <x>344</x>
+        <y>145</y>
+        <width>60</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_12</name>
+        <pv_name>SRS:DT2R</pv_name>
+        <x>344</x>
+        <y>171</y>
+        <width>60</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_54</name>
+        <text>DF2</text>
+        <x>425</x>
+        <y>117</y>
+        <width>38</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="textentry" version="3.0.0">
+        <name>Text Entry_43</name>
+        <pv_name>SRS:DF2S</pv_name>
+        <x>471</x>
+        <y>120</y>
+        <width>60</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_13</name>
+        <pv_name>SRS:DF2R</pv_name>
+        <x>546</x>
+        <y>120</y>
+        <width>60</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_55</name>
+        <text>SF3</text>
+        <x>4</x>
+        <y>231</y>
+        <width>38</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="textentry" version="3.0.0">
+        <name>Text Entry_44</name>
+        <pv_name>SRS:SF3S</pv_name>
+        <x>69</x>
+        <y>234</y>
+        <width>60</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_56</name>
+        <text>O13_L:</text>
+        <x>4</x>
+        <y>258</y>
+        <width>58</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="textentry" version="3.0.0">
+        <name>Text Entry_45</name>
+        <pv_name>SRS:O13_LS</pv_name>
+        <x>69</x>
+        <y>262</y>
+        <width>60</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_57</name>
+        <text>O13_H:</text>
+        <x>4</x>
+        <y>285</y>
+        <width>58</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="textentry" version="3.0.0">
+        <name>Text Entry_46</name>
+        <pv_name>SRS:O13_HS</pv_name>
+        <x>69</x>
+        <y>288</y>
+        <width>60</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_14</name>
+        <pv_name>SRS:SF3R</pv_name>
+        <x>144</x>
+        <y>234</y>
+        <width>60</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_15</name>
+        <pv_name>SRS:O13_LR</pv_name>
+        <x>144</x>
+        <y>262</y>
+        <width>60</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_16</name>
+        <pv_name>SRS:O13_HR</pv_name>
+        <x>144</x>
+        <y>288</y>
+        <width>60</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_58</name>
+        <text>PB3</text>
+        <x>223</x>
+        <y>234</y>
+        <width>38</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="textentry" version="3.0.0">
+        <name>Text Entry_47</name>
+        <pv_name>SRS:PB3S</pv_name>
+        <x>269</x>
+        <y>237</y>
+        <width>60</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_59</name>
+        <text>IT3</text>
+        <x>223</x>
+        <y>261</y>
+        <width>58</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="textentry" version="3.0.0">
+        <name>Text Entry_48</name>
+        <pv_name>SRS:IT3S</pv_name>
+        <x>269</x>
+        <y>265</y>
+        <width>60</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_60</name>
+        <text>DT3</text>
+        <x>223</x>
+        <y>288</y>
+        <width>58</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="textentry" version="3.0.0">
+        <name>Text Entry_49</name>
+        <pv_name>SRS:DT3S</pv_name>
+        <x>269</x>
+        <y>291</y>
+        <width>60</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_17</name>
+        <pv_name>SRS:PB3R</pv_name>
+        <x>344</x>
+        <y>237</y>
+        <width>60</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_18</name>
+        <pv_name>SRS:IT3R</pv_name>
+        <x>344</x>
+        <y>265</y>
+        <width>60</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_19</name>
+        <pv_name>SRS:DT3R</pv_name>
+        <x>344</x>
+        <y>291</y>
+        <width>60</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_61</name>
+        <text>DF3</text>
+        <x>425</x>
+        <y>237</y>
+        <width>38</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="textentry" version="3.0.0">
+        <name>Text Entry_50</name>
+        <pv_name>SRS:DF3S</pv_name>
+        <x>471</x>
+        <y>240</y>
+        <width>60</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_20</name>
+        <pv_name>SRS:DF3R</pv_name>
+        <x>546</x>
+        <y>240</y>
+        <width>60</width>
+        <height>17</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="action_button" version="3.0.0">
+        <name>Action Button</name>
+        <actions>
+          <action type="write_pv">
+            <pv_name>SRS:MR1S</pv_name>
+            <value>1</value>
+            <description>WritePV</description>
+          </action>
+        </actions>
+        <text>Reset</text>
+        <x>531</x>
+        <y>62</y>
+        <width>70</width>
+        <height>21</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+        <tooltip>$(actions)</tooltip>
+      </widget>
+      <widget type="action_button" version="3.0.0">
+        <name>Action Button_2</name>
+        <actions>
+          <action type="write_pv">
+            <pv_name>SRS:MR2S</pv_name>
+            <value>1</value>
+            <description>WritePV</description>
+          </action>
+        </actions>
+        <text>Reset</text>
+        <x>531</x>
+        <y>162</y>
+        <width>70</width>
+        <height>21</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+        <tooltip>$(actions)</tooltip>
+      </widget>
+      <widget type="action_button" version="3.0.0">
+        <name>Action Button_3</name>
+        <actions>
+          <action type="write_pv">
+            <pv_name>SRS:MR3S</pv_name>
+            <value>1</value>
+            <description>WritePV</description>
+          </action>
+        </actions>
+        <text>Reset</text>
+        <x>531</x>
+        <y>282</y>
+        <width>70</width>
+        <height>21</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+        <tooltip>$(actions)</tooltip>
+      </widget>
+    </widget>
+  </widget>
+</display>

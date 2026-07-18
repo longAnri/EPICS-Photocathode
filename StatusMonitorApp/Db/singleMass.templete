@@ -1,0 +1,27 @@
+record(longin, "$(S)_Vac:$(R):Mass_M$(M)") {
+  field(SCAN, "5 second")
+  field(DTYP, "stream")
+  field(INP, "@srsrga.proto mass_m($(M)) port ")
+#  field(FLNK, "$(S)_Vac:$(R):PartP$(M) PP")
+}
+
+
+
+record(calc, "$(S)_Vac:$(R):PartP$(M)") {
+# field(SCAN, "5 second")
+  field(INPA, "$(S)_Vac:$(R):PPS")
+  field(INPB, "$(S)_Vac:$(R):Mass_M$(M) CPP")
+  field(CALC, "A?(B*1e-13)/A:0")
+  field(PREC, "12")
+  field(EGU, "Torr")
+#   field(FLNK, "$(S)_Vac:$(R):Histo_PartP$(M) PP")
+}
+
+record(compress, "$(S)_Vac:$(R):Histo_PartP$(M)") {
+  field(DESC, "Pressure Buf")
+  field(SCAN, "5 second")
+  field(ALG,  "Circular Buffer")
+  field(NSAM, "15000")
+  field(INP,  "$(S)_Vac:$(R):PartP$(M)")
+  field(PREC, "12")
+}

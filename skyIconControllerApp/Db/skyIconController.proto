@@ -1,0 +1,43 @@
+# protocol file for Programmable DC Power Suppies(9170B_9180B)
+# Long Feng (feng98716@gmail.com)
+# 10/18/2025
+
+replytimeout = 1000;
+readtimeout  = 1000;
+OutTerminator = CR LF;
+InTerminator = CR LF;
+
+
+# Read command
+getV { out "ReadV"; 	in "%f";}
+
+getI { out "ReadI"; 	in "%f";}
+getP { out "ReadP";	in "%f";}
+getHP { out "RHP";	in "%f";}
+getLP { out "RLP";	in "%f";}
+getEA { out "REA";	in "%d";}
+getPI { out "RPI";	in "%d";}
+getS1 { out "ReadS1";	in "%b";}
+getS2 { out "ReadS2";	in "%b";}
+
+# Read command
+set3kV { out "OnV3K"; 	in "%s";}
+
+set5kV { out "OnV5K"; 	in "%s";}
+set7kV { out "OnV7K";	in "%*s";}
+setHV { out "OffHV";	in "%s";}
+setOnBake { out "OnBake";	in "%s";}
+setOffBake { out "OffBake";	in "%s";}
+setHP { out "WHP";
+	@init{ out "RHP";	in "%f";}
+}
+setLP { out "WLP";
+	@init{ out "RLP";	in "%f";}
+}
+setEA { out "WEA";
+	@init{ out "REA";      in "%d";}
+}
+setPI { out "WPI";
+	@init{ out "RPI";      in "%d";}
+}
+setReset { out "Wreset";	in "%s";}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<engineconfig>
+  <group>
+    <name>Photocathode</name>
+    <channel>
+      <name>Sensor1:Dose</name>
+      <monitor/>
+      <period>0.1</period>
+    </channel>
+    <channel>
+      <name>Sensor2:Dose</name>
+      <monitor/>
+      <period>0.1</period>
+    </channel>
+    <channel>
+      <name>sim://sine(0, 10, 50, 0.1)</name>
+      <monitor/>
+      <period>0.1</period>
+      <delta>1.0</delta>
+    </channel>
+  </group>
+</engineconfig>

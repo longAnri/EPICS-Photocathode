@@ -1,0 +1,980 @@
+
+#########################################################################
+###   Command @ 
+###   Query
+###   Return the Filmware Version Number
+######################################################################### 
+record(ai,"$(P):Version"){
+	field(DESC, "Get Version")
+	field(DTYP, "stream")
+	field(INP,  "@devSQM160.proto getVersion $(PORT)")
+	field(PREC,	"2")
+	field(SCAN, "10 second")
+}
+
+
+#########################################################################
+###   Command A 
+###   Query
+###   Film Parameters
+######################################################################### 
+record(ao, "$(P):filmNumber"){
+	field(DESC, "Set FilmNumber")
+	field(LOPR, "1")
+	field(HOPR, "99")
+	field(DRVH,	"1")
+	field(DRVL,	"99")
+	field(VAL,	"1")
+}
+
+record(stringin, "$(P):gFilmName")
+{
+	field(DESC, "Read the Film Name")
+	field(DTYP,	"stream")
+	field(INP,	"@devSQM160.proto getFilmPar($(P)) $(PORT)")
+	field(SCAN,	"1 second")
+	field(FLNK,	"$(P):gDensity")
+}
+
+record(ai, "$(P):gFilmNumber")
+{
+	field(DESC, "Read the Film Number")
+	field(LOPR,	"1")
+	field(HOPR,	"99")
+	field(FLNK,	"$(P):gDensity")
+}
+
+record(ai, "$(P):gDensity"){
+	field(DESC, "Read Film Density")
+	field(LOPR,	"0.50")
+	field(HOPR,	"99.99")
+	field(HIHI,	"99.00")
+	field(HHSV,	"MAJOR")
+	field(HIGH,	"98.00")
+	field(HSV,	"MINOR")
+	field(LOW,	"1.00")
+	field(LSV,	"MINOR")
+	field(LOLO,	"0.60")
+	field(LLSV,	"MAJOR")
+	field(PREC,	"2")
+	field(EGU,	"g/cm^3")
+	field(FLNK,	"$(P):gFilmTooling")	
+}
+
+record(ai, "$(P):gFilmTooling"){
+	field(DESC, "Read Film Tooling")
+	field(LOPR,	"10")
+	field(HOPR,	"399")
+	field(HIHI,	"390")
+	field(HHSV,	"MAJOR")
+	field(HIGH,	"385")
+	field(HSV,	"MINOR")
+	field(LOW,	"15")
+	field(LSV,	"MINOR")
+	field(LOLO,	"11")
+	field(LLSV,	"MAJOR")
+	field(EGU,	"%")
+	field(FLNK,	"$(P):gZ-Ratio")	
+}
+
+record(ai, "$(P):gZ-Ratio"){
+	field(DESC, "Read Z-Ratio")
+	field(LOPR,	"0.1")
+	field(HOPR,	"9.999")
+	field(HIHI,	"9.999")
+	field(HHSV,	"MAJOR")
+	field(LOLO,	"0.1")
+	field(LLSV,	"MAJOR")
+	field(PREC,	"3")
+	field(FLNK,	"$(P):gFinalThickness")	
+}
+
+record(ai, "$(P):gFinalThickness"){
+	field(DESC, "Read Final Thickness")
+	field(LOPR,	"0.000")
+	field(HOPR,	"9999.000")
+	field(HIHI,	"9990.000")
+	field(HHSV,	"MAJOR")
+	field(HIGH,	"9950.000")
+	field(HSV,	"MINOR")
+	field(LOW,	"20")
+	field(LSV,	"MINOR")
+	field(LOLO,	"10")
+	field(LLSV,	"MAJOR")
+	field(PREC,	"3")
+	field(EGU,	"kA")
+	field(FLNK,	"$(P):gThicknessSetpoint")	
+}
+
+record(ai, "$(P):gThicknessSetpoint"){
+	field(DESC, "Read Thickness Setpoint")
+	field(LOPR,	"0.000")
+	field(HOPR,	"9999.000")
+	field(PREC,	"3")
+	field(EGU,	"kA")
+	field(FLNK,	"$(P):gTimeSetpint.PROC")	
+}
+
+record(ai, "$(P):gTimeSetpoint"){
+	field(DESC, "Read Time Setpoint")
+	field(LOPR,	"0")
+	field(HOPR,	"5999")
+	field(EGU,	"s")
+	field(FLNK,	"$(P):gSensorAve")	
+}
+
+record(mbbiDirect, "$(P):gSensorAve"){
+	field(DESC, "Read Sensor Average")
+}
+
+########################################################################
+###   Command D
+###   Update
+###   The active Film
+######################################################################### 
+record(ao, "$(P):activeFilm")
+{
+	field(DESC, "Update the active Film")
+	field(DTYP,	"stream")
+	field(OUT,	"@devSQM160.proto Active_Film() $(PORT)")
+	field(DRVL,	"1")
+	field(LOPR,	"1")
+	field(DRVH,	"99")
+	field(HOPR,	"99")
+	field(VAL,	"1")
+	field(FLNK,	"$(P):ApplyFilm")
+}
+
+#########################################################################
+###   Command A 
+###   Update
+###   Film Parameters
+######################################################################### 
+#record(ao, "$(P):sFilmNumber")
+#{
+#	field(DESC, "Set the Film Number")
+#	field(DRVL,	"0")
+#	field(LOPR, "0")
+#	field(DRVH,	"99")
+#	field(HOPR,	"99")
+#	field(VAL,	"1")
+#	field(FLNK,	"$(P):ApplyFilm")
+#}
+
+record(stringout,"$(P):sFilmName"){
+	field(DESC, "Set Film Name")
+	field(FLNK, "$(P):sDensity")
+	field(VAL,	"CS")
+	field(FLNK,	"$(P):ApplyFilm")
+}
+
+record(ao, "$(P):sDensity"){
+	field(DESC, "Set Film Density")
+	field(DRVL,	"0.50")
+	field(LOPR,	"0.50")
+	field(DRVH,	"99.99")
+	field(HOPR,	"99.99")
+	field(VAL,	"1.87")
+	field(PREC,	"2")
+	field(EGU,	"g/cm^3")
+	field(FLNK,	"$(P):ApplyFilm")	
+}
+
+record(ao, "$(P):sFilmTooling"){
+	field(DESC, "Set Film Tooling")
+	field(DRVL,	"10")
+	field(LOPR,	"10")
+	field(DRVH,	"399")
+	field(HOPR,	"399")
+	field(VAL,	"125")
+	field(EGU,	"%")
+	field(FLNK,	"$(P):ApplyFilm")	
+}
+
+record(ao, "$(P):sZ-Ratio"){
+	field(DESC, "Set Z-Ratio")
+	field(DRVL,	"0.1")
+	field(LOPR,	"0.1")
+	field(DRVH,	"9.999")
+	field(HOPR,	"9.999")
+	field(PREC,	"3")
+	field(VAL,	"1.00")
+	field(FLNK,	"$(P):ApplyFilm")	
+}
+
+record(ao, "$(P):sFinalThickness"){
+	field(DESC, "Set Final Thickness")
+	field(DRVL,	"0.000")
+	field(LOPR,	"0.000")
+	field(DRVH,	"9999.000")
+	field(HOPR,	"9999.000")
+	field(PREC,	"3")
+	field(EGU,	"kA")
+	field(VAL,	"1.525")
+	field(FLNK,	"$(P):ApplyFilm")	
+}
+
+record(ao, "$(P):sThicknessSetpoint"){
+	field(DESC, "Set Thickness Setpoint")
+	field(DRVL,	"0.000")
+	field(LOPR,	"0.000")
+	field(DRVH,	"9999.000")
+	field(HOPR,	"9999.000")
+	field(EGU,	"kA")
+	field(PREC,	"3")
+	field(VAL,	"0.450")
+	field(FLNK,	"$(P):ApplyFilm")	
+}
+
+record(ao, "$(P):sTimeSetpoint"){
+	field(DESC, "Set Time Setpoint")
+	field(DRVL,	"0")
+	field(LOPR,	"0")
+	field(DRVH,	"5999")
+	field(HOPR,	"5999")
+	field(EGU,	"s")
+	field(VAL,	"30")
+	field(FLNK,	"$(P):ApplyFilm")	
+}
+
+record(mbboDirect, "$(P):sSensorAve"){
+	field(DESC, "Set Sensor Average")
+	field(VAL,	"1")
+	field(FLNK,	"$(P):ApplyFilm")
+}
+
+record(calcout, "$(P):ApplyFilm")
+{
+    field(DESC, "Apply all film parameters")
+
+#    field(INPA, "$(P):sFilmNumber")
+    field(INPA, "$(P):activeFilm")
+#    field(INPB, "$(P):sFilmName CPP")
+    field(INPC, "$(P):sDensity")
+    field(INPD, "$(P):sFilmTooling")
+    field(INPE, "$(P):sZ-Ratio")
+    field(INPF, "$(P):sFinalThickness")
+    field(INPG, "$(P):sThicknessSetpoint")
+    field(INPH, "$(P):sTimeSetpoint")
+    field(INPJ, "$(P):sSensorAve")
+
+    field(CALC, "0")
+    field(DTYP, "stream")
+#    field(PINI, "YES")
+	field(OUT, "@devSQM160Test.proto setFilmPar($(P)) $(PORT)")
+}
+
+
+#########################################################################
+###   Command B 
+###   Query
+###   System1 parameters
+######################################################################### 
+record(ai, "$(P):gTimeBase")
+{
+	field(DESC, "Read the Time Base of System1")
+	field(DTYP,	"stream")
+	field(INP,	"@devSQM160.proto getSys1_Par($(P)) $(PORT)")
+	field(LOPR,	"0.10")
+	field(HOPR,	"2.00")
+	field(HIHI,	"2.00")
+	field(HHSV,	"MAJOR")
+	field(LOLO,	"0.10")
+	field(LLSV,	"MAJOR")
+	field(PREC,	"2")
+	field(SCAN,	"1 second")
+	field(FLNK,	"$(P):gSimMode")
+}
+
+record(bi,"$(P):gSimMode"){
+	field(DESC, "Read the Simulate Mode of System1")
+	field(ZNAM,	"OFF")
+	field(ONAM,	"ON")
+	field(FLNK, "$(P):gFreqMode")
+}
+
+record(mbbi,"$(P):gFreqMode"){
+	field(DESC, "Read the Frequency Mode of System1")
+	field(ZRVL,	"0")
+	field(ZRST,	"A/s")
+	field(ONVL,	"1")
+	field(ONST,	"nm/s")
+	field(TWVL,	"2")
+	field(TWST,	"Hz")
+	field(THVL,	"3")
+	field(THST,	"ng/cm2/s")
+	field(FLNK, "$(P):gRateRes")
+}
+
+record(bi,"$(P):gRateRes"){
+	field(DESC, "Read the Rate Resolution of System1")
+	field(ZNAM,	"Low")
+	field(ONAM,	"High")
+	field(FLNK, "$(P):gRateFilter")
+}
+
+record(ai, "$(P):gRateFilter")
+{
+	field(DESC, "Read the Rate Filter of System1")
+	field(LOPR,	"1")
+	field(HOPR,	"20")
+	field(FLNK,	"$(P):gCrTool1")
+}
+
+record(ai, "$(P):gCrTool1")
+{
+	field(DESC,	"Read the Crystal Tooling of System1")
+	field(LOPR,	"10")
+	field(HOPR,	"399")
+	field(HIHI,	"390")
+	field(HHSV,	"MAJOR")
+	field(HIGH,	"360")
+	field(HSV,	"MINOR")
+	field(LOW,	"25")
+	field(LSV,	"MINOR")
+	field(LOLO,	"15")
+	field(LLSV,	"MAJOR")
+	field(EGU,	"%")
+	field(FLNK,	"$(P):gCrTool2")
+}
+
+record(ai, "$(P):gCrTool2")
+{
+	field(DESC,	"Read the Crystal Tooling of System1")
+	field(LOPR,	"10")
+	field(HOPR,	"399")
+	field(HIHI,	"390")
+	field(HHSV,	"MAJOR")
+	field(HIGH,	"360")
+	field(HSV,	"MINOR")
+	field(LOW,	"25")
+	field(LSV,	"MINOR")
+	field(LOLO,	"15")
+	field(LLSV,	"MAJOR")
+	field(EGU,	"%")
+	field(FLNK,	"$(P):gCrTool3")
+}
+
+record(ai, "$(P):gCrTool3")
+{
+	field(DESC,	"Read the Crystal Tooling of System1")
+	field(LOPR,	"10")
+	field(HOPR,	"399")
+	field(HIHI,	"390")
+	field(HHSV,	"MAJOR")
+	field(HIGH,	"360")
+	field(HSV,	"MINOR")
+	field(LOW,	"25")
+	field(LSV,	"MINOR")
+	field(LOLO,	"15")
+	field(LLSV,	"MAJOR")
+	field(EGU,	"%")
+	field(FLNK,	"$(P):gCrTool4")
+}
+
+record(ai, "$(P):gCrTool4")
+{
+	field(DESC,	"Read the Crystal Tooling of System1")
+	field(LOPR,	"10")
+	field(HOPR,	"399")
+	field(HIHI,	"390")
+	field(HHSV,	"MAJOR")
+	field(HIGH,	"360")
+	field(HSV,	"MINOR")
+	field(LOW,	"25")
+	field(LSV,	"MINOR")
+	field(LOLO,	"15")
+	field(LLSV,	"MAJOR")
+	field(EGU,	"%")
+	field(FLNK,	"$(P):gCrTool5")
+}
+
+record(ai, "$(P):gCrTool5")
+{
+	field(DESC,	"Read the Crystal Tooling of System1")
+	field(LOPR,	"10")
+	field(HOPR,	"399")
+	field(HIHI,	"390")
+	field(HHSV,	"MAJOR")
+	field(HIGH,	"360")
+	field(HSV,	"MINOR")
+	field(LOW,	"25")
+	field(LSV,	"MINOR")
+	field(LOLO,	"15")
+	field(LLSV,	"MAJOR")
+	field(EGU,	"%")
+	field(FLNK,	"$(P):gCrTool6")
+}
+
+record(ai, "$(P):gCrTool6")
+{
+	field(DESC,	"Read the Crystal Tooling of System1")
+	field(LOPR,	"10")
+	field(HOPR,	"399")
+	field(HIHI,	"390")
+	field(HHSV,	"MAJOR")
+	field(HIGH,	"360")
+	field(HSV,	"MINOR")
+	field(LOW,	"25")
+	field(LSV,	"MINOR")
+	field(LOLO,	"15")
+	field(LLSV,	"MAJOR")
+	field(EGU,	"%")
+}
+#########################################################################
+###   Command B 
+###   Update
+###   System1 parameters
+######################################################################### 
+record(ao, "$(P):sTimeBase")
+{
+	field(DESC, "Set the Time Base of System1")
+	field(DRVL,	"0.10")
+	field(LOPR,	"0.10")
+	field(DRVH,	"2.00")
+	field(HOPR,	"2.00")
+	field(PREC,	"2")
+	field(VAL,	"0.25")
+	field(FLNK,	"$(P):ApplySys1")
+}
+
+record(bo,"$(P):sSimMode"){
+	field(DESC, "Set the Simulate Mode of System1")
+	field(ZNAM,	"OFF")
+	field(ONAM,	"ON")
+	field(VAL,	"0")
+	field(FLNK, "$(P):ApplySys1")
+}
+
+record(mbbo,"$(P):sFreqMode"){
+	field(DESC, "Set the Frequency Mode of System1")
+	field(ZRVL,	"0")
+	field(ZRST,	"A/s")
+	field(ONVL,	"1")
+	field(ONST,	"nm/s")
+	field(TWVL,	"2")
+	field(TWST,	"Hz")
+	field(THVL,	"3")
+	field(THST,	"ng/cm2/s")
+	field(VAL,	"0")
+	field(FLNK, "$(P):ApplySys1")
+}
+
+record(bo,"$(P):sRateRes"){
+	field(DESC, "Set the Rate Resolution of System1")
+	field(ZNAM,	"Low display resolution")
+	field(ONAM,	"High display resolution")
+	field(VAL,	"0")
+	field(FLNK, "$(P):ApplySys1")
+}
+
+record(ao, "$(P):sRateFilter")
+{
+	field(DESC, "Set the Rate Filter of System1")
+	field(DRVL,	"1")
+	field(DRVH,	"20")
+	field(VAL,	"8")
+	field(FLNK,	"$(P):ApplySys1")
+}
+
+record(ao, "$(P):sCrTool1")
+{
+	field(DESC,	"Set the Crystal Tooling of System1")
+	field(DRVL,	"10")
+	field(LOPR,	"10")
+	field(DRVH,	"399")
+	field(HOPR,	"399")
+	field(VAL,	"100")
+	field(FLNK,	"$(P):ApplySys1")
+}
+
+record(ao, "$(P):sCrTool2")
+{
+	field(DESC,	"Set the Crystal Tooling of System1")
+	field(DRVL,	"10")
+	field(LOPR,	"10")
+	field(DRVH,	"399")
+	field(HOPR,	"399")
+	field(VAL,	"100")
+	field(FLNK,	"$(P):ApplySys1")
+}
+
+record(ao, "$(P):sCrTool3")
+{
+	field(DESC,	"Set the Crystal Tooling of System1")
+	field(DRVL,	"10")
+	field(LOPR,	"10")
+	field(DRVH,	"399")
+	field(HOPR,	"399")
+	field(VAL,	"100")
+	field(FLNK,	"$(P):ApplySys1")
+}
+
+record(ao, "$(P):sCrTool4")
+{
+	field(DESC,	"Set the Crystal Tooling of System1")
+	field(DRVL,	"10")
+	field(LOPR, "10")
+	field(DRVH,	"399")
+	field(HOPR,	"399")
+	field(VAL,	"100")
+	field(FLNK,	"$(P):ApplySys1")
+}
+
+record(ao, "$(P):sCrTool5")
+{
+	field(DESC,	"Set the Crystal Tooling of System1")
+	field(DRVL,	"10")
+	field(LOPR,	"10")
+	field(DRVH,	"399")
+	field(HOPR,	"399")
+	field(VAL,	"100")
+	field(FLNK,	"$(P):ApplySys1")
+}
+
+record(ao, "$(P):sCrTool6")
+{
+	field(DESC,	"Set the Crystal Tooling of System1")
+	field(DRVL,	"10")
+	field(LOPR,	"10")
+	field(DRVH,	"399")
+	field(HOPR,	"399")
+	field(VAL,	"100")
+	field(FLNK,	"$(P):ApplySys1")
+}
+
+
+record(calcout, "$(P):ApplySys1")
+{
+    field(DESC, "Apply Sys1")
+
+    field(INPA, "$(P):sTimeBase")
+    field(INPB, "$(P):sSimMode")
+    field(INPC, "$(P):sFreqMode")
+    field(INPD, "$(P):sRateRes")
+    field(INPE, "$(P):sRateFilter")
+	field(INPF,	"$(P):sCrTool1")
+	field(INPG,	"$(P):sCrTool2")
+	field(INPH,	"$(P):sCrTool3")
+	field(INPI,	"$(P):sCrTool4")
+	field(INPJ,	"$(P):sCrTool5")
+	field(INPK,	"$(P):sCrTool6")
+
+    field(CALC, "0")
+    field(DTYP, "stream")
+    field(PINI, "YES")
+    field(OUT, "@devSQM160.proto setSys1_Par $(PORT)")
+}
+
+
+
+#########################################################################
+###   Command C
+###   Query
+###   System2 parameters
+######################################################################### 
+record(ai, "$(P):gMinFreq")
+{
+	field(DESC, "Read the Min Frequency of System2")
+	field(DTYP,	"stream")
+	field(INP,	"@devSQM160.proto getSys2_Par($(P)) $(PORT)")
+	field(LOPR,	"1.000")
+	field(HOPR,	"6.400")
+	field(EGU,	"MHz")
+	field(PREC,	"3")
+	field(SCAN,	"1 second")
+	field(FLNK,	"$(P):gMaxFreq")
+}
+
+record(ai, "$(P):gMaxFreq")
+{
+	field(DESC, "Read the Max Frequency of System2")
+	field(LOPR,	"1.100")
+	field(HOPR,	"6.500")
+	field(EGU,	"MHz")
+	field(PREC,	"3")
+	field(FLNK,	"$(P):gMinRate")
+}
+
+record(ai, "$(P):gMinRate")
+{
+	field(DESC,	"Read the Min Rate of System2")
+	field(LOPR,	"-99")
+	field(HOPR,	"999")
+	field(PREC,	"3")
+	field(EGU,	"A/s")
+	field(FLNK,	"$(P):gMaxRate")
+}
+
+record(ai, "$(P):gMaxRate")
+{
+	field(DESC,	"Read the Max Rate of System2")
+	field(LOPR,	"-99")
+	field(HOPR,	"999")
+	field(PREC,	"3")
+	field(EGU,	"A/s")
+	field(FLNK,	"$(P):gMinThick")
+}
+
+record(ai, "$(P):gMinThick")
+{
+	field(DESC,	"Read the Min Thickness of System2")
+	field(LOPR,	"0")
+	field(HOPR,	"9999")
+	field(EGU,	"kA")
+	field(PREC,	"3")
+	field(FLNK,	"$(P):gMaxThick")
+}
+
+record(ai, "$(P):gMaxThick")
+{
+	field(DESC,	"Read the Max Thickness of System2")
+	field(LOPR,	"0")
+	field(HOPR,	"9999")
+	field(EGU,	"kA")
+	field(PREC,	"3")
+	field(FLNK,	"$(P):gEtchMode")
+}
+
+record(bi, "$(P):gEtchMode")
+{
+	field(DESC,	"Read the Etch Mode of System2")
+	field(ZNAM,	"OFF")
+	field(ONAM,	"ON")
+}
+
+#########################################################################
+###   Command C
+###   Update
+###   System2 parameters
+######################################################################### 
+record(ao, "$(P):sMinFreq")
+{
+	field(DESC, "Set the Min Frequency of System2")
+	field(DRVL,	"1.000")
+	field(LOPR,	"1.000")
+	field(DRVH,	"6.400")
+	field(HOPR,	"6.400")
+	field(PREC,	"3")
+	field(VAL,	"5.000")
+	field(EGU,	"MHz")
+	field(FLNK,	"$(P):ApplySys2")
+}
+
+record(ao, "$(P):sMaxFreq")
+{
+	field(DESC, "Set the Max Frequency of System2")
+	field(DRVL,	"1.100")
+	field(LOPR,	"1.100")
+	field(DRVH,	"6.500")
+	field(HOPR,	"6.500")
+	field(VAL,	"6.000")
+	field(PREC,	"3")
+	field(EGU,	"MHz")
+	field(FLNK,	"$(P):ApplySys2")
+}
+
+record(ao, "$(P):sMinRate")
+{
+	field(DESC,	"Set the Min Rate of System2")
+	field(DRVL,	"-99")
+	field(LOPR,	"-99")
+	field(DRVH,	"999")
+	field(HOPR,	"999")
+	field(VAL,	"0")
+	field(PREC,	"3")
+	field(EGU,	"A/s")
+	field(FLNK,	"$(P):ApplySys2")
+}
+
+record(ao, "$(P):sMaxRate")
+{
+	field(DESC,	"Set the Max Rate of System2")
+	field(DRVL,	"-99")
+	field(LOPR,	"-99")
+	field(DRVH,	"999")
+	field(HOPR,	"999")
+	field(VAL,	"100")
+	field(PREC,	"2")
+	field(EGU,	"A/s")
+	field(FLNK,	"$(P):ApplySys2")
+}
+
+record(ao, "$(P):sMinThick")
+{
+	field(DESC,	"Set the Min Thickness of System2")
+	field(DRVL,	"0")
+	field(LOPR,	"0")
+	field(DRVH,	"9999")
+	field(HOPR,	"9999")
+	field(VAL,	"0")
+	field(PREC,	"3")
+	field(EGU,	"kA")
+	field(FLNK,	"$(P):ApplySys2")
+}
+
+record(ao, "$(P):sMaxThick")
+{
+	field(DESC,	"Set the Max Thickness of System2")
+	field(DRVL,	"0")
+	field(LOPR,	"0")
+	field(DRVH,	"9999")
+	field(HOPR,	"9999")
+	field(VAL,	"1.000")
+	field(PREC,	"3")
+	field(EGU,	"kA")
+	field(FLNK,	"$(P):ApplySys2")
+}
+
+record(bo, "$(P):sEtchMode")
+{
+	field(DESC,	"Set the Etch Mode of System2")
+	field(ZNAM,	"OFF")
+	field(ONAM,	"ON")
+	field(VAL,	"0")
+	field(FLNK,	"$(P):ApplySys2")
+}
+
+
+record(calcout, "$(P):ApplySys2")
+{
+    field(DESC, "Apply Sys2")
+
+    field(INPA, "$(P):sMinFreq")
+    field(INPB, "$(P):sMaxFreq")
+    field(INPC, "$(P):sMinRate")
+    field(INPD, "$(P):sMaxRate")
+    field(INPE, "$(P):sMinThick")
+	field(INPF,	"$(P):sMaxThick")
+	field(INPG,	"$(P):sEtchMode")
+
+    field(CALC, "0")
+    field(DTYP, "stream")
+    field(PINI, "YES")
+    field(OUT, "@devSQM160.proto setSys2_Par $(PORT)")
+}
+
+
+#########################################################################
+###   Command J
+###   Query
+###   The number of channels installed
+######################################################################### 
+record(ai, "$(P):channels")
+{
+	field(DESC, "Query the number of channels installed")
+	field(DTYP,	"stream")
+	field(INP,	"@devSQM160.proto Channels() $(PORT)")
+	field(SCAN,	"1 second")
+}
+
+#########################################################################
+###   Command L
+###   Query
+###   The current Rate for a sensor
+######################################################################### 
+record(ao, "$(P):Sensor")
+{
+	field(DESC,	"Select Sensor number")
+	field(LOPR,	"1")
+	field(HOPR,	"6")
+	field(DRVL,	"1")
+	field(DRVH,	"6")
+	field(VAL,	"1")
+}
+
+record(ai, "$(P):rate")
+{
+	field(DESC, "Read the current Rate for a sensor")
+	field(DTYP,	"stream")
+	field(INP,	"@devSQM160.proto Rate($(P)) $(PORT)")
+	field(LOPR,	"1")
+	field(HOPR,	"6")
+	field(PREC,	"2")
+	field(EGU,	"A/s")
+	field(SCAN,	"1 second")
+}
+
+#########################################################################
+###   Command M
+###   Query
+###   The current Average Rate
+######################################################################### 
+record(ai, "$(P):Ave_Rate") {
+  field(DESC, "Read the current Average Rate")
+  field(DTYP, "stream")
+  field(INP, "@devSQM160.proto Ave_Rate() $(PORT)")
+  field(PREC, "2")
+  field(EGU,  "A/s")
+  field(SCAN, "1 second")
+}
+
+#########################################################################
+###   Command N
+###   Query
+###   The current Thickness for a sensor
+######################################################################### 
+record(ao, "$(P):thickSensor")
+{
+	field(DESC,	"Select Sensor number")
+	field(LOPR,	"1")
+	field(HOPR,	"6")
+	field(DRVL,	"1")
+	field(DRVH,	"6")
+	field(VAL,	"1")
+	field(FLNK,	"$(P):thickness")
+}
+
+record(ai, "$(P):thickness")
+{
+	field(DESC, "Read the current Thickness for a sensor")
+	field(DTYP,	"stream")
+	field(INP,	"@devSQM160.proto Thickness($(P)) $(PORT)")
+	field(PREC,	"2")
+	field(EGU,	"kA")
+	field(SCAN,	"1 second")
+}
+
+#########################################################################
+###   Command O
+###   Query
+###   The current Average Thickness
+######################################################################### 
+record(ai, "$(P):aveThickness") {
+  field(DESC, "Read the current Average Thickness")
+  field(DTYP, "stream")
+  field(INP, "@devSQM160.proto Ave_Thickness() $(PORT)")
+  field(PREC, "3")
+  field(EGU,  "kA")
+  field(SCAN, "1 second")
+}
+
+
+#########################################################################
+###   Command P
+###   Query
+###   The current Frequency for a sensor
+######################################################################### 
+record(ao, "$(P):freqSensor")
+{
+	field(DESC,	"Select Sensor number")
+	field(LOPR,	"1")
+	field(HOPR,	"6")
+	field(DRVL,	"1")
+	field(DRVH,	"6")
+	field(VAL,	"1")
+	field(FLNK,	"$(P):frequency")
+}
+
+record(ai, "$(P):frequency")
+{
+	field(DESC, "Read the current frequency for a sensor")
+	field(DTYP,	"stream")
+	field(INP,	"@devSQM160.proto Frequency($(P)) $(PORT)")
+	field(PREC,	"3")
+	field(EGU,	"Hz")
+	field(SCAN,	"1 second")
+}
+
+#########################################################################
+###   Command R
+###   Query
+###   The the Crystal life for a sensor
+######################################################################### 
+record(ao, "$(P):statusSensor")
+{
+	field(DESC,	"Select Sensor number")
+	field(LOPR,	"1")
+	field(HOPR,	"6")
+	field(DRVL,	"1")
+	field(DRVH,	"6")
+	field(VAL,	"1")
+	field(FLNK,	"$(P):crystal")
+}
+
+record(ai, "$(P):crystal")
+{
+	field(DESC, "Read crystal life for a sensor")
+	field(DTYP,	"stream")
+	field(INP,	"@devSQM160.proto Crystal($(P)) $(PORT)")
+	field(PREC,	"2")
+	field(EGU,	"%")
+	field(SCAN,	"1 second")
+}
+
+#########################################################################
+###   Command S
+###   Update
+###   Zero Average Thickness and Rate
+######################################################################### 
+record(bo, "$(P):zeroAverage")
+{
+	field(DESC, "Zero Average Thickness and Rate")
+	field(DTYP,	"stream")
+	field(OUT,	"@devSQM160.proto Zero_Average() $(PORT)")
+}
+
+#########################################################################
+###   Command T
+###   Update
+###   Zero Time
+######################################################################### 
+record(bo, "$(P):zeroTime")
+{
+	field(DESC, "Zero Time")
+	field(DTYP,	"stream")
+	field(OUT,	"@devSQM160.proto Zero_Time() $(PORT)")
+}
+
+
+#########################################################################
+###   Command U
+###   Update/Query
+###   Open/close the Source Shutter or read the Source Shutter state
+######################################################################### 
+
+record(bo, "$(P):setSource")
+{
+	field(DESC, "Open/close the Source Shutter")
+	field(DTYP,	"stream")
+	field(OUT,	"@devSQM160.proto Set_Source $(PORT)")
+	field(ZNAM,	"Close")
+	field(VAL,	"0")
+	field(ONAM,	"Open")
+}
+
+record(bi,"$(P):readSource"){
+	field(DESC, "Read the Source Shutter state")
+	field(DTYP, "stream")
+	field(INP, "@devSQM160.proto Read_Source() $(PORT)")
+	field(ZNAM,	"Close")
+	field(ONAM,	"Open")
+	field(SCAN,	"1 second")
+}
+
+#########################################################################
+###   Command Y
+###   Update
+###   Read the status of the Powew-Up Reset flag
+######################################################################### 
+record(bi,"$(P):powerUp"){
+	field(DESC, "the Power-Up Reset flag")
+	field(DTYP, "stream")
+	field(INP, "@devSQM160.proto Power_Up() $(PORT)")
+	field(ZNAM,	"RESET")
+	field(ONAM,	"SET")
+	field(SCAN,	"1 second")
+}
+
+#########################################################################
+###   Command Z
+###   Update
+###   Default all film and system parameters
+######################################################################### 
+record(bo, "$(P):default")
+{
+  field(DESC, "Default all film and system parameters")
+  field(DTYP, "stream")
+  field(OUT, "@devSQM160.proto Default() $(PORT)")
+}
+

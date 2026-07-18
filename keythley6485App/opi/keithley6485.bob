@@ -1,0 +1,888 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>Keithley6485</name>
+  <macros>
+    <CA>CA1:</CA>
+    <P>k648x:</P>
+  </macros>
+  <width>500</width>
+  <height>550</height>
+  <background_color>
+    <color name="Button_Background" red="210" green="210" blue="210">
+    </color>
+  </background_color>
+  <widget type="polyline" version="2.0.0">
+    <name>Polyline</name>
+    <x>18</x>
+    <y>109</y>
+    <width>429</width>
+    <height>3</height>
+    <points>
+      <point x="460.0" y="0.0">
+      </point>
+      <point x="0.0" y="0.0">
+      </point>
+    </points>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(P)$(CA)reset.PROC</pv_name>
+        <value>1</value>
+        <description>WritePV</description>
+      </action>
+    </actions>
+    <text>Reset</text>
+    <x>18</x>
+    <y>73</y>
+    <width>83</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="18.0">
+      </font>
+    </font>
+    <background_color>
+      <color name="MAJOR" red="255" green="0" blue="0">
+      </color>
+    </background_color>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_1</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(P)$(CA)refresh.PROC</pv_name>
+        <value>1</value>
+        <description>WritePV</description>
+      </action>
+    </actions>
+    <text>Refresh All</text>
+    <x>265</x>
+    <y>73</y>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="18.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="255" green="255" blue="0">
+      </color>
+    </background_color>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_2</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(P)$(CA)refresh.PROC</pv_name>
+        <value>1</value>
+        <description>WritePV</description>
+      </action>
+    </actions>
+    <text>Info</text>
+    <x>130</x>
+    <y>73</y>
+    <width>64</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="18.0">
+      </font>
+    </font>
+    <background_color>
+      <color name="MINOR" red="255" green="128" blue="0">
+      </color>
+    </background_color>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_3</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(P)$(CA)refresh.PROC</pv_name>
+        <value>1</value>
+        <description>WritePV</description>
+      </action>
+    </actions>
+    <text>Less</text>
+    <x>380</x>
+    <y>73</y>
+    <width>64</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="18.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="Header_ForeGround" red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="0" green="128" blue="0">
+      </color>
+    </background_color>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <text>Reading:</text>
+    <x>37</x>
+    <y>112</y>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="18.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update</name>
+    <pv_name>$(P)$(CA)read</pv_name>
+    <x>32</x>
+    <y>136</y>
+    <width>165</width>
+    <height>23</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="18.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="255" green="255" blue="204">
+      </color>
+    </background_color>
+    <format>2</format>
+  </widget>
+  <widget type="polyline" version="2.0.0">
+    <name>Polyline_1</name>
+    <x>18</x>
+    <y>162</y>
+    <width>436</width>
+    <height>1</height>
+    <points>
+      <point x="460.0" y="0.0">
+      </point>
+      <point x="0.0" y="0.0">
+      </point>
+    </points>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>Combo Box</name>
+    <pv_name>$(P)$(CA)rateSet</pv_name>
+    <x>176</x>
+    <y>175</y>
+    <width>98</width>
+    <height>20</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="18.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="204" green="230" blue="255">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_2</name>
+    <pv_name>$(P)$(CA)rate</pv_name>
+    <x>281</x>
+    <y>175</y>
+    <width>101</width>
+    <height>23</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="18.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="255" green="255" blue="204">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_4</name>
+    <text>Range:</text>
+    <x>103</x>
+    <y>204</y>
+    <width>63</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="18.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_3</name>
+    <pv_name>$(P)$(CA)range</pv_name>
+    <x>281</x>
+    <y>204</y>
+    <width>101</width>
+    <height>23</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="18.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="255" green="255" blue="204">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_5</name>
+    <text>Auto Range:</text>
+    <x>62</x>
+    <y>231</y>
+    <width>105</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="18.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_4</name>
+    <pv_name>$(P)$(CA)rangeAuto</pv_name>
+    <x>281</x>
+    <y>231</y>
+    <width>101</width>
+    <height>23</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="18.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="255" green="255" blue="204">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_6</name>
+    <text>Auto Ulimit:</text>
+    <x>70</x>
+    <y>256</y>
+    <width>104</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="18.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_7</name>
+    <text>Auto LLimit:</text>
+    <x>66</x>
+    <y>283</y>
+    <width>105</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="18.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_8</name>
+    <text>Zero Check:</text>
+    <x>64</x>
+    <y>310</y>
+    <width>105</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="18.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_7</name>
+    <pv_name>$(P)$(CA)zeroCheck</pv_name>
+    <x>281</x>
+    <y>310</y>
+    <width>101</width>
+    <height>23</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="18.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="255" green="255" blue="204">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_9</name>
+    <text>Zero Correct:</text>
+    <x>55</x>
+    <y>336</y>
+    <width>119</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="18.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_8</name>
+    <pv_name>$(P)$(CA)zeroCorrect</pv_name>
+    <x>281</x>
+    <y>336</y>
+    <width>101</width>
+    <height>23</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="18.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="255" green="255" blue="204">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_10</name>
+    <text>Rate:</text>
+    <x>118</x>
+    <y>175</y>
+    <width>49</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="18.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>Combo Box_2</name>
+    <pv_name>$(P)$(CA)rangeAutoSet</pv_name>
+    <x>176</x>
+    <y>231</y>
+    <width>98</width>
+    <height>20</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="18.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="204" green="230" blue="255">
+      </color>
+    </background_color>
+    <rules>
+      <rule name="Visibility" prop_id="visible" out_exp="false">
+        <exp bool_exp="pv0!=0">
+          <value>true</value>
+        </exp>
+        <pv_name>$(P)$(CA)rangeAuto</pv_name>
+      </rule>
+    </rules>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>Combo Box_3</name>
+    <pv_name>$(P)$(CA)rangeSet</pv_name>
+    <x>176</x>
+    <y>204</y>
+    <width>98</width>
+    <height>20</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="18.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="204" green="230" blue="255">
+      </color>
+    </background_color>
+    <rules>
+      <rule name="Visibility" prop_id="visible" out_exp="false">
+        <exp bool_exp="pv0=0">
+          <value>true</value>
+        </exp>
+        <pv_name>$(P)$(CA)rangeAuto</pv_name>
+      </rule>
+    </rules>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>Combo Box_5</name>
+    <pv_name>$(P)$(CA)zeroCheckSet</pv_name>
+    <x>176</x>
+    <y>310</y>
+    <width>98</width>
+    <height>20</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="18.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="204" green="230" blue="255">
+      </color>
+    </background_color>
+    <rules>
+      <rule name="Visibility" prop_id="visible" out_exp="false">
+        <exp bool_exp="pv0!=0">
+          <value>true</value>
+        </exp>
+        <pv_name>$(P)$(CA)rangeAuto</pv_name>
+      </rule>
+    </rules>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>Combo Box_6</name>
+    <pv_name>$(P)$(CA)zeroCorrectSet</pv_name>
+    <x>176</x>
+    <y>336</y>
+    <width>98</width>
+    <height>20</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="18.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="204" green="230" blue="255">
+      </color>
+    </background_color>
+    <rules>
+      <rule name="Visibility" prop_id="visible" out_exp="false">
+        <exp bool_exp="pv0!=0">
+          <value>true</value>
+        </exp>
+        <pv_name>$(P)$(CA)rangeAuto</pv_name>
+      </rule>
+    </rules>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>Group</name>
+    <x>176</x>
+    <y>256</y>
+    <width>206</width>
+    <height>50</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <rules>
+      <rule name="Visibility" prop_id="visible" out_exp="false">
+        <exp bool_exp="pv0!=0">
+          <value>false</value>
+        </exp>
+        <pv_name>$(P)$(CA)rangeAuto</pv_name>
+      </rule>
+    </rules>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_5</name>
+      <pv_name>$(P)$(CA)rangeAutoUlimit</pv_name>
+      <x>105</x>
+      <width>101</width>
+      <height>23</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="18.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="255" green="255" blue="204">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_6</name>
+      <pv_name>$(P)$(CA)rangeAutoLlimit</pv_name>
+      <x>105</x>
+      <y>27</y>
+      <width>101</width>
+      <height>23</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="18.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="255" green="255" blue="204">
+        </color>
+      </background_color>
+    </widget>
+  </widget>
+  <widget type="polyline" version="2.0.0">
+    <name>Polyline_2</name>
+    <x>18</x>
+    <y>369</y>
+    <width>445</width>
+    <height>12</height>
+    <points>
+      <point x="460.0" y="0.0">
+      </point>
+      <point x="0.0" y="0.0">
+      </point>
+    </points>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_12</name>
+    <text>Median Filter:</text>
+    <x>103</x>
+    <y>381</y>
+    <width>119</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="18.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>Combo Box_7</name>
+    <pv_name>$(P)$(CA)medianFilterSet</pv_name>
+    <x>224</x>
+    <y>381</y>
+    <width>109</width>
+    <height>20</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="18.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="204" green="230" blue="255">
+      </color>
+    </background_color>
+    <rules>
+      <rule name="Visibility" prop_id="visible" out_exp="false">
+        <exp bool_exp="pv0!=0">
+          <value>true</value>
+        </exp>
+        <pv_name>$(P)$(CA)rangeAuto</pv_name>
+      </rule>
+    </rules>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_9</name>
+    <pv_name>$(P)$(CA)medianFilter</pv_name>
+    <x>351</x>
+    <y>381</y>
+    <width>117</width>
+    <height>23</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="18.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="255" green="255" blue="204">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_4</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(P)$(CA)zeroCorrectAcquire.PROC</pv_name>
+        <value>1</value>
+        <description>WritePV</description>
+      </action>
+    </actions>
+    <text>Acquire</text>
+    <x>395</x>
+    <y>336</y>
+    <width>74</width>
+    <height>24</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="18.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="255" green="255" blue="128">
+      </color>
+    </background_color>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_13</name>
+    <text>Filter Rank:</text>
+    <x>119</x>
+    <y>412</y>
+    <width>94</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="18.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_10</name>
+    <pv_name>$(P)$(CA)medianFilterRank</pv_name>
+    <x>351</x>
+    <y>412</y>
+    <width>117</width>
+    <height>23</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="18.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="255" green="255" blue="204">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Entry</name>
+    <pv_name>$(P)$(CA)medianFilterRankSet</pv_name>
+    <x>224</x>
+    <y>412</y>
+    <width>109</width>
+    <height>23</height>
+  </widget>
+  <widget type="polyline" version="2.0.0">
+    <name>Polyline_3</name>
+    <x>18</x>
+    <y>443</y>
+    <width>445</width>
+    <height>12</height>
+    <points>
+      <point x="460.0" y="0.0">
+      </point>
+      <point x="0.0" y="0.0">
+      </point>
+    </points>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_14</name>
+    <text>Digital Filter:</text>
+    <x>103</x>
+    <y>455</y>
+    <width>119</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="18.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>Combo Box_9</name>
+    <pv_name>$(P)$(CA)digitalFilterSet</pv_name>
+    <x>224</x>
+    <y>455</y>
+    <width>109</width>
+    <height>20</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="18.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="204" green="230" blue="255">
+      </color>
+    </background_color>
+    <rules>
+      <rule name="Visibility" prop_id="visible" out_exp="false">
+        <exp bool_exp="pv0!=0">
+          <value>true</value>
+        </exp>
+        <pv_name>$(P)$(CA)rangeAuto</pv_name>
+      </rule>
+    </rules>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_11</name>
+    <pv_name>$(P)$(CA)digitalFilter</pv_name>
+    <x>351</x>
+    <y>455</y>
+    <width>117</width>
+    <height>23</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="18.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="255" green="255" blue="204">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_15</name>
+    <text>Filter Count:</text>
+    <x>104</x>
+    <y>486</y>
+    <width>110</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="18.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_12</name>
+    <pv_name>$(P)$(CA)digitalFilterCount</pv_name>
+    <x>351</x>
+    <y>486</y>
+    <width>117</width>
+    <height>23</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="18.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="255" green="255" blue="204">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Entry_1</name>
+    <pv_name>$(P)$(CA)digitalFilterCountSet</pv_name>
+    <x>224</x>
+    <y>486</y>
+    <width>109</width>
+    <height>23</height>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_16</name>
+    <text>Filter Control:</text>
+    <x>92</x>
+    <y>518</y>
+    <width>119</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="18.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>Combo Box_10</name>
+    <pv_name>$(P)$(CA)digitalFilterControlSet</pv_name>
+    <x>225</x>
+    <y>518</y>
+    <width>109</width>
+    <height>20</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="18.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="204" green="230" blue="255">
+      </color>
+    </background_color>
+    <rules>
+      <rule name="Visibility" prop_id="visible" out_exp="false">
+        <exp bool_exp="pv0!=0">
+          <value>true</value>
+        </exp>
+        <pv_name>$(P)$(CA)rangeAuto</pv_name>
+      </rule>
+    </rules>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_13</name>
+    <pv_name>$(P)$(CA)digitalFilterControl</pv_name>
+    <x>352</x>
+    <y>518</y>
+    <width>117</width>
+    <height>23</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="18.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="255" green="255" blue="204">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_5</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(P)$(CA)refresh.PROC</pv_name>
+        <value>1</value>
+        <description>WritePV</description>
+      </action>
+    </actions>
+    <text>Refresh</text>
+    <x>395</x>
+    <y>204</y>
+    <width>74</width>
+    <height>24</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="18.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="255" green="255" blue="128">
+      </color>
+    </background_color>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>Combo Box_11</name>
+    <pv_name>$(P)$(CA)read.SCAN</pv_name>
+    <x>250</x>
+    <y>136</y>
+    <width>136</width>
+    <height>20</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="18.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="204" green="230" blue="255">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_6</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(P)$(CA)zeroCorrectAcquire.PROC</pv_name>
+        <value>1</value>
+        <description>WritePV</description>
+      </action>
+    </actions>
+    <text>Acquire</text>
+    <x>395</x>
+    <y>134</y>
+    <width>74</width>
+    <height>24</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="18.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="255" green="255" blue="128">
+      </color>
+    </background_color>
+    <rules>
+      <rule name="Visibility" prop_id="visible" out_exp="false">
+        <exp bool_exp="pv0==0">
+          <value>true</value>
+        </exp>
+        <pv_name>$(P)$(CA)read.SCAN</pv_name>
+      </rule>
+    </rules>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_17</name>
+    <text>Keithley 6485 picoameter</text>
+    <x>18</x>
+    <y>13</y>
+    <width>492</width>
+    <height>52</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="28.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="0" green="0" blue="255">
+      </color>
+    </foreground_color>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>Combo Box_1</name>
+    <pv_name>$(P)$(CA)rangeAutoUlimitSet</pv_name>
+    <x>176</x>
+    <y>256</y>
+    <width>98</width>
+    <height>20</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="18.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="204" green="230" blue="255">
+      </color>
+    </background_color>
+    <rules>
+      <rule name="Visibility" prop_id="visible" out_exp="false">
+        <exp bool_exp="pv0!=0">
+          <value>true</value>
+        </exp>
+        <pv_name>$(P)$(CA)rangeAuto</pv_name>
+      </rule>
+    </rules>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>Combo Box_4</name>
+    <pv_name>$(P)$(CA)rangeAutoLlimitSet</pv_name>
+    <x>176</x>
+    <y>283</y>
+    <width>98</width>
+    <height>20</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="18.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="204" green="230" blue="255">
+      </color>
+    </background_color>
+    <rules>
+      <rule name="Visibility" prop_id="visible" out_exp="false">
+        <exp bool_exp="pv0!=0">
+          <value>true</value>
+        </exp>
+        <pv_name>$(P)$(CA)rangeAuto</pv_name>
+      </rule>
+    </rules>
+  </widget>
+</display>

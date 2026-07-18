@@ -1,0 +1,587 @@
+#
+record(mbbo, "$(P)$(R):Channel")
+{
+    field(DESC, "Select Channel")
+    field(ONVL, "1")
+    field(ONST, "Channel 1")
+    field(TWVL, "2")
+    field(TWST, "Channel 3")
+    field(THVL, "3")
+    field(THST, "Channel 3")
+    field(VAL, "3")
+#    field(FLNK, "$(P)$(R):RPV")
+}
+
+record(mbbi, "$(P)$(R):Status")
+{
+    field(DESC, "The status of channel")
+    field(DTYP, "stream")
+    field(INP, "@devCombivac.proto readPressure($(P)$(R)) $(PORT)")
+    field(ZRST, "OK")
+    field(ONST, "BelowRange")
+    field(TWST, "AboveRange")
+    field(THST, "ErrLo")
+    field(FRST, "ErrHi")
+    field(FVST, "SensorOff")
+    field(SXST, "HVon")
+    field(SVST, "SensorErr")
+    field(EIST, "NoSensor")
+    field(NIST, "NoTrig")
+    field(TEST, "ErrPi")
+	field(ELST,	"DegasOK")
+    field(SCAN, "1 second")
+	field(FLNK,	"$(P)$(R):RPV")
+}
+
+record(ai, "$(P)$(R):RPV")
+{
+    field(DESC, "Read pressure")
+	field(PREC,	"2")
+	field(HIHI,	"5E-7")
+	field(HHSV,	"MAJOR")
+	field(HIGH,	"1E-7")
+	field(HSV,	"MINOR")
+	field(LOW,	"5E-10")
+	field(LSV,	"MINOR")
+	field(LOLO,	"1E-10")
+	field(LLSV,	"MAJOR")
+	field(EGU,	"Pa")
+}
+record(ai, "$(P)$(R):RVN")
+{
+    field(DESC, "the version number")
+    field(DTYP, "stream")
+    field(INP, "@devCombivac.proto readVersion $(PORT)")
+	field(PREC,	"2")
+    field(SCAN, "1 second")
+}
+
+record(bi, "$(P)$(R):RSS_SP1")
+{
+    field(DESC, "the status")
+    field(DTYP, "stream")
+    field(INP, "@devCombivac.proto readSwitch_Status($(P)$(R)) $(PORT)")
+    field(ZNAM, "LOW")
+    field(ONAM, "HIGH")
+    field(SCAN, "1 second")
+    field(FLNK, "$(P)$(R):RSS_SP2")
+}
+
+record(bi, "$(P)$(R):RSS_SP2")
+{
+    field(DESC, "the status")
+    field(ZNAM, "LOW")
+    field(ONAM, "HIGH")
+}
+
+record(bo, "$(P)$(R):SHV")
+{
+    field(DESC, "Setting HV on/off")
+    field(DTYP, "stream")
+    field(OUT, "@devCombivac.proto setHV $(PORT)")
+    field(ZNAM, "OFF")
+    field(ONAM, "ON")
+	field(VAL,	"0")
+}
+
+record(bo, "$(P)$(R):SDG")
+{
+    field(DESC, "degas function")
+    field(DTYP, "stream")
+    field(OUT, "@devCombivac.proto setDegas() $(PORT)")
+    field(ZNAM, "OFF")
+    field(ONAM, "ON")
+	field(VAL,	"0")
+}
+
+record(bo, "$(P)$(R):SKL")
+{
+    field(DESC, "keylock")
+    field(DTYP, "stream")
+    field(OUT, "@devCombivac.proto setLock() $(PORT)")
+    field(ZNAM, "OFF")
+    field(ONAM, "ON")
+	field(VAL,	"0")
+}
+
+record(ao, "$(P)$(R):SAC")
+{
+    field(DESC, "Saving current configuration")
+    field(DTYP, "stream")
+    field(OUT, "@devCombivac.proto saveConfigure $(PORT)")
+}
+
+record(ai, "$(P)$(R):RSA")
+{
+    field(DESC, "Read address for RS485")
+    field(DTYP, "stream")
+    field(INP, "@devCombivac.proto readAddress $(PORT)")
+    field(SCAN, "1 second")
+}
+
+record(ao, "$(P)$(R):SSA")
+{
+    field(DESC, "Setting adress for RS485")
+    field(DTYP, "stream")
+    field(OUT, "@devCombivac.proto setAddress $(PORT)")
+}
+
+record(mbbi, "$(P)$(R):RGP_Unit")
+{
+    field(DESC, "Read Unit")
+    field(DTYP, "stream")
+    field(INP, "@devCombivac.proto readSetting($(P)$(R)) $(PORT)")
+    field(ZRVL, "0")
+    field(ZRST, "mbar")
+    field(ONVL, "1")
+    field(ONST, "Pa")
+    field(TWVL, "2")
+    field(TWST, "Torr")
+    field(SCAN, "1 second")
+    field(FLNK, "$(P)$(R):RGP_Display_Number")
+}
+
+
+#record(bi, "$(P)$(R):RGP_Mode")
+#{
+#    field(DESC, "Read Analog Output")
+#    field(ZNAM, "CM31")
+#    field(ONAM, "CM52")
+#    field(FLNK, "$(P)$(R):RGP_Display_Number")
+#}
+
+record(bi, "$(P)$(R):RGP_Display_Number")
+{
+    field(DESC, "Number Of Displayed Digits")
+    field(ZNAM, "2")
+    field(ONAM, "3")
+    field(FLNK, "$(P)$(R):RGP_Brightness")
+}
+
+record(bi, "$(P)$(R):RGP_Brightness")
+{
+    field(DESC, "Brightness")
+    field(ZNAM, "hoch")
+    field(ONAM, "gering")
+    field(FLNK, "$(P)$(R):RGP_Baudrate")
+}
+
+#record(ai, "$(P)$(R):RGP_Profibus")
+#{
+#    field(DESC, "Profibus")
+#    field(LOPR, "1")
+#    field(HOPR, "126")
+#    field(FLNK, "$(P)$(R):RGP_Baudrate")
+#}
+
+
+record(mbbi, "$(P)$(R):RGP_Baudrate")
+{
+    field(DESC, "Baudrate")
+    field(ZRVL, "0")
+    field(ZRST, "9600")
+    field(ONVL, "1")
+    field(ONST, "19200")
+    field(TWVL, "3")
+    field(TWST, "38400")
+    field(FLNK, "$(P)$(R):RGP_Serial")
+}
+
+
+record(bi, "$(P)$(R):RGP_Serial")
+{
+    field(DESC, "Serial Interface")
+    field(ZNAM, "RS232")
+    field(ONAM, "RS485")
+}
+
+
+record(mbbo, "$(P)$(R):Unit")
+{
+    field(DESC, "Select Unit")
+    field(ZRVL, "0")
+    field(ZRST, "mbar")
+    field(ONVL, "1")
+    field(ONST, "Pa")
+    field(TWVL, "2")
+    field(TWST, "Torr")
+	field(VAL,	"1")
+    field(FLNK, "$(P)$(R):ApplySet")
+}
+
+#record(bo, "$(P)$(R):Mode")
+#{
+#    field(DESC, "Select Mode")
+#    field(ZNAM, "CM31")
+#    field(ONAM, "CM52")
+#    field(FLNK, "$(P)$(R):ApplySet")
+#}
+
+record(bo, "$(P)$(R):Display_Number")
+{
+    field(DESC, "Select Display_Number")
+    field(ZNAM, "2")
+    field(ONAM, "3")
+	field(VAL,	"0")
+    field(FLNK, "$(P)$(R):ApplySet")
+}
+
+record(bo, "$(P)$(R):Brightness")
+{
+    field(DESC, "Select Brightness")
+    field(ZNAM, "hoch")
+    field(ONAM, "gering")
+	field(VAL,	"0")
+    field(FLNK, "$(P)$(R):ApplySet")
+}
+
+#record(ao, "$(P)$(R):Profibus")
+#{
+#    field(DESC, "Select Profibus")
+#    field(LOPR, "1")
+#    field(HOPR, "126")
+#    field(DRVL, "1")
+#    field(DRVH, "126")
+#    field(FLNK, "$(P)$(R):Baudrate")
+#}
+
+record(mbbo, "$(P)$(R):Baudrate")
+{
+    field(DESC, "Select Baudrate")
+    field(ZRVL, "0")
+    field(ZRST, "9600")
+    field(ONVL, "1")
+    field(ONST, "19200")
+    field(TWVL, "3")
+    field(TWST, "38400")
+	field(VAL,	"1")
+    field(FLNK, "$(P)$(R):ApplySet")
+}
+
+record(bo, "$(P)$(R):Serial")
+{
+    field(DESC, "Select Serial")
+    field(ZNAM, "RS232")
+    field(ONAM, "RS485")
+	field(VAL,	"0")
+	field(FLNK,	"$(P)$(R):ApplySet")
+}
+
+record(calcout, "$(P)$(R):ApplySet")
+{
+    field(DESC, "Apply all channel settings")
+
+    field(INPA, "$(P)$(R):Unit")
+    field(INPB, "$(P)$(R):Display_Number")
+    field(INPC, "$(P)$(R):Brightness")
+    field(INPD, "$(P)$(R):Baudrate")
+    field(INPE, "$(P)$(R):Serial")
+
+    field(CALC, "0")
+    field(DTYP, "stream")
+#    field(PINI, "YES")
+    field(OUT, "@devCombivac.proto setSetting $(PORT)")
+}
+
+
+record(ai, "$(P)$(R):RGC")
+{
+    field(DESC, "gas correction factor")
+    field(DTYP, "stream")
+    field(INP, "@devCombivac.proto readType $(PORT)")
+	field(HIHI,	"7.80")
+	field(HHSV,	"MAJOR")
+	field(HIGH,	"7.50")
+	field(HSV,	"MINOR")
+	field(LOW,	"0.80")
+	field(LSV,	"MINOR")
+	field(LOLO,	"0.50")
+	field(LLSV,	"MAJOR")
+    field(LOPR, "0.20")
+    field(HOPR, "8.00")
+	field(PREC,	"2")
+    field(SCAN, "1 second")
+	field(PINI,	"YES")
+	field(FLNK,	"$(P)$(R):syncSGC")
+}
+
+record(calcout, "$(P)$(R):syncSGC")
+{
+    field(INPA, "$(P)$(R):RGC")
+    field(CALC, "A")
+    field(OUT,  "$(P)$(R):SGC")
+}
+
+
+record(ao, "$(P)$(R):SGC")
+{
+    field(DESC, "gas correction factor")
+    field(DTYP, "stream")
+    field(OUT, "@devCombivac.proto setType $(PORT)")
+    field(LOPR, "0.20")
+    field(HOPR, "8.00")
+    field(DRVL, "0.20")
+    field(DRVH, "8.00")
+	field(PREC,	"2")
+}
+
+
+record(mbbi, "$(P)$(R):OnType")
+{
+    field(DESC, "Sensor Swith-On Type Channel")
+    field(DTYP, "stream")
+    field(INP,  "@devCombivac.proto readSensor($(P)$(R)) $(PORT)")
+    field(ZRVL, "0")
+    field(ZRST, "Manual")
+    field(ONVL, "1")
+    field(ONST, "External")
+    field(TWVL, "2")
+    field(TWST, "n.a")
+    field(THVL, "3")
+    field(THST, "Through channel 1")
+    field(FRVL, "4")
+    field(FRST, "Through channel 2")
+    field(SCAN, "1 second")
+    field(FLNK, "$(P)$(R):OffType")
+}
+
+
+record(mbbi, "$(P)$(R):OffType")
+{
+    field(DESC, "Sensor Switch-Off Type Channel")
+    field(ZRVL, "0")
+    field(ZRST, "Manual")
+    field(ONVL, "1")
+    field(ONST, "External")
+    field(TWVL, "2")
+    field(TWST, "Self-monitoring")
+    field(THVL, "3")
+    field(THST, "Through channel 1")
+    field(FRVL, "4")
+    field(FRST, "Through channel 2")
+    field(FLNK, "$(P)$(R):SwitchOn")
+}
+
+record(ai, "$(P)$(R):SwitchOn")
+{
+    field(DESC, "Switch-On Value")
+	field(PREC,	"4")
+    field(FLNK, "$(P)$(R):SwitchOff")
+#	field(PINI,	"YES")
+#	field(FLNK,	"$(P)$(R):syncOnValue")
+}
+
+#record(calcout, "$(P)$(R):syncOnValue")
+#{
+#    field(INPA, "$(P)$(R):SwitchOn.VAL")
+#    field(CALC, "A")
+#    field(OUT,  "$(P)$(R):SetOnValue.VAL PP")
+#}
+
+record(ai, "$(P)$(R):SwitchOff")
+{
+    field(DESC, "Switch-Off Value")
+	field(PREC,	"4")
+#	field(PINI,	"YES")
+#	field(FLNK,	"$(P)$(R):syncOffValue")
+}
+
+#record(calcout, "$(P)$(R):syncOffValue")
+#{
+#    field(INPA, "$(P)$(R):SwitchOff.VAL")
+#    field(CALC, "A")
+#    field(OUT,  "$(P)$(R):SetOffValue.VAL PP")
+#}
+
+record(mbbo, "$(P)$(R):SetOnType")
+{
+    field(DESC, "Sensor Swith-On Type Channel")
+    field(ZRVL, "0")
+    field(ZRST, "Manual")
+    field(ONVL, "1")
+    field(ONST, "External")
+    field(TWVL, "2")
+    field(TWST, "n.a")
+    field(THVL, "3")
+    field(THST, "Through channel 1")
+    field(FRVL, "4")
+    field(FRST, "Through channel 2")
+    field(SCAN, "1 second")
+	field(VAL,	"0")
+    field(FLNK, "$(P)$(R):ApplySensor")
+}
+
+
+record(mbbo, "$(P)$(R):SetOffType")
+{
+    field(DESC, "Sensor Switch-Off Type Channel")
+    field(ZRVL, "0")
+    field(ZRST, "Manual")
+    field(ONVL, "1")
+    field(ONST, "External")
+    field(TWVL, "2")
+    field(TWST, "Self-monitoring")
+    field(THVL, "3")
+    field(THST, "Through channel 1")
+    field(FRVL, "4")
+    field(FRST, "Through channel 2")
+	field(VAL,	"0")
+    field(FLNK, "$(P)$(R):ApplySensor")
+}
+
+record(ao, "$(P)$(R):SetOnValue")
+{
+    field(DESC, "Switch-On Value")
+	field(PREC,	"4")
+	field(VAL,	"5e-3")
+    field(FLNK, "$(P)$(R):ApplySensor")
+}
+
+record(ao, "$(P)$(R):SetOffValue")
+{
+    field(DESC, "Switch-Off Value")
+	field(PREC,	"4")
+	field(VAL,	"5.5e-3")
+	field(FLNK,	"$(P)$(R):ApplySensor")
+}
+
+record(calcout, "$(P)$(R):ApplySensor")
+{
+    field(DESC, "Apply all Sensors")
+    field(INPA, "$(P)$(R):SetOnType")
+    field(INPB, "$(P)$(R):SetOffType")
+    field(INPC, "$(P)$(R):SetOnValue")
+    field(INPD, "$(P)$(R):SetOffValue")
+    field(CALC, "0")
+    field(DTYP, "stream")
+#    field(PINI, "YES")
+    field(OUT, "@devCombivac.proto setSensor $(PORT)")
+}
+
+record(ai, "$(P)$(R):RSP_SP1_LOW")
+{
+    field(DESC, "SP1 Low")
+    field(DTYP, "stream")
+    field(INP,  "@devCombivac.proto readThresholds($(P)$(R)) $(PORT)")
+	field(PREC,	"4")
+    field(SCAN, "1 second")
+    field(FLNK, "$(P)$(R):RSP_SP1_HIGH")
+#	field(PINI, "YES")
+#    field(FLNK, "$(P)$(R):syncSP1_LOW")
+}
+
+#record(calcout, "$(P)$(R):syncSP1_LOW")
+#{
+#    field(INPA, "$(P)$(R):RSP_SP1_LOW.VAL")
+#    field(CALC, "A")
+#    field(OUT,  "$(P)$(R):SSP_SP1_LOW.VAL PP")
+#}
+
+
+record(ai, "$(P)$(R):RSP_SP1_HIGH")
+{
+    field(DESC, "SP1 High")
+	field(PREC,	"4")
+    field(FLNK, "$(P)$(R):RSP_SP2_LOW")
+#	field(PINI,	"YES")
+#	field(FLNK,	"$(P)$(R):syncSP1_HIGH")
+}
+
+#record(calcout, "$(P)$(R):syncSP1_HIGH")
+#{
+#    field(INPA, "$(P)$(R):RSP_SP1_HIGH.VAL")
+ #   field(CALC, "A")
+#    field(OUT,  "$(P)$(R):SSP_SP1_HIGH.VAL PP")
+#}
+
+record(ai, "$(P)$(R):RSP_SP2_LOW")
+{
+    field(DESC, "SP2 Low")
+	field(PREC,	"4")
+    field(FLNK, "$(P)$(R):RSP_SP2_HIGH")
+#	field(PINI,	"YES")
+#	field(FLNK, "$(P)$(R):syncSP2_LOW")
+}
+
+#record(calcout, "$(P)$(R):syncSP2_LOW")
+#{
+#    field(INPA, "$(P)$(R):RSP_SP2_LOW.VAL")
+#    field(CALC, "A")
+#    field(OUT,  "$(P)$(R):SSP_SP2_LOW.VAL PP")
+#}
+
+record(ai, "$(P)$(R):RSP_SP2_HIGH")
+{
+    field(DESC, "SP2 HIGH")
+	field(PREC,	"4")
+#	field(PINI,	"YES")
+#	field(FLNK, "$(P)$(R):syncSP2_HIGH")
+}
+
+#record(calcout, "$(P)$(R):syncSP2_HIGH")
+#{
+#    field(INPA, "$(P)$(R):RSP_SP2_HIGH.VAL")
+#    field(CALC, "A")
+#    field(OUT,  "$(P)$(R):SSP_SP2_HIGH.VAL PP")
+#}
+
+record(mbbo, "$(P)$(R):Th_Channel")
+{
+    field(DESC, "Select Channel")
+    field(ONVL, "1")
+    field(ONST, "Channel 1")
+    field(TWVL, "2")
+    field(TWST, "Channel 3")
+    field(THVL, "3")
+    field(THST, "Channel 3")
+    field(VAL, "3")
+    field(FLNK, "$(P)$(R):ApplyThresh")
+}
+
+record(ao, "$(P)$(R):SSP_SP1_LOW")
+{
+    field(DESC, "SP1 Low")
+	field(PREC,	"4")
+	field(VAL,	"2.1e-8")
+    field(FLNK, "$(P)$(R):ApplyThresh")
+}
+
+
+record(ao, "$(P)$(R):SSP_SP1_HIGH")
+{
+    field(DESC, "SP1 High")
+	field(PREC,	"4")
+	field(VAL,	"2.4e-8")
+    field(FLNK, "$(P)$(R):ApplyThresh")
+}
+
+record(ao, "$(P)$(R):SSP_SP2_LOW")
+{
+    field(DESC, "SP2 Low")
+	field(PREC,	"4")
+	field(VAL,	"1e-8")
+    field(FLNK, "$(P)$(R):ApplyThresh")
+}
+
+record(ai, "$(P)$(R):SSP_SP2_HIGH")
+{
+    field(DESC, "SP2 HIGH")
+	field(PREC,	"4")
+	field(VAL,	"1.1e-8")
+	field(FLNK,	"$(P)$(R):ApplyThresh")
+}
+
+record(calcout, "$(P)$(R):ApplyThresh")
+{
+    field(DESC, "Apply all channel thresholds")
+
+    field(INPA, "$(P)$(R):Th_Channel")
+    field(INPB, "$(P)$(R):SSP_SP1_LOW")
+    field(INPC, "$(P)$(R):SSP_SP1_HIGH")
+    field(INPD, "$(P)$(R):SSP_SP2_LOW")
+    field(INPE, "$(P)$(R):SSP_SP2_HIGH")
+    field(CALC, "0")
+    field(DTYP, "stream")
+#    field(PINI, "YES")
+    field(OUT, "@devCombivac.proto setThresholds $(PORT)")
+}

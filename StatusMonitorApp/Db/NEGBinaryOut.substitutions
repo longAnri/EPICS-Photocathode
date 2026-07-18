@@ -1,0 +1,7 @@
+file "$(MODBUS)/db/bi_word.template"{
+{R,			PORT,		OFFSET,		MASK,		ZNAM,		ONAM}
+{Cammand,		GEN_Word_Out,	0xC0,		0xFFFF,		Stopped,	Running}
+{CLB_Out_Cammand,       GEN_Word_Out,   0xC1,           0xFFFF,		Stopped,        Running}
+
+
+}

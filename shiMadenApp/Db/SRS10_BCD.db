@@ -1,0 +1,35 @@
+record(ai, "$(P)E_TimeRaw") {
+    field(DESC, "Minutes BCD")
+    field(DTYP, "asynInt32")
+    field(INP, "@asyn($(PORT) 2)BCD_UNSIGNED") 
+    field(PREC, "0")
+    field(SCAN, "1 second")
+}
+
+record(calc, "$(P)E_TimeMin") {
+    field(INPA, "$(P)E_TimeRaw CP")
+    field(CALC, "(A - A%100) / 100")
+	field(PREC,	"0")
+    field(EGU,	"m")
+}
+
+record(calc, "$(P)E_TimeSec") {
+    field(INPA, "$(P)E_TimeRaw CP")
+    field(CALC, "A%100")
+	field(PREC,	"0")
+    field(EGU, 	"s")
+}
+
+#record(calc, "$(P)E_TimeMin") {
+#    field(INPA, "$(P)E_TimeRaw CP")
+#    field(CALC, "(A / 256) / 16 *10 + (A / 256 % 16)")
+#	field(PREC,	"0")
+#    field(EGU,	"m")
+#}
+#
+#record(calc, "$(P)E_TimeSec") {
+#    field(INPA, "$(P)E_TimeRaw CP")
+#    field(CALC, "((A % 256) /16) *10 + (A %16)")
+#	field(PREC,	"0")
+#    field(EGU, 	"s")
+#}

@@ -1,0 +1,23 @@
+file "$(MODBUS)/db/longinInt32.template"{
+pattern
+{R,			PORT,			OFFSET,			DATA_TYPE,		LOPR,	HOPR,		PREC,		EGU,	SCAN,			DESC}
+{skyIcon_Current,	skyIcon_D,		3,			INT32_LE,		0,	10,		4,		nA,	"I/O Intr",		"Register"}
+{skyIcon_Volt,       	skyIcon_D,     		5,           		INT16,		     	0,      10,         	4,          	V,      "I/O Intr",     	"Register"}
+{skyIcon_Vac,           skyIcon_D,     		6,           		INT32_LE,    	 	0,      10,         	4,          	Pa,     "I/O Intr",     	"Register"}
+}
+
+file "$(MODBUS)/db/bi_word.template"{
+pattern
+{       R,              PORT,           OFFSET, MASK,           ZNAM,           	ONAM,       	ZSV,           OSV,            SCAN}
+{IconStatus_Remote,     skyIcon_D,	2,      0x01,       	Remote_Control,     	Local_Control   NO_ALARM,      MINOR,          "I/O Intr"}
+{IconStatus_Bake_R,     skyIcon_D,	2,      0x02,           Off,                	On,      	NO_ALARM,      MINOR,          "I/O Intr"}
+{IconStatus_Failure,    skyIcon_D,     	2,      0x04,           Fine,               	Faulty,     	NO_ALARM,      MINOR,          "I/O Intr"}
+{IconStatus_Run,   	skyIcon_D,     	2,      0x10,           Stop,               	Running,    	NO_ALARM,      MINOR,          "I/O Intr"}
+{IconStatus_7kv_R,      skyIcon_D,     	2,      0x20,           Off,                    On,         	NO_ALARM,      MINOR,          "I/O Intr"}
+{IconStatus_5kv_R,      skyIcon_D,     	2,      0x40,           Off,                    On,             NO_ALARM,      MINOR,          "I/O Intr"}
+{IconStatus_3kv_R,      skyIcon_D,     	2,      0x80,           Off,                    On,             NO_ALARM,      MINOR,          "I/O Intr"}
+{IconStatus_Protection, skyIcon_D,     	2,      0x100,          Off,                    On,             NO_ALARM,      MINOR,          "I/O Intr"}
+{IconStatus_Interlock,  skyIcon_D,     	2,      0x200,          Off,                    On,             NO_ALARM,      MINOR,          "I/O Intr"}
+
+}
+

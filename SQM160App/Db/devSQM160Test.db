@@ -1,0 +1,251 @@
+#########################################################################
+###   Command A 
+###   Query
+###   Film Parameters
+######################################################################### 
+record(ao, "$(P):filmNumber"){
+	field(DESC, "Set FilmNumber")
+	field(LOPR, "1")
+	field(HOPR, "99")
+	field(DRVH,	"1")
+	field(DRVL,	"99")
+	field(VAL,	"1")
+}
+
+record(stringin, "$(P):gFilmName")
+{
+	field(DESC, "Read the Film Name")
+	field(DTYP,	"stream")
+	field(INP,	"@devSQM160Test.proto getFilmPar($(P)) $(PORT)")
+	field(SCAN,	"5 second")
+	field(FLNK,	"$(P):gFilmNumber")
+}
+
+record(ai, "$(P):gFilmNumber")
+{
+	field(DESC, "Read the Film Number")
+	field(LOPR,	"1")
+	field(HOPR,	"99")
+	field(FLNK,	"$(P):gDensity")
+}
+
+record(ai, "$(P):gDensity"){
+	field(DESC, "Read Film Density")
+	field(LOPR,	"0.50")
+	field(HOPR,	"99.99")
+	field(HIHI,	"99.00")
+	field(HHSV,	"MAJOR")
+	field(HIGH,	"98.00")
+	field(HSV,	"MINOR")
+	field(LOW,	"1.00")
+	field(LSV,	"MINOR")
+	field(LOLO,	"0.60")
+	field(LLSV,	"MAJOR")
+	field(PREC,	"2")
+	field(EGU,	"g/cm^3")
+	field(FLNK,	"$(P):gFilmTooling")	
+}
+
+record(ai, "$(P):gFilmTooling"){
+	field(DESC, "Read Film Tooling")
+	field(LOPR,	"10")
+	field(HOPR,	"399")
+	field(HIHI,	"390")
+	field(HHSV,	"MAJOR")
+	field(HIGH,	"385")
+	field(HSV,	"MINOR")
+	field(LOW,	"15")
+	field(LSV,	"MINOR")
+	field(LOLO,	"11")
+	field(LLSV,	"MAJOR")
+	field(EGU,	"%")
+	field(FLNK,	"$(P):gZ-Ratio")	
+}
+
+record(ai, "$(P):gZ-Ratio"){
+	field(DESC, "Read Z-Ratio")
+	field(LOPR,	"0.1")
+	field(HOPR,	"9.999")
+	field(HIHI,	"9.999")
+	field(HHSV,	"MAJOR")
+	field(LOLO,	"0.1")
+	field(LLSV,	"MAJOR")
+	field(PREC,	"3")
+	field(FLNK,	"$(P):gFinalThickness")	
+}
+
+record(ai, "$(P):gFinalThickness"){
+	field(DESC, "Read Final Thickness")
+	field(LOPR,	"0.000")
+	field(HOPR,	"9999.000")
+	field(HIHI,	"9990.000")
+	field(HHSV,	"MAJOR")
+	field(HIGH,	"9950.000")
+	field(HSV,	"MINOR")
+	field(LOW,	"20")
+	field(LSV,	"MINOR")
+	field(LOLO,	"10")
+	field(LLSV,	"MAJOR")
+	field(PREC,	"3")
+	field(EGU,	"kA")
+	field(FLNK,	"$(P):gThicknessSetpoint")	
+}
+
+record(ai, "$(P):gThicknessSetpoint"){
+	field(DESC, "Read Thickness Setpoint")
+	field(LOPR,	"0.000")
+	field(HOPR,	"9999.000")
+	field(PREC,	"3")
+	field(EGU,	"kA")
+	field(FLNK,	"$(P):gTimeSetpint.PROC")	
+}
+
+record(ai, "$(P):gTimeSetpoint"){
+	field(DESC, "Read Time Setpoint")
+	field(LOPR,	"0")
+	field(HOPR,	"5999")
+	field(EGU,	"s")
+	field(FLNK,	"$(P):gSensorAve")	
+}
+
+record(mbbiDirect, "$(P):gSensorAve"){
+	field(DESC, "Read Sensor Average")
+}
+
+#########################################################################
+###   Command D
+###   Update
+###   The active Film
+######################################################################### 
+record(ao, "$(P):activeFilm")
+{
+    field(DESC, "Update the active Film")
+    field(DTYP, "stream")
+    field(OUT,  "@devSQM160.proto Active_Film() $(PORT)")
+    field(DRVL, "1")
+    field(LOPR, "1")
+    field(DRVH, "99")
+    field(HOPR, "99")
+    field(VAL,  "1")
+	field(FLNK, "$(P):ApplyFilm")
+}
+
+#########################################################################
+###   Command A 
+###   Update
+###   Film Parameters
+######################################################################### 
+#record(ao, "$(P):sFilmNumber")
+#{
+#	field(DESC, "Set the Film Number")
+#	field(DRVL,	"0")
+#	field(LOPR, "0")
+#	field(DRVH,	"99")
+#	field(HOPR,	"99")
+#	field(VAL,	"1")
+#	field(FLNK,	"$(P):ApplyFilm")
+#}
+
+record(stringout,"$(P):sFilmName"){
+	field(DESC, "Set Film Name")
+	field(VAL,	"GOLD")
+	field(FLNK,	"$(P):ApplyFilm")
+}
+
+record(ao, "$(P):sDensity"){
+	field(DESC, "Set Film Density")
+	field(DRVL,	"0.50")
+	field(LOPR,	"0.50")
+	field(DRVH,	"99.99")
+	field(HOPR,	"99.99")
+	field(VAL,	"6.23")
+	field(PREC,	"2")
+	field(EGU,	"g/cm^3")
+	field(FLNK,	"$(P):ApplyFilm")	
+}
+
+record(ao, "$(P):sFilmTooling"){
+	field(DESC, "Set Film Tooling")
+	field(DRVL,	"10")
+	field(LOPR,	"10")
+	field(DRVH,	"399")
+	field(HOPR,	"399")
+	field(VAL,	"125")
+	field(EGU,	"%")
+	field(FLNK,	"$(P):ApplyFilm")	
+}
+
+record(ao, "$(P):sZ-Ratio"){
+	field(DESC, "Set Z-Ratio")
+	field(DRVL,	"0.1")
+	field(LOPR,	"0.1")
+	field(DRVH,	"9.999")
+	field(HOPR,	"9.999")
+	field(PREC,	"3")
+	field(VAL,	"1.05")
+	field(FLNK,	"$(P):ApplyFilm")	
+}
+
+record(ao, "$(P):sFinalThickness"){
+	field(DESC, "Set Final Thickness")
+	field(DRVL,	"0.000")
+	field(LOPR,	"0.000")
+	field(DRVH,	"9999.000")
+	field(HOPR,	"9999.000")
+	field(PREC,	"3")
+	field(EGU,	"kA")
+	field(VAL,	"1.525")
+	field(FLNK,	"$(P):ApplyFilm")	
+}
+
+record(ao, "$(P):sThicknessSetpoint"){
+	field(DESC, "Set Thickness Setpoint")
+	field(DRVL,	"0.000")
+	field(LOPR,	"0.000")
+	field(DRVH,	"9999.000")
+	field(HOPR,	"9999.000")
+	field(EGU,	"kA")
+	field(PREC,	"3")
+	field(VAL,	"0.450")
+	field(FLNK,	"$(P):ApplyFilm")	
+}
+
+record(ao, "$(P):sTimeSetpoint"){
+	field(DESC, "Set Time Setpoint")
+	field(DRVL,	"0")
+	field(LOPR,	"0")
+	field(DRVH,	"5999")
+	field(HOPR,	"5999")
+	field(EGU,	"s")
+	field(VAL,	"30")
+	field(FLNK,	"$(P):ApplyFilm")	
+}
+
+record(mbboDirect, "$(P):sSensorAve"){
+	field(DESC, "Set Sensor Average")
+	field(VAL,	"1")
+	field(FLNK,	"$(P):ApplyFilm")
+}
+
+record(calcout, "$(P):ApplyFilm")
+{
+    field(DESC, "Apply all film parameters")
+
+#    field(INPA, "$(P):sFilmNumber")
+	field(INPA,	"$(P):activeFilm")
+#    field(INPB, "$(P):sFilmName CPP")
+    field(INPC, "$(P):sDensity")
+    field(INPD, "$(P):sFilmTooling")
+    field(INPE, "$(P):sZ-Ratio")
+	field(INPF,	"$(P):sFinalThickness")
+	field(INPG,	"$(P):sThicknessSetpoint")
+	field(INPH,	"$(P):sTimeSetpoint")
+	field(INPJ,	"$(P):sSensorAve")
+
+    field(CALC, "0")
+    field(DTYP, "stream")
+    field(PINI, "YES")
+    field(OUT, "@devSQM160Test.proto setFilmPar($(P)) $(PORT)")
+}
+
+

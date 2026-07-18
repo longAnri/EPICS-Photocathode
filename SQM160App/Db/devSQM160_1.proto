@@ -1,0 +1,153 @@
+# Stream Device Protocol for the SQM-160 Film Thickness Monitor
+# Long Feng 11/6/2024
+
+replytimeout = 200;
+readtimeout  = 200;
+
+
+
+getVersion {
+  out "@";
+  in  "%s";
+}
+
+getFilmPar {
+    out "A%(\$1:filmNumber)?";
+    in  "%d%(\$1:gFilmName)_"
+		"%(\$1:gDensity)_"
+		"%(\$1:gFilmTooling)_"
+		"%(\$1:gZ-factor)_"
+		"%(\$1:gFinalThickness)_"
+		"%(\$1:gThicknessSetpoint)_"
+		"%(\$1:gTimeSetpoint)_"
+		"%(\$1:gSensorAve)";
+}
+
+setFilmPar {
+  	out "A%d%(\$1:sFilmName)_"
+			"%(\$1:sDensity)_"
+			"%(\$1:sFilmTooling)_"
+			"%(\$1:sZ-factor)_"
+  			"%(\$1:sFinalThickness)_"
+			"%(\$1:sThicknessSetpoint)_"
+			"%(\$1:sTime_Setpoint)_"
+			"%(\$1:sSensorAve)";
+}
+
+getSys1_Par {
+    out "B?";
+    in  "%*2r_"
+		"%(\$1:gTimeBase)_"
+		"%(\$1:gSimMode)_"
+		"%(\$1:gFreqMode)_"
+		"%(\$1:gRateRes)_"
+		"%(\$1:gCrTool1)_"
+		"%(\$1:gCrTool2)_"
+		"%(\$1:gCrTool3)_"
+		"%(\$1:gCrTool4)_"
+		"%(\$1:gCrTool5)_"
+		"%(\$1:gCrTool6)";
+}
+
+setSys1_Par {
+	out "B_%d"
+		"%(\$1:sSimMode)_"
+        "%(\$1:sFreqMode)_"
+        "%(\$1:sRateRes)_"
+        "%(\$1:sCrTool1)_"
+        "%(\$1:sCrTool2)_"
+        "%(\$1:sCrTool3)_"
+        "%(\$1:sCrTool4)_"
+        "%(\$1:sCrTool5)_"
+        "%(\$1:sCrTool6)";
+
+}
+getSys2_Par {
+    out "C?";
+    in  "%*2r_"
+        "%.3f_"
+        "%(\$1:gMaxFreq)_"
+        "%(\$1:gMinRate)_"
+        "%(\$1:gMaxRate)_"
+        "%(\$1:gMinThick)_"
+        "%(\$1:gMaxThick)_"
+        "%(\$1:gEtchMode)%";
+
+}
+
+setSys2_Par {
+	out "C_%.3f"
+        "%(\$1:sMaxFreq)_"
+        "%(\$1:sMinRate)_"
+        "%(\$1:sMaxRate)_"
+        "%(\$1:sMinThick)_"
+        "%(\$1:sMaxThick)_"
+        "%(\$1:sEtchMode)";
+
+}
+
+Active_Film {
+  out "D%d";
+}
+ 
+Channels {
+  out "J";
+  in  "A%d"
+}
+
+Rate {
+  out "L%(\$1:Sensor)";
+  in  "A%f";
+}
+
+Ave_Rate {
+  out "M";
+  in  "A%f";
+}
+
+Thickness {
+  out "N%(\$1:ThickSensor)";
+  in  "A%f";
+}
+
+Ave_Thickness {
+  out "O";
+  in  "A%f";
+}
+
+Frequency {
+  out "P%(\$1:FreqSensor)";
+  in "A%f";
+}
+
+Crystal {
+  out "R%(\$1:StatusSensor)";
+  in  "A%.2f%";
+}
+
+Zero_Average {
+  out "S";
+  in  "A";
+}
+
+Zero_Time {
+  out "T";
+  in  "A";
+}
+
+Set_Source { out "U%(\$1:Shutter)"; }
+
+Read_Source {
+  out "U?";
+  in  "A%d";
+}
+
+Power_Up {
+  out "Y";
+  in  "A%d";
+}
+
+Default {
+  out "Z";
+  in  "A";
+}

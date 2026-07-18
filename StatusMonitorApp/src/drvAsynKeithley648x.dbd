@@ -1,0 +1,2 @@
+# Keithley 6485/6487 picoammeter
+registrar(drvAsynKeithley648xRegister)

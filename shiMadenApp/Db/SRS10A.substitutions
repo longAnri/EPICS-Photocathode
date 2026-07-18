@@ -1,0 +1,154 @@
+#########################################################################################
+#########################################################################################
+#### Machine:	SRS10A
+#### PORT:		SRS10_Ai
+#### Describe:	Instruction input
+#########################################################################################
+#########################################################################################
+file "$(MODBUS)/db/aiFloat64.template" {
+pattern
+{	P,		R,			PORT,		OFFSET,			DATA_TYPE	}
+{	SRS:,	PV,			SRS10_Ai,	0,				FLOAT32_LE	}
+{	SRS:,	SV,			SRS10_Ai,	1,				FLOAT32_LE	}
+{	SRS:,	OUT1R,		SRS10_Ai,	2,				FLOAT32_LE	}
+{	SRS:,	OUT2R,		SRS10_Ai,	3,				FLOAT32_LE	}
+{	SRS:,	HC1,		SRS10_Ai,	9,				FLOAT32_LE	}
+{	SRS:,	HC2,		SRS10_Ai,	10,				FLOAT32_LE	}
+}
+
+
+file "$(MODBUS)/db/int64in.template" {
+pattern
+{	P,		R,			PORT,		OFFSET,			DATA_TYPE,		SCAN		}
+{	SRS:,	SV.NoR		SRS10_Ai,	6,				INT16,			"I/O Intr"	}
+{	SRS:,	EXE_PID		SRS10_Ai,	7,				INT16,			"I/O Intr"	}
+{	SRS:,	EXE_PTN		SRS10_Ai,	0x21,			INT16,			"I/O Intr"	}
+{	SRS:,	EXE_PRG		SRS10_Ai,	0x23,			INT16,			"I/O Intr"	}
+{	SRS:,	EXE_PTN2	SRS10_Ai,	0x24,			INT16,			"I/O Intr"	}
+}
+
+file "$(MODBUS)/db/mbbiDirect.template" {
+pattern
+{	P,		R,			PORT,		OFFSET,			MASK,			SCAN,		}
+{	SRS:,	EXE_FLG,	SRS10_Ai,	4,				0xFFF,			"I/O Intr"	}
+{	SRS:,	EV_FLG,		SRS10_Ai,	5,				0x0F,			"I/O Intr"	}
+{	SRS:,	DI_FLG,		SRS10_Ai,	0x0B,			0x0F,			"I/O Intr"	}
+{	SRS:,	EV_LAC,		SRS10_Ai,	0x0D,			0x0F,			"I/O Intr"	}
+{	SRS:,	EV_ACT,		SRS10_Ai,	0x0E,			0x0F,			"I/O Intr"	}
+{	SRS:,	E_PRG,		SRS10_Ai,	0x20,			0x0F,			"I/O Intr"	}
+}
+
+
+#########################################################################################
+#########################################################################################
+#### Machine:	SRS10A
+#### PORT:		SRS10_Ao
+#### Describe:	Instruction output
+#########################################################################################
+#########################################################################################
+file "$(MODBUS)/db/bo_bit.template" {
+pattern
+{	P，		R,			PORT,		OFFSET,			ZNAM,			ONAM		}
+{	SRS:,	AT,			SRS10_Ao,	0x84,			No,				Acting		}
+{	SRS:,	MAN,		SRS10_Ao,	0x85,			Auto,			Man			}
+{	SRS:,	COM,		SRS10_Ao,	0x8C,			Loc,			Com			}
+{	SRS:,	RUN,		SRS10_Ao,	0x90,			Standby,		Execution	}
+{	SRS:,	HLD,		SRS10_Ao,	0x91,			HLF OFF,		HLF ON		}
+{	SRS:,	ADV,		SRS10_Ao,	0x92,			ADV OFF,		ADV ON		}
+{	SRS:,	MR1,		SRS10_Ao,	0x303,			None,			RESET		}
+{	SRS:,	MR1,		SRS10_Ao,	0x303,			None,			RESET		}
+{	SRS:,	MR1,		SRS10_Ao,	0x303,			None,			RESET		}
+{	SRS:,	DB21,		SRS10_Ao,	0x363,			None,			DeadBand1	}
+{	SRS:,	DB22,		SRS10_Ao,	0x36B,			None,			DeadBand2	}
+{	SRS:,	DB23,		SRS10_Ao,	0x373,			None,			ReadBand3	}
+{	SRS:,	CT1_HBS,	SRS10_Ao,	0x490,			None,			Breaker1	}
+{	SRS:,	CT1_HBL,	SRS10_Ao,	0x491,			None,			Circuit1	}
+{	SRS:,	CT1_MD,		SRS10_Ao,	0x492,			None,			Method1		}
+{	SRS:,	CT2_HBS,	SRS10_Ao,	0x498,			None,			Breaker2	}
+{	SRS:,	CT2_HBL,	SRS10_Ao,	0x499,			None,			Circuit2	}
+{	SRS:,	CT2_MD,		SRS10_Ao,	0x49A,			None,			Method2		}
+{	SRS:,	AO1_MD,		SRS10_Ao,	0x4A0,			None,			LogicOut	}
+{	SRS:,	COM_KIND,	SRS10_Ao,	0x4B1,			COM1,			COM2		}
+{	SRS:,	ACTMD,		SRS10_Ao,	0x500,			RA,				DA			}
+{	SRS:,	ACTMD2,		SRS10_Ao,	0x507,			RA,				DA			}
+{	SRS:,	PRG_MD,		SRS10_Ao,	0x700,			PROG,			FIX			}
+}
+
+file "$(MODBUS)/db/mbboDirect.template" {
+pattern
+{	P,		R,			PORT,		OFFSET,			MASK	}
+{	SRS:,	RST_LACH,	SRS10_Ao,	0x98,			0x0F	}
+{	SRS:,	COM_MEM,	SRS10_Ao,	0x4B0,			0x0F	}
+{	SRS:,	KLOCK,		SRS10_Ao,	0x511,			0x0F	}
+}
+
+
+file "$(MODBUS)/db/aoFloat64.template" {
+pattern
+{	P,		R,			PORT,			OFFSET,			DATA_TYPE	}
+{	SRS:,	OUT1S,		SRS10_Ao,		0x82,			FLOAT32_LE	}
+{	SRS:,	OUT2S,		SRS10_Ao,		0x83,			FLOAT32_LE	}
+{	SRS:,	FIX_SV1,	SRS10_Ao,		0x200,			FLOAT32_LE	}
+{	SRS:,	FIX_SV2,	SRS10_Ao,		0x201,			FLOAT32_LE	}
+{	SRS:,	FIX_SV3,	SRS10_Ao,		0x202,			FLOAT32_LE	}
+{	SRS:,	PB1,		SRS10_Ao,		0x300,			FLOAT32_LE	}
+{	SRS:,	IT1,		SRS10_Ao,		0x301,			FLOAT32_LE	}
+{	SRS:,	DT1,		SRS10_Ao,		0x302,			FLOAT32_LE	}
+{	SRS:,	DF1,		SRS10_Ao,		0x304,			FLOAT32_LE	}
+{	SRS:,	O11_L,		SRS10_Ao,		0x305,			FLOAT32_LE	}
+{	SRS:,	O11_H,		SRS10_Ao,		0x306,			FLOAT32_LE	}
+{	SRS:,	SF1,		SRS10_Ao,		0x307,			FLOAT32_LE	}
+{	SRS:,	PB2,		SRS10_Ao,		0x308,			FLOAT32_LE	}
+{	SRS:,	IT2,		SRS10_Ao,		0x309,			FLOAT32_LE	}
+{	SRS:,	DT2,		SRS10_Ao,		0x30A,			FLOAT32_LE	}
+{	SRS:,	DF2,		SRS10_Ao,		0x30C,			FLOAT32_LE	}
+{	SRS:,	O12_L,		SRS10_Ao,		0x30D,			FLOAT32_LE	}
+{	SRS:,	O12_H,		SRS10_Ao,		0x30E,			FLOAT32_LE	}
+{	SRS:,	SF2,		SRS10_Ao,		0x30F,			FLOAT32_LE	}
+{	SRS:,	PB3,		SRS10_Ao,		0x310,			FLOAT32_LE	}
+{	SRS:,	IT3,		SRS10_Ao,		0x311,			FLOAT32_LE	}
+{	SRS:,	DT3,		SRS10_Ao,		0x312,			FLOAT32_LE	}
+{	SRS:,	DF3,		SRS10_Ao,		0x314,			FLOAT32_LE	}
+{	SRS:,	O13_L,		SRS10_Ao,		0x315,			FLOAT32_LE	}
+{	SRS:,	O13_H,		SRS10_Ao,		0x316,			FLOAT32_LE	}
+{	SRS:,	SF3,		SRS10_Ao,		0x317,			FLOAT32_LE	}
+
+{	SRS:,	PB21,		SRS10_Ao,		0x360,			FLOAT32_LE	}
+{	SRS:,	IT21,		SRS10_Ao,		0x361,			FLOAT32_LE	}
+{	SRS:,	DT21,		SRS10_Ao,		0x362,			FLOAT32_LE	}
+{	SRS:,	DF21,		SRS10_Ao,		0x364,			FLOAT32_LE	}
+{	SRS:,	O21_L,		SRS10_Ao,		0x365,			FLOAT32_LE	}
+{	SRS:,	O21_H,		SRS10_Ao,		0x366,			FLOAT32_LE	}
+{	SRS:,	SF21,		SRS10_Ao,		0x367,			FLOAT32_LE	}
+{	SRS:,	PB22,		SRS10_Ao,		0x368,			FLOAT32_LE	}
+{	SRS:,	IT22,		SRS10_Ao,		0x369,			FLOAT32_LE	}
+{	SRS:,	DT22,		SRS10_Ao,		0x36A,			FLOAT32_LE	}
+{	SRS:,	DF22,		SRS10_Ao,		0x36C,			FLOAT32_LE	}
+{	SRS:,	O22_L,		SRS10_Ao,		0x36D,			FLOAT32_LE	}
+{	SRS:,	O22_H,		SRS10_Ao,		0x36E,			FLOAT32_LE	}
+{	SRS:,	SF22,		SRS10_Ao,		0x36F,			FLOAT32_LE	}
+{	SRS:,	PB23,		SRS10_Ao,		0x370,			FLOAT32_LE	}
+{	SRS:,	IT23,		SRS10_Ao,		0x371,			FLOAT32_LE	}
+{	SRS:,	DT23,		SRS10_Ao,		0x372,			FLOAT32_LE	}
+{	SRS:,	DF23,		SRS10_Ao,		0x374,			FLOAT32_LE	}
+{	SRS:,	O123_L,		SRS10_Ao,		0x375,			FLOAT32_LE	}
+{	SRS:,	O123_H,		SRS10_Ao,		0x376,			FLOAT32_LE	}
+{	SRS:,	SF23,		SRS10_Ao,		0x377,			FLOAT32_LE	}
+
+{	SRS:,	AO1_L,		SRS10_Ao,		0x4A1,			FLOAT32_LE	}
+{	SRS:,	AO1_H,		SRS10_Ao,		0x4A2,			FLOAT32_LE	}
+{	SRS:,	AO_LL,		SRS10_Ao,		0x4B4,			FLOAT32_LE	}
+{	SRS;,	AO_HH,		SRS10_Ao,		0x4B5,			FLOAT32_LE	}
+{	SRS:,	O1_CYC,		SRS10_Ao,		0x501,			FLOAT32_LE	}
+{	SRS:,	O2_CYC,		SRS10_Ao,		0x504,			FLOAT32_LE	}
+{	SRS:,	SOFTD1,		SRS10_Ao,		0x50A,			FLOAT32_LE	}
+{	SRS:,	SOTFD2,		SRS10_Ao,		0x50B,			FLOAT32_LE	}
+{	SRS:,	PV_G,		SRS10_Ao,		0x600,			FLOAT32_LE	}
+{	SRS:,	PV_B,		SRS10_Ao,		0x601,			FLOAT32_LE	}
+{	SRS:,	PV_F,		SRS10_Ao,		0x602,			FLOAT32_LE	}
+{	SRS:,	SC_L,		SRS10_Ao,		0x608,			FLOAT32_LE	}
+{	SRS:,	SC_H,		SRS10_Ao,		0x609,			FLOAT32_LE	}
+{	SRS:,	STEP_SV,	SRS10_Ao,		0x850,			FLOAT32_LE	}
+
+}
+

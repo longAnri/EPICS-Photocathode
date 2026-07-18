@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>Display</name>
+  <macros>
+    <P>SQM</P>
+  </macros>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <class>TITLE</class>
+    <text>System Parameters</text>
+    <x use_class="true">0</x>
+    <y use_class="true">0</y>
+    <width>550</width>
+    <height>31</height>
+    <font use_class="true">
+      <font name="Header 1" family="Liberation Sans" style="BOLD" size="22.0">
+      </font>
+    </font>
+    <foreground_color use_class="true">
+      <color name="Text" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <transparent use_class="true">true</transparent>
+  </widget>
+  <widget type="tabs" version="2.0.0">
+    <name>Tabs</name>
+    <tabs>
+      <tab>
+        <name>Read</name>
+        <children>
+          <widget type="group" version="2.0.0">
+            <name>Analog Out</name>
+            <x>8</x>
+            <y>92</y>
+            <width>251</width>
+            <height>130</height>
+            <widget type="label" version="2.0.0">
+              <name>Label_35</name>
+              <text>Min Thickness</text>
+              <y>2</y>
+            </widget>
+            <widget type="label" version="2.0.0">
+              <name>Label_36</name>
+              <text>Min Rate</text>
+              <x>110</x>
+              <y>2</y>
+            </widget>
+            <widget type="label" version="2.0.0">
+              <name>Label_37</name>
+              <text>Max Thickness</text>
+              <y>52</y>
+            </widget>
+            <widget type="label" version="2.0.0">
+              <name>Label_38</name>
+              <text>Max Rate</text>
+              <x>110</x>
+              <y>52</y>
+            </widget>
+            <widget type="textupdate" version="2.0.0">
+              <name>Text Update_5</name>
+              <pv_name>$(P):gMinThick</pv_name>
+              <x>2</x>
+              <y>22</y>
+              <width>80</width>
+            </widget>
+            <widget type="textupdate" version="2.0.0">
+              <name>Text Update_6</name>
+              <pv_name>$(P):gMinRate</pv_name>
+              <x>112</x>
+              <y>22</y>
+              <width>80</width>
+            </widget>
+            <widget type="textupdate" version="2.0.0">
+              <name>Text Update_7</name>
+              <pv_name>$(P):gMaxThick</pv_name>
+              <x>2</x>
+              <y>72</y>
+              <width>80</width>
+            </widget>
+            <widget type="textupdate" version="2.0.0">
+              <name>Text Update_8</name>
+              <pv_name>$(P):gMaxRate</pv_name>
+              <x>112</x>
+              <y>72</y>
+              <width>80</width>
+            </widget>
+          </widget>
+          <widget type="group" version="2.0.0">
+            <name>X Tooling</name>
+            <x>258</x>
+            <y>82</y>
+            <width>200</width>
+            <height>180</height>
+            <widget type="label" version="2.0.0">
+              <name>Label_39</name>
+              <text>Crystal 1</text>
+              <x>2</x>
+              <y>2</y>
+              <width>90</width>
+            </widget>
+            <widget type="label" version="2.0.0">
+              <name>Label_40</name>
+              <text>Crystal 2</text>
+              <x>82</x>
+              <y>2</y>
+              <width>90</width>
+            </widget>
+            <widget type="label" version="2.0.0">
+              <name>Label_41</name>
+              <text>Crystal 3</text>
+              <x>2</x>
+              <y>52</y>
+              <width>90</width>
+            </widget>
+            <widget type="label" version="2.0.0">
+              <name>Label_42</name>
+              <text>Crystal 4</text>
+              <x>82</x>
+              <y>52</y>
+              <width>90</width>
+            </widget>
+            <widget type="label" version="2.0.0">
+              <name>Label_43</name>
+              <text>Crystal 5</text>
+              <x>2</x>
+              <y>102</y>
+              <width>90</width>
+            </widget>
+            <widget type="label" version="2.0.0">
+              <name>Label_44</name>
+              <text>Crystal 6</text>
+              <x>82</x>
+              <y>102</y>
+              <width>90</width>
+            </widget>
+            <widget type="textupdate" version="2.0.0">
+              <name>Text Update_9</name>
+              <pv_name>$(P):gCrTool1</pv_name>
+              <x>2</x>
+              <y>22</y>
+              <width>70</width>
+            </widget>
+            <widget type="textupdate" version="2.0.0">
+              <name>Text Update_10</name>
+              <pv_name>$(P):gCrTool2</pv_name>
+              <x>82</x>
+              <y>22</y>
+              <width>70</width>
+            </widget>
+            <widget type="textupdate" version="2.0.0">
+              <name>Text Update_11</name>
+              <pv_name>$(P):gCrTool5</pv_name>
+              <x>2</x>
+              <y>122</y>
+              <width>70</width>
+            </widget>
+            <widget type="textupdate" version="2.0.0">
+              <name>Text Update_12</name>
+              <pv_name>$(P):gCrTool5</pv_name>
+              <x>82</x>
+              <y>122</y>
+              <width>70</width>
+            </widget>
+            <widget type="textupdate" version="2.0.0">
+              <name>Text Update_15</name>
+              <pv_name>$(P):gCrTool3</pv_name>
+              <x>2</x>
+              <y>72</y>
+              <width>70</width>
+            </widget>
+            <widget type="textupdate" version="2.0.0">
+              <name>Text Update_16</name>
+              <pv_name>$(P):gCrTool4</pv_name>
+              <x>82</x>
+              <y>72</y>
+              <width>70</width>
+            </widget>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_45</name>
+            <text>Filter</text>
+            <x>18</x>
+            <y>22</y>
+            <width>70</width>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_46</name>
+            <text>Timebase</text>
+            <x>118</x>
+            <y>22</y>
+            <width>70</width>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_47</name>
+            <text>Min Frequency</text>
+            <x>218</x>
+            <y>22</y>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_48</name>
+            <text>Max Frequency</text>
+            <x>328</x>
+            <y>22</y>
+          </widget>
+          <widget type="textupdate" version="2.0.0">
+            <name>Text Update_1</name>
+            <pv_name>$(P):gRateFilter</pv_name>
+            <x>18</x>
+            <y>52</y>
+            <width>70</width>
+          </widget>
+          <widget type="textupdate" version="2.0.0">
+            <name>Text Update_2</name>
+            <pv_name>$(P):gTimeBase</pv_name>
+            <x>118</x>
+            <y>52</y>
+            <width>80</width>
+          </widget>
+          <widget type="textupdate" version="2.0.0">
+            <name>Text Update_3</name>
+            <pv_name>$(P):gMinFreq</pv_name>
+            <x>218</x>
+            <y>52</y>
+            <width>90</width>
+          </widget>
+          <widget type="textupdate" version="2.0.0">
+            <name>Text Update_4</name>
+            <pv_name>$(P):gMaxFreq</pv_name>
+            <x>328</x>
+            <y>52</y>
+            <width>90</width>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>Send</name>
+        <children>
+          <widget type="spinner" version="2.0.0">
+            <name>Spinner</name>
+            <pv_name>$(P):sRateFilter</pv_name>
+            <x>18</x>
+            <y>42</y>
+            <width>70</width>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_1</name>
+            <text>Filter</text>
+            <x>18</x>
+            <y>12</y>
+            <width>70</width>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_2</name>
+            <text>Timebase</text>
+            <x>118</x>
+            <y>12</y>
+            <width>70</width>
+          </widget>
+          <widget type="spinner" version="2.0.0">
+            <name>Spinner_1</name>
+            <pv_name>$(P):sTimeBase</pv_name>
+            <x>118</x>
+            <y>42</y>
+            <width>70</width>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_3</name>
+            <text>Min Frequency</text>
+            <x>218</x>
+            <y>12</y>
+          </widget>
+          <widget type="spinner" version="2.0.0">
+            <name>Spinner_2</name>
+            <pv_name>$(P):sMinFreq</pv_name>
+            <x>218</x>
+            <y>42</y>
+            <width>90</width>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_5</name>
+            <text>Max Frequency</text>
+            <x>328</x>
+            <y>12</y>
+          </widget>
+          <widget type="spinner" version="2.0.0">
+            <name>Spinner_4</name>
+            <pv_name>$(P):sMaxFreq</pv_name>
+            <x>328</x>
+            <y>42</y>
+            <width>90</width>
+          </widget>
+          <widget type="group" version="2.0.0">
+            <name>X Tooling</name>
+            <x>248</x>
+            <y>72</y>
+            <width>200</width>
+            <height>180</height>
+            <widget type="label" version="2.0.0">
+              <name>Label_10</name>
+              <text>Crystal 1</text>
+              <x>2</x>
+              <y>2</y>
+              <width>90</width>
+            </widget>
+            <widget type="spinner" version="2.0.0">
+              <name>Spinner_9</name>
+              <pv_name>$(P):sCrTool1</pv_name>
+              <x>2</x>
+              <y>22</y>
+              <width>70</width>
+            </widget>
+            <widget type="spinner" version="2.0.0">
+              <name>Spinner_11</name>
+              <pv_name>$(P):sCrTool2</pv_name>
+              <x>82</x>
+              <y>22</y>
+              <width>70</width>
+            </widget>
+            <widget type="label" version="2.0.0">
+              <name>Label_12</name>
+              <text>Crystal 2</text>
+              <x>82</x>
+              <y>2</y>
+              <width>90</width>
+            </widget>
+            <widget type="label" version="2.0.0">
+              <name>Label_13</name>
+              <text>Crystal 3</text>
+              <x>2</x>
+              <y>52</y>
+              <width>90</width>
+            </widget>
+            <widget type="spinner" version="2.0.0">
+              <name>Spinner_12</name>
+              <pv_name>$(P):sCrTool3</pv_name>
+              <x>2</x>
+              <y>72</y>
+              <width>70</width>
+            </widget>
+            <widget type="spinner" version="2.0.0">
+              <name>Spinner_13</name>
+              <pv_name>$(P):sCrTool4</pv_name>
+              <x>82</x>
+              <y>72</y>
+              <width>70</width>
+            </widget>
+            <widget type="label" version="2.0.0">
+              <name>Label_14</name>
+              <text>Crystal 4</text>
+              <x>82</x>
+              <y>52</y>
+              <width>90</width>
+            </widget>
+            <widget type="label" version="2.0.0">
+              <name>Label_15</name>
+              <text>Crystal 5</text>
+              <x>2</x>
+              <y>102</y>
+              <width>90</width>
+            </widget>
+            <widget type="spinner" version="2.0.0">
+              <name>Spinner_14</name>
+              <pv_name>$(P):sCrTool5</pv_name>
+              <x>2</x>
+              <y>122</y>
+              <width>70</width>
+            </widget>
+            <widget type="spinner" version="2.0.0">
+              <name>Spinner_15</name>
+              <pv_name>$(P):sCrTool6</pv_name>
+              <x>82</x>
+              <y>122</y>
+              <width>70</width>
+            </widget>
+            <widget type="label" version="2.0.0">
+              <name>Label_16</name>
+              <text>Crystal 6</text>
+              <x>82</x>
+              <y>102</y>
+              <width>90</width>
+            </widget>
+          </widget>
+          <widget type="group" version="2.0.0">
+            <name>Analog Out</name>
+            <x>8</x>
+            <y>82</y>
+            <width>248</width>
+            <height>130</height>
+            <widget type="label" version="2.0.0">
+              <name>Label_6</name>
+              <text>Min Thickness</text>
+              <y>2</y>
+            </widget>
+            <widget type="spinner" version="2.0.0">
+              <name>Spinner_5</name>
+              <pv_name>$(P):sMinThick</pv_name>
+              <y>22</y>
+              <width>90</width>
+            </widget>
+            <widget type="label" version="2.0.0">
+              <name>Label_7</name>
+              <text>Min Rate</text>
+              <x>110</x>
+              <y>2</y>
+            </widget>
+            <widget type="spinner" version="2.0.0">
+              <name>Spinner_6</name>
+              <pv_name>$(P):sMinRate</pv_name>
+              <x>110</x>
+              <y>22</y>
+              <width>80</width>
+            </widget>
+            <widget type="label" version="2.0.0">
+              <name>Label_8</name>
+              <text>Max Thickness</text>
+              <y>52</y>
+            </widget>
+            <widget type="spinner" version="2.0.0">
+              <name>Spinner_7</name>
+              <pv_name>$(P):sMaxThick</pv_name>
+              <y>72</y>
+              <width>90</width>
+            </widget>
+            <widget type="label" version="2.0.0">
+              <name>Label_9</name>
+              <text>Max Rate</text>
+              <x>110</x>
+              <y>52</y>
+            </widget>
+            <widget type="spinner" version="2.0.0">
+              <name>Spinner_8</name>
+              <pv_name>$(P):sMaxRate</pv_name>
+              <x>110</x>
+              <y>72</y>
+              <width>80</width>
+            </widget>
+          </widget>
+        </children>
+      </tab>
+    </tabs>
+    <x>182</x>
+    <y>70</y>
+    <width>480</width>
+    <height>310</height>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>Selectiions</name>
+    <y>70</y>
+    <width>182</width>
+    <height>148</height>
+    <widget type="led" version="2.0.0">
+      <name>LED</name>
+      <pv_name>$(P):gSimMode</pv_name>
+      <x>2</x>
+      <y>3</y>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_49</name>
+      <text>Simulate Mode</text>
+      <x>32</x>
+      <y>5</y>
+      <width>97</width>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED_1</name>
+      <pv_name>$(P):gEtchMode</pv_name>
+      <x>2</x>
+      <y>31</y>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_50</name>
+      <text>Etch Mode</text>
+      <x>32</x>
+      <y>33</y>
+      <width>97</width>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED_2</name>
+      <pv_name>$(P):gRateRes</pv_name>
+      <x>2</x>
+      <y>61</y>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_51</name>
+      <text>High Rate Res</text>
+      <x>32</x>
+      <y>63</y>
+      <width>97</width>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED_3</name>
+      <pv_name>$(P):powerUp</pv_name>
+      <x>2</x>
+      <y>90</y>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_52</name>
+      <text>Power-Up</text>
+      <x>32</x>
+      <y>92</y>
+      <width>97</width>
+    </widget>
+  </widget>
+  <widget type="radio" version="2.0.0">
+    <name>Radio Button_1</name>
+    <pv_name>$(P):gFreqMode</pv_name>
+    <x>20</x>
+    <y>238</y>
+    <height>30</height>
+    <items>
+      <item>Disp Thick</item>
+    </items>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_53</name>
+    <text>Disp Mode</text>
+    <x>20</x>
+    <y>218</y>
+    <width>70</width>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_2</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(P):default</pv_name>
+        <value>1</value>
+        <description>WritePV</description>
+      </action>
+    </actions>
+    <text>Default</text>
+    <x>20</x>
+    <y>335</y>
+    <width>68</width>
+    <height>28</height>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+</display>

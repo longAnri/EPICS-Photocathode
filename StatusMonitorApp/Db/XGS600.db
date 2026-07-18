@@ -1,0 +1,392 @@
+record(ai, "$(P):Slot1_Code") {
+  field(DESC, "Board code in slot 1")
+  field(DTYP, "stream")
+  field(INP, "@XGS600.proto readXGS $(PORT)")
+  field(SCAN, "1 second")
+}
+
+record(ai, "$(P):Slot2_Code") {
+  field(DESC, "Board code in slot 2")
+  field(DTYP, "stream")
+  field(VAL, "0")
+}
+
+record(ai, "$(P):Slot3_Code") {
+  field(DESC, "Board code in slot 3")
+  field(DTYP, "stream")
+  field(VAL, "0")
+}
+
+record(ai, "$(P):Slot4_Code") {
+  field(DESC, "Board code in slot 3")
+  field(DTYP, "stream")
+  field(VAL, "0")
+}
+
+record(ai, "$(P):Slot5_Code") {
+  field(DESC, "Board code in slot 3")
+  field(DTYP, "stream")
+  field(VAL, "0")
+}
+
+record(ai, "$(P):Slot6_Code") {
+  field(DESC, "Board code in slot 6")
+  field(DTYP, "stream")
+  field(VAL, "0")
+}
+
+record(ai, "$(P):Pressure") {
+  field(DESC, "Pressure reading from $(P)")
+  field(DTYP, "stream")
+  field(INP, "@XGS600.proto readPressure $(PORT)")
+  field(SCAN, "1 second")
+  field(EGU, "Torr")
+  field(PREC, "6")
+}
+
+record(ai, "$(P):Version1") {
+  field(DESC, "Version of Slot 1")
+  field(DTYP, "stream")
+  field(INP,  "@XGS600.proto readVersions $(PORT)")
+  field(SCAN, "Passive")
+  field(EGU, "Version")
+  field(PREC, "2")  
+}
+
+record(ai, "$(P):Version2") {
+  field(DESC, "Version of Slot 2")
+  field(DTYP, "stream")
+  field(EGU, "Version")
+  field(PREC, "2")
+}
+
+record(ai, "$(P):Version3") {
+  field(DESC, "Version of Slot 3")
+  field(DTYP, "stream")
+  field(EGU, "Version")
+  field(PREC, "2")
+}
+
+record(ai, "$(P):Version4") {
+  field(DESC, "Version of Slot 4")
+  field(DTYP, "stream")
+  field(EGU, "Version")
+  field(PREC, "2")
+}
+
+record(ai, "$(P):Version5") {
+  field(DESC, "Version of Slot 5")
+  field(DTYP, "stream")
+  field(EGU, "Version")
+  field(PREC, "2")
+}
+
+record(ai, "$(P):Version6") {
+  field(DESC, "Version of Slot 6")
+  field(DTYP, "stream")
+  field(EGU, "Version")
+  field(PREC, "2")
+}
+
+record(bi, "$(P):Reset"){
+  field(DESC, "System Reset")
+  field(DTYP, "stream")
+  field(OUT, "@XGS600.proto reset $(PORT)")
+}
+
+record(ao, "$(P):Pipe"){
+  field(DESC, "Presure of Pipe 1")
+  field(DTYP, "stream")
+  field(PREC, "3")
+}
+
+record(ao, "$(P):Pipe"){
+  field(DESC, "Presure of Pipe 1")
+  field(DTYP, "stream")
+  field(INP, "@XGS600.proto readPipe $(PORT)")
+  field(PREC, "3")
+}
+
+record(ao, "$(P):Pipe"){
+  field(DESC, "Presure of Pipe 2")
+  field(DTYP, "stream")
+  field(PREC, "3")
+}
+
+record(ao, "$(P):Pipe"){
+  field(DESC, "Presure of Pipe 3")
+  field(DTYP, "stream")
+  field(PREC, "3")
+}
+
+record(ao, "$(P):Pipe"){
+  field(DESC, "Presure of Pipe 4")
+  field(DTYP, "stream")
+  field(PREC, "3")
+}
+
+record(ao, "$(P):Pipe"){
+  field(DESC, "Presure of Pipe 5")
+  field(DTYP, "stream")
+  field(PREC, "3")
+}
+
+record(ao, "$(P):Pipe"){
+  field(DESC, "Presure of Pipe 6")
+  field(DTYP, "stream")
+  field(PREC, "3")
+}
+
+record(bo, "$(P):SetTorr"){
+  field(DESC, "Set the Pressure Unit to Torr")
+  field(DTYP, "stream")
+  field(OUT, "@XGS600.proto setTorr $(PORT)")
+
+}
+
+record(bo, "$(P):Setmbar"){
+  field(DESC, "Set the Pressure Unit to mbar")
+  field(DTYP, "stream")
+  field(OUT, "@XGS600.proto setmbar $(PORT)")
+}
+
+record(bo, "$(P):SetPar"){
+  field(DESC, "Set the Pressure Unit to Par")
+  field(DTYP, "stream")
+  field(OUT, "@XGS600.proto setPar $(PORT)")
+}
+
+record(mbbi, "$(P):ReadUnit"){
+  field(DESC, "Read the Unit of Pressure")
+  field(DTYP, "stream")
+  field(INP, "@XGS600.proto readUnit $(PORT)")
+  field(ZRVL, "1")
+  field(ONVL, "Torr")
+  field(ONVL, "2")
+  field(ONST, "mbar")
+  field(TWVL, "3")
+  field(TWST, "Par")
+  field(SCAN, "I/O Intr")
+}
+
+record(bo, "$(P):LockOff"){
+  field(DESC, "Set Lock OFF")
+  field(DTYP, "stream")
+  field(INP, "@XGS600.proto setLockOff $(PORT)")
+}
+
+record(bo, "$(P):LockOn"){
+  field(DESC, "Set Lock On")
+  field(DTYP, "stream")
+  field(INP, "@XGS600.proto setLockOn $(PORT)")
+}
+
+record(bi, "$(P):LockStatus"){
+  field(DESC, "Read the Status of Lock")
+  field(DTYP, "stream")
+  field(INP, "@XGS600.proto readLockStatus $(PORT)")
+  field(SCAN, "I/O Intr")
+}
+
+record(ao, "$(P):SetAutoOn"){
+  field(DESC, "Set Auto-On")
+  field(DTYP, "stream")
+  field(OUT, "@XGS600.proto setAutoOn $(PORT)")
+}
+
+record(ai, $(P):"ReadAutoOn"){
+  field(DESC "Read Auto-On")
+  field(DTYP, "stream")
+  field(INP, "@XGS600.proto readAuto $(PORT)")
+  field(SCAN, "I/O Intr")
+}
+
+record(mbbo, "$(P):AssignPipe") {
+    field(DESC,  "Allocate pipeline to sensor")
+    field(DTYP,  "stream")
+    field(OUT,   "@assignPipe.proto assignPipe $(PORT)")
+    field(OMSL,  "supervisory")   
+    # Enumerate tags (display name)
+    field(ZRST,  "IMG100")    # VAL = 0
+    field(ONST,  "IMG300")    # VAL = 1
+    field(TWST,  "MBA100")    # VAL = 2
+    field(THST,  "MBA200")    # VAL = 3
+    field(FRST,  "563")       # VAL = 4
+    field(FVST,  "564")       # VAL = 5
+    field(SXST,  "571")       # VAL = 6
+    field(SVST,  "572")       # VAL = 7
+    field(EIST,  "UHV24")     # VAL = 8
+    field(TVST,  "UHV24p")    # VAL = 9
+    # Corresponding to the actual command value xx
+    field(ZRVL,  "17")        # IMG100 -> 0x11 =17
+    field(ONVL,  "19")        # IMG300 -> 0x13 =19
+    field(TWVL,  "81")        # MBA100 -> 0x51 =81
+    field(THVL,  "82")        # MBA200 -> 0x52 =82
+    field(FRVL,  "99")        # 563 -> 0x63 =99
+    field(FVVL,  "100")       # 564 -> 0x64 =100
+    field(SXVL,  "113")       # 571 -> 0x71 =113
+    field(SVVL,  "114")       # 572 -> 0x72 =114
+    field(EIVL,  "128")       # UHV24 -> 0x80 =128
+    field(TVVL,  "129")       # UHV24p -> 0x81 =129
+    field(PREC,   "0")
+}
+
+record(mbbi, "$(P):ReadPipeType") {
+    field(DESC,  "Read Sensor Pipe Type Input")
+    field(DTYP,  "stream")
+    field(OUT,   "@assignPipe.proto assignPipe $(PORT)")
+    field(OMSL,  "supervisory")
+    # Enumerate tags (display name)
+    field(ZRST,  "IMG100")    # VAL = 0
+    field(ONST,  "IMG300")    # VAL = 1
+    field(TWST,  "MBA100")    # VAL = 2
+    field(THST,  "MBA200")    # VAL = 3
+    field(FRST,  "563")       # VAL = 4
+    field(FVST,  "564")       # VAL = 5
+    field(SXST,  "571")       # VAL = 6
+    field(SVST,  "572")       # VAL = 7
+    field(EIST,  "UHV24")     # VAL = 8
+    field(TVST,  "UHV24p")    # VAL = 9
+    # Corresponding to the actual command value xx
+    field(ZRVL,  "17")        # IMG100 -> 0x11 =17
+    field(ONVL,  "19")        # IMG300 -> 0x13 =19
+    field(TWVL,  "81")        # MBA100 -> 0x51 =81
+    field(THVL,  "82")        # MBA200 -> 0x52 =82
+    field(FRVL,  "99")        # 563 -> 0x63 =99
+    field(FVVL,  "100")       # 564 -> 0x64 =100
+    field(SXVL,  "113")       # 571 -> 0x71 =113
+    field(SVVL,  "114")       # 572 -> 0x72 =114
+    field(EIVL,  "128")       # UHV24 -> 0x80 =128
+    field(TVVL,  "129")       # UHV24p -> 0x81 =129
+    field(SCAN,  "I/O Intr")
+}
+
+record(bo, "$(P):SetEmissionOff"){
+    field(DESC, "Set Emission Off")
+    field(DTYP, "stream")
+    field(OUT, "@XGS600.proto setEmissionOff $(PORT)")
+}
+
+record(bo, "$(P):SetEmissionOn1"){
+    field(DESC, "Set Emisstion ON(Fil 1)")
+    field(DTYP, "stream")
+    field(OUT, "@XGS600.proto setEmissionOn1 $(PORT)")
+}
+
+record(bi, "$(P):ReadEmission"){
+    field(DESC, "Read Emission Status")
+    field(DTYP, "stream")
+    field(INP, "@XGS600.proto readEmission $(PORT)")
+    field(SCAN, "I/O Intr")
+}
+
+record(bo, "$(P):SetEmissionOn2"){
+    field(DESC, "Set Emisstion ON(Fil 2)")
+    field(DTYP, "stream")
+    field(OUT, "@XGS600.proto setEmissionOn2 $(PORT)")
+}
+
+record(bi, "$(P):ReadLit"){
+    field(DESC, "Read Filement Lit")
+    field(DTYP, "stream")
+    field(INP, "@XGS600.proto readLit $(PORT)")
+    field(SCAN, "I/O Intr")
+}
+
+record(bo, "$(P):SetAutoFilAdvanceOff"){
+    field(DESC, "Set Auto Fil Advance Off")
+    field(DTYP, "stream")
+    field(OUT, "@XGS600.proto setAutoFilAdvanceOff $(PORT)")
+}
+
+record(bo, "$(P):SetAutoFilAdvanceOn"){
+    field(DESC, "Set Auto Fil Advance On")
+    field(DTYP, "stream")
+    field(OUT, "@XGS600.proto setAutoFilAdvanceOn $(PORT)")
+}
+
+record(bi, "$(P):ReadAutoFilAdvance"){
+    field(DESC, "Read Auto Fil Advance State")
+    field(DTYP, "stream")
+    field(INP, "@XGS600.proto readAutoFilAdvance $(PORT))
+    field(SCAN, "I/O Intr")
+}
+
+record(bo, "$(P):SetDegassOff"){
+    field(DESC, "Set Degass OFF")
+    field(DTYP, "stream")
+    field(OUT, "@XGS600.proto setDegassOff $(PORT)")
+}
+
+record(bo, "$(P):SetDegassOn"){
+    field(DESC, "Set Degass ON")
+    field(DTYP, "stream")
+    field(OUT, "@XGS600.proto setDegassOn $(PORT)")
+}
+
+record(bi, "$(P):ReadDegass"){
+    field(DESC, "Read Degass Status")
+    field(DTYP, "stream")
+    field(INP, "@XGS600.proto readDegass $(PORT))
+    field(SCAN, "I/O Intr")
+}
+
+record(ai, "$(P):ReadGasCorrection"){
+  field(DESC "Read Ion Gauge Gas Correction")
+  field(DTYP, "stream")
+  field(INP, "@XGS600.proto readGasCorrection $(PORT)")
+  field(SCAN, "I/O Intr")
+}
+
+record(ao, "$(P):SetGasCorrection"){
+  field(DESC "Set Ion Gauge Gas Correction")
+  field(DTYP, "stream")
+  field(OUT, "@XGS600.proto setGasCorrection $(PORT)")
+}
+
+record(ai, "$(P):ReadRadCurrent"){
+  field(DESC "Read Emission Current")
+  field(DTYP, "stream")
+  field(OUT, "@XGS600.proto readRadCurrent $(PORT)")
+  field(SCAN, "I/O Intr")
+}
+
+record(ao, "$(P):SetRadCurrent"){
+  field(DESC "Set Emission Current")
+  field(DTYP, "stream")
+  field(OUT, "@XGS600.proto setRadCurrent $(PORT)")
+}
+
+record(ai, "$(P):ReadSensitivity"){
+  field(DESC "Read Sensitivity")
+  field(DTYP, "stream")
+  field(OUT, "@XGS600.proto readSensitivity $(PORT)")
+  field(SCAN, "I/O Intr")
+}
+
+record(ao, "$(P):SetSensitivity"){
+  field(DESC "Set Emission Current")
+  field(DTYP, "stream")
+  field(OUT, "@XGS600.proto setSensitivity $(PORT)")
+}
+
+record(ai, "$(P):ReadSetpointSta"){
+  field(DESC "Read Setpoint States")
+  field(DTYP, "stream")
+  field(OUT, "@XGS600.proto readSetpointSta $(PORT)")
+  field(SCAN, "I/O Intr")
+}
+
+record(ai, "$(P):ReadAsSetpoint"){
+  field(DESC "Read Assigned Setpoints")
+  field(DTYP, "stream")
+  field(OUT, "@XGS600.proto readAsSetpoint $(PORT)")
+  field(SCAN, "I/O Intr")
+}
+
+record(ai, "$(P):ReadSetpoint"){
+  field(DESC "Read Setpoint OFF/ON/Auto")
+  field(DTYP, "stream")
+  field(OUT, "@XGS600.proto readSetpointSta $(PORT)")
+  field(SCAN, "I/O Intr")
+}

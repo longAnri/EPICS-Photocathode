@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>Vacuum_System</name>
+  <width>1720</width>
+  <height>1300</height>
+  <background_color>
+    <color name="Button_Background" red="210" green="210" blue="210">
+    </color>
+  </background_color>
+  <widget type="databrowser" version="2.0.0">
+    <name>Data Browser</name>
+    <file>Pre_Vaccum1.plt</file>
+    <x>21</x>
+    <y>139</y>
+    <width>1606</width>
+    <height>342</height>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <text>Vacuum</text>
+    <x>690</x>
+    <width>180</width>
+    <height>54</height>
+    <font>
+      <font family="Loma" style="REGULAR" size="36.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="0" green="0" blue="255">
+      </color>
+    </foreground_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_21</name>
+    <text>Time:xx-xx-xx</text>
+    <x>962</x>
+    <y>54</y>
+    <width>368</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="28.0">
+      </font>
+    </font>
+    <scripts>
+      <script file="EmbeddedJs">
+        <text><![CDATA[/* Embedded javascript */
+importPackage(java.text);
+importPackage(java.util);
+
+var now = new Date();
+var sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+widget.setPropertyValue("text", sdf.format(now));
+
+/* widget.setPropertyValue("text", PVUtil.getString(pvs[0])); */]]></text>
+        <pv_name>sim://sine</pv_name>
+      </script>
+    </scripts>
+  </widget>
+  <widget type="databrowser" version="2.0.0">
+    <name>Data Browser_7</name>
+    <file>Pre_Vaccum2.plt</file>
+    <x>21</x>
+    <y>547</y>
+    <width>1606</width>
+    <height>342</height>
+  </widget>
+  <widget type="databrowser" version="2.0.0">
+    <name>Data Browser_8</name>
+    <file>Pre_Vaccum3.plt</file>
+    <x>21</x>
+    <y>943</y>
+    <width>1606</width>
+    <height>342</height>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>Group</name>
+    <macros>
+      <P>Pre:</P>
+      <R>Vac1</R>
+    </macros>
+    <x>35</x>
+    <y>84</y>
+    <width>1330</width>
+    <height>48</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="label" version="2.0.0">
+      <name>Label_1</name>
+      <text>Pressure:</text>
+      <y>8</y>
+      <width>122</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="28.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update</name>
+      <pv_name>$(P)$(R):RPV</pv_name>
+      <x>135</x>
+      <y>6</y>
+      <width>175</width>
+      <height>38</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="28.0">
+        </font>
+      </font>
+      <format>2</format>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_1</name>
+      <pv_name>$(P)$(R):Status</pv_name>
+      <x>453</x>
+      <y>6</y>
+      <width>74</width>
+      <height>38</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="28.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_2</name>
+      <text>Status:</text>
+      <x>343</x>
+      <y>6</y>
+      <width>110</width>
+      <height>38</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="28.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_3</name>
+      <text>HV:</text>
+      <x>561</x>
+      <y>8</y>
+      <width>52</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="28.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="slide_button" version="2.0.0">
+      <name>Slide Button</name>
+      <pv_name>$(P)$(R):SHV</pv_name>
+      <label></label>
+      <x>625</x>
+      <y>8</y>
+      <width>60</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="28.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_4</name>
+      <text>Degas:</text>
+      <x>694</x>
+      <y>8</y>
+      <width>95</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="28.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="slide_button" version="2.0.0">
+      <name>Slide Button_1</name>
+      <pv_name>$(P)$(R):SDG</pv_name>
+      <label></label>
+      <x>789</x>
+      <y>10</y>
+      <width>60</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="28.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>Combo Box</name>
+      <pv_name>$(P)$(R):Channel</pv_name>
+      <x>1062</x>
+      <y>4</y>
+      <width>207</width>
+      <height>35</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="28.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_5</name>
+      <text>Keylock:</text>
+      <x>851</x>
+      <y>9</y>
+      <width>114</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="28.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="slide_button" version="2.0.0">
+      <name>Slide Button_2</name>
+      <pv_name>$(P)$(R):SKL</pv_name>
+      <label></label>
+      <x>976</x>
+      <y>9</y>
+      <width>60</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="28.0">
+        </font>
+      </font>
+    </widget>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>Group_1</name>
+    <macros>
+      <P>Pre:</P>
+      <R>Vac1</R>
+    </macros>
+    <x>21</x>
+    <y>497</y>
+    <width>1330</width>
+    <height>48</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="label" version="2.0.0">
+      <name>Label_48</name>
+      <text>Pressure:</text>
+      <y>8</y>
+      <width>122</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="28.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_18</name>
+      <pv_name>$(P)$(R):RPV</pv_name>
+      <x>135</x>
+      <y>6</y>
+      <width>175</width>
+      <height>38</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="28.0">
+        </font>
+      </font>
+      <format>2</format>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_19</name>
+      <pv_name>$(P)$(R):Status</pv_name>
+      <x>453</x>
+      <y>6</y>
+      <width>74</width>
+      <height>38</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="28.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_49</name>
+      <text>Status:</text>
+      <x>343</x>
+      <y>6</y>
+      <width>110</width>
+      <height>38</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="28.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_50</name>
+      <text>HV:</text>
+      <x>561</x>
+      <y>8</y>
+      <width>52</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="28.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="slide_button" version="2.0.0">
+      <name>Slide Button_27</name>
+      <pv_name>$(P)$(R):SHV</pv_name>
+      <label></label>
+      <x>625</x>
+      <y>8</y>
+      <width>60</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="28.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_51</name>
+      <text>Degas:</text>
+      <x>694</x>
+      <y>8</y>
+      <width>95</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="28.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="slide_button" version="2.0.0">
+      <name>Slide Button_28</name>
+      <pv_name>$(P)$(R):SDG</pv_name>
+      <label></label>
+      <x>789</x>
+      <y>10</y>
+      <width>60</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="28.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>Combo Box_9</name>
+      <pv_name>$(P)$(R):Channel</pv_name>
+      <x>1076</x>
+      <y>4</y>
+      <width>207</width>
+      <height>35</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="28.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_52</name>
+      <text>Keylock:</text>
+      <x>851</x>
+      <y>9</y>
+      <width>114</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="28.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="slide_button" version="2.0.0">
+      <name>Slide Button_29</name>
+      <pv_name>$(P)$(R):SKL</pv_name>
+      <label></label>
+      <x>976</x>
+      <y>9</y>
+      <width>60</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="28.0">
+        </font>
+      </font>
+    </widget>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>Group_2</name>
+    <macros>
+      <P>Pre:</P>
+      <R>Vac1</R>
+    </macros>
+    <x>21</x>
+    <y>893</y>
+    <width>1330</width>
+    <height>48</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="label" version="2.0.0">
+      <name>Label_53</name>
+      <text>Pressure:</text>
+      <y>8</y>
+      <width>122</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="28.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_20</name>
+      <pv_name>$(P)$(R):RPV</pv_name>
+      <x>135</x>
+      <y>6</y>
+      <width>175</width>
+      <height>38</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="28.0">
+        </font>
+      </font>
+      <format>2</format>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_21</name>
+      <pv_name>$(P)$(R):Status</pv_name>
+      <x>453</x>
+      <y>6</y>
+      <width>74</width>
+      <height>38</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="28.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_54</name>
+      <text>Status:</text>
+      <x>343</x>
+      <y>6</y>
+      <width>110</width>
+      <height>38</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="28.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_55</name>
+      <text>HV:</text>
+      <x>561</x>
+      <y>8</y>
+      <width>52</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="28.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="slide_button" version="2.0.0">
+      <name>Slide Button_30</name>
+      <pv_name>$(P)$(R):SHV</pv_name>
+      <label></label>
+      <x>625</x>
+      <y>8</y>
+      <width>60</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="28.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_56</name>
+      <text>Degas:</text>
+      <x>694</x>
+      <y>8</y>
+      <width>95</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="28.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="slide_button" version="2.0.0">
+      <name>Slide Button_31</name>
+      <pv_name>$(P)$(R):SDG</pv_name>
+      <label></label>
+      <x>789</x>
+      <y>10</y>
+      <width>60</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="28.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>Combo Box_10</name>
+      <pv_name>$(P)$(R):Channel</pv_name>
+      <x>1076</x>
+      <y>4</y>
+      <width>207</width>
+      <height>35</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="28.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_57</name>
+      <text>Keylock:</text>
+      <x>851</x>
+      <y>9</y>
+      <width>114</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="28.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="slide_button" version="2.0.0">
+      <name>Slide Button_32</name>
+      <pv_name>$(P)$(R):SKL</pv_name>
+      <label></label>
+      <x>976</x>
+      <y>9</y>
+      <width>60</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="28.0">
+        </font>
+      </font>
+    </widget>
+  </widget>
+</display>

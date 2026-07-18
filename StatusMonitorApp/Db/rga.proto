@@ -1,0 +1,80 @@
+# protocol file for SRS RGA
+# John Sinclair (sincalairjw@ornl.gov)
+# 2/18/2015
+
+
+
+OutTerminator = CR;
+#InTerminator = LF CR;
+#InTerminator = CR;
+
+LockTimeout = 60000;
+ReplyTimeout = 2000;
+ReadTimeout = 2000;
+WriteTimeout = 2000;
+ExtraInput = Ignore;
+
+
+
+# ==Initializing the RGA Head
+
+# Clear the RGA's receive buffer
+clear { "\r\r"; }
+# Reinitial the RGA's buffer
+reset {out "IN0"; wait 100; in "%d"; }
+
+
+
+# === Ionizer Control ===
+
+# Electron Emission Current 
+
+# Analog Scan Points
+ap_rdbk { out "AP?"; in  "%d"; }
+
+# Initial and Final Mass
+mass_i    { out "MI%d"; }
+mi_rdbk   { out "MI?"; wait 100; in "%d"; }
+mass_f    { out "MF%d"; }
+mf_rdbk   { out "MF?"; wait 100; in "%d"; }
+mass_stp  { out "SA%d"; }
+ms_rdbk   { out "SA?"; wait 100; in "%d"; }
+m_meas    { out "MR%(\$1.VAL)d"; in  "%#4r"; }
+rfdc_off  { out "MR0"; }
+
+# Filament on, Electron emission current (mA)
+fl    	   { out "FL%f"; }
+fl_rdbk    { out "FL?"; in "%f"; }
+
+# Partial Pressure Sensitivity
+sp_rdbk { out "SP?"; in  "%f"; }
+
+# Single mass measurement
+mass_m { out "MR\$1"; in  "%#4r"; }
+
+# 1 single analog scan
+ascan_1 {
+  InTerminator =;
+  ReplyTimeout = 30000;
+  ReadTimeout = 30000;
+  out "MI1";
+  out "MF100";
+#  out "FL1";
+  out "NF3";
+  out "SA10";
+  out "SC1";
+  in  "%#4r";
+}
+
+ascan_data { out "SC1"; wait 5000; in "%#4r";}
+hscan_data { out "HS1"; wait 5000; in "%#4r"; }
+
+# Error status
+com_err  { InTerminator = LF CR; out "EC?"; wait 100; in "%d"; }
+det_err  { InTerminator = LF CR; out "ED?"; wait 100; in "%d"; }
+cem_err  { InTerminator = LF CR; out "EM?"; wait 100; in "%d"; }
+ps_err   { InTerminator = LF CR; out "EP?"; wait 100; in "%d"; }
+qmf_err  { InTerminator = LF CR; out "EQ?"; wait 100; in "%d"; }
+err_stat { InTerminator = LF; out "EC?"; wait 100; in "%d"; }
+fil_err  { InTerminator = LF; out "EF?"; wait 100; in "%d"; }
+status   { InTerminator = LF; out "ER?"; wait 100; in "%d"; }

@@ -1,0 +1,93 @@
+#########################################################################################
+#########################################################################################
+#### Machine:	SRS10A
+#### Describe:	Instruction output
+#########################################################################################
+#########################################################################################
+file "$(MODBUS)/db/int64out.template" {
+pattern
+{	P,		R,			PORT,			OFFSET,		DATA_TYPE	}
+{	SRS:,	SV_NoS,		SRS10_Out1,		0,			INT16		}
+{   SRS:,   PB1S,    	SRS10_Out8,		0,          INT16		}
+{   SRS:,   IT1S,    	SRS10_Out8,		1,          INT16		}
+{   SRS:,   DT1S,    	SRS10_Out8,		2,          INT16		}
+{   SRS:,   DF1S,   	SRS10_Out8,		4,          INT16		}
+{   SRS:,   SF1S,    	SRS10_Out8,		7,          INT16		}
+{   SRS:,   PB2S,    	SRS10_Out8, 	8,          INT16		}
+{   SRS:,   IT2S,    	SRS10_Out8,		9,          INT16		}
+{   SRS:,   DT2S,    	SRS10_Out9,		0,       	INT16		}
+{   SRS:,   DF2S,    	SRS10_Out9,		2,       	INT16		}
+{   SRS:,   SF2S,    	SRS10_Out9,		5,       	INT16		}
+{   SRS:,   PB3S,		SRS10_Out10,	0,       	INT16		}
+{   SRS:,   IT3S,		SRS10_Out10,	1,       	INT16		}
+{   SRS:,   DT3S,    	SRS10_Out10,	2,       	INT16		}
+{   SRS:,   DF3S,    	SRS10_Out10,	4,       	INT16		}
+{   SRS:,   SF3S,    	SRS10_Out10,	7,			INT16		}
+{   SRS:,   O1_CYCS,    SRS10_Out11,	1,			INT16		}
+{   SRS:,   SOFTD1S,    SRS10_Out12,	0,			INT16		}
+{   SRS:,   PV_GS,    	SRS10_Out13,	0,			INT16		}
+{   SRS:,   PV_BS,    	SRS10_Out13,	1,			INT16		}
+{   SRS:,   PV_FS,    	SRS10_Out13,	2,			INT16		}
+{   SRS:,   EV1_MDS,    SRS10_Out16,	0,			INT16		}
+{   SRS:,   EV1_SPS,    SRS10_Out16,	1,			INT16		}
+{   SRS:,   EV1_DFS,    SRS10_Out16,	2,			INT16		}
+{   SRS:,   EV1_STBS,   SRS10_Out16,	3,			INT16		}
+{   SRS:,   EV2_MDS,    SRS10_Out17,	0,			INT16		}
+{   SRS:,   EV2_SPS,    SRS10_Out17,	1,			INT16		}
+{   SRS:,   EV2_DFS,    SRS10_Out17,	2,			INT16		}
+{   SRS:,   EV2_STBS,   SRS10_Out17,	3,			INT16		}
+{   SRS:,   EV3_MDS,    SRS10_Out18,	0,			INT16		}
+{   SRS:,   EV3_SPS,    SRS10_Out18,	1,			INT16		}
+{   SRS:,   EV3_DFS,    SRS10_Out18,	2,			INT16		}
+{   SRS:,   EV3_STBS,   SRS10_Out18,	3,			INT16		}
+}
+
+file "$(TOP)/db/SRS_aoFloat.template" {
+pattern
+{	P,		R,			PORT,			OFFSET,		DATA_TYPE,	EGU		}
+{	SRS:,	OUT1S,		SRS10_Out2,		0,			INT16,		"℃  "	}
+{	SRS:,	OUT2S,		SRS10_Out2,		1,			INT16,		"℃  "	}
+{	SRS:,	FIX_SV1S,	SRS10_Out6,		0,			INT16,		"℃  "	}
+{	SRS:,	FIX_SV2S,	SRS10_Out6,		1,			INT16,		"℃  "	}
+{	SRS:,	FIX_SV3S,	SRS10_Out6,		2,			INT16,		"℃  "	}
+{	SRS:,	SV_LS,		SRS10_Out7,		0,			INT16,		"℃  "	}
+{	SRS:,	SV_HS,		SRS10_Out7,		1,			INT16,		"℃  "	}
+{   SRS:,   O11_LS,  	SRS10_Out8,		5,          INT16,		"%"		}
+{   SRS:,   O11_HS,		SRS10_Out8,		6,          INT16,		"%"		}
+{   SRS:,   O12_LS,		SRS10_Out9,		3,       	INT16,		"%"		}
+{   SRS:,   O12_HS,		SRS10_Out9,		4,       	INT16,		"%"		}
+{   SRS:,   O13_LS,		SRS10_Out10,    5,       	INT16,		"%"		}
+{   SRS:,   O13_HS,		SRS10_Out10,    6,       	INT16,		"%"		}
+{   SRS:,   SC_LS,		SRS10_Out15,    0,       	INT16,		"%"		}
+{   SRS:,   SC_HS,		SRS10_Out15,    1,       	INT16,		"%"		}
+}
+
+
+file "$(TOP)/db/SRS_bo.template" {
+pattern
+{	P,		R,			PORT,			OFFSET,		ZNAM,		ONAM		}
+{	SRS:,	AT,			SRS10_Out2,		2,			No,			Acting		}
+{	SRS:,	MAN,		SRS10_Out2,		3,			Auto,		Man			}
+{	SRS:,	COM,		SRS10_Out3,		0,			Loc,		Com			}
+{	SRS:,	RUN,		SRS10_Out4,		0,			Standby,	Execution	}
+{	SRS:,	HLD,		SRS10_Out4,		1,			HLF_OFF,	HLF_ON		}
+{	SRS:,	ADV,		SRS10_Out4,		2,			ADV_OFF,	ADV_ON		}
+{   SRS:,   MR1S,       SRS10_Out8,   	3,          None,       RESET       }
+{   SRS:,   MR2S,       SRS10_Out9,   	1,       None,       RESET       }
+{   SRS:,   MR3S,       SRS10_Out10,	3,       None,       RESET       }
+{   SRS:,   ACTMDS,     SRS10_Out11,	0,       RA,       DA       }
+
+}
+
+file "$(MODBUS)/db/mbboDirect.template"{
+pattern
+{	P,		R,			PORT,			OFFSET,		MASK	}
+{	SRS:,	RST_LACH,	SRS10_Out8,		0,			0x0F	}
+}
+
+file "$(TOP)/db/SRS_mbbo.template" {
+pattern
+{   P,      R,          PORT,       	OFFSET,     Unit1,  Unit2,  Unit3   }
+{   SRS:,   UnitS,      SRS10_Out14, 	0,          "℃ ",   "F",    "K"     }
+}
+

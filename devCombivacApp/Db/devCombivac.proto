@@ -1,0 +1,103 @@
+
+OutTerminator = CR;
+InTerminator = CR;
+
+# <CR> = 0x0D
+
+readPressure{
+    out "RPV%(\$1:Channel)d";
+    in  "%{0|1|2|3|4|5|6|7|9|10|12|16},\t%(\$1:RPV)g";
+}
+
+readVersion{
+    out "RVN";
+    in  "%f";
+}
+
+readSwitch_Status{
+    out "RSS%(\$1:Channel)d";
+    in  "%1d,\t%(\$1:RSS_SP2)d";
+}
+
+setHV{
+    out "SHV3,%1d";
+    in  "OK";
+}
+
+setDegas{
+    out "SDG3,%1d";
+    in  "OK";
+}
+
+setLock{
+    out "SKL%1d";
+    in  "OK";
+}
+
+saveConfigure{
+    out "SAC";
+    in  "OK";
+}
+
+readAddress{
+    out "RSA";
+    in  "%x";
+}
+
+setAddress{
+    out "SSA%d";
+    @init{
+        out "RSA";
+        in  "%x";
+    }
+}
+
+readSetting{
+    out "RGP";
+    in  "%1d,\t"
+		"%(\$1:RGP_Display_Number)d,\t"
+		"%(\$1:RGP_Brightness)d,\t"
+		"%(\$1:RGP_Baudrate)d,\t"
+		"%(\$1:RGP_Serial)d";
+}
+
+setSetting{
+    out "SGP%(A)d,%(B)d,%(C)d,%(D)d,%(E)d";
+    in  "OK";
+}
+
+readType{
+    out "RGC3";
+    in  "%f";
+}
+
+setType{
+    out "SGC3,%f";
+	in	"OK";
+}
+
+readSensor{
+    out "RSC3";
+    in  "%1d,\t"
+	"%(\$1:OffType)d,\t"
+	"%(\$1:SwitchOn)f,\t"
+	"%(\$1:SwitchOff)f";
+}
+
+setSensor{
+    out "SSC3,%(A)d,%(B)d,%(C).3E,%(D).3E";
+    in  "OK";
+}
+
+readThresholds{
+    out "RSP%(\$1:Channel)d";
+    in  "%f,\t"
+		"%(\$1:RSP_SP1_HIGH)f,\t"
+		"%(\$1:RSP_SP2_LOW)f,\t"
+		"%(\$1:RSP_SP2_HIGH)f";
+}
+
+setThresholds{
+    out "SSP%(A)d,%(B).4E,%(C).4E,%(D).4E,%(E).4E";
+    in  "OK";
+}

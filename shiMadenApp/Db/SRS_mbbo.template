@@ -1,0 +1,8 @@
+record(mbbo, "$(P)$(R)") {
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT) $(OFFSET))INT16")
+    field(ZRST, "$(Unit1)")
+    field(ONST, "$(Unit2)")
+    field(TWST, "$(Unit3)")
+}
+

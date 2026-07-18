@@ -1,0 +1,8 @@
+file "$(MODBUS)/db/aiFlaot64.template"{
+pattern
+{R,			PORT,		OFFSET,		DATA_TYPE,	LOPR,	HOPR,		PREC,		EGU,	SCAN,		DESC}
+{skyIcon_Current,	skyIcon_In,	0x03,		FLAOT32_BE,	0,	10,		4,		nA,	"I/O Intr",	"Register"}
+{skyIcon_Volt,       	skyIcon_In,     0x05,           FLAOT32_BE,     0,      10,             4,              V,      "I/O Intr",     "Register"}
+{skyIcon_Vac,           skyIcon_In,     0x06,           FLAOT32_BE,     0,      10,             4,              Pa,      "I/O Intr",     "Register"}
+{skyIcon_Vac,           skyIcon_In,     0x05,           FLAOT32_BE,     0,      10,             4,              V,      "I/O Intr",     "Register"}
+}

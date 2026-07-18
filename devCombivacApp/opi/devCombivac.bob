@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>Display</name>
+  <macros>
+    <P>Emission:</P>
+    <R>fl</R>
+  </macros>
+  <width>1000</width>
+  <height>800</height>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <class>TITLE</class>
+    <macros>
+      <P>Combivac1:</P>
+      <R>fl</R>
+    </macros>
+    <text>Combivac</text>
+    <x use_class="true">0</x>
+    <y use_class="true">0</y>
+    <width>550</width>
+    <height>31</height>
+    <font use_class="true">
+      <font name="Header 1" family="Liberation Sans" style="BOLD" size="22.0">
+      </font>
+    </font>
+    <foreground_color use_class="true">
+      <color name="Text" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <transparent use_class="true">true</transparent>
+  </widget>
+  <widget type="databrowser" version="2.0.0">
+    <name>Data Browser</name>
+    <file>pressure.plt</file>
+    <y>104</y>
+    <width>681</width>
+    <height>360</height>
+  </widget>
+  <widget type="radio" version="2.0.0">
+    <name>Radio Button_1</name>
+    <pv_name>$(P)$(R):Status</pv_name>
+    <x>699</x>
+    <y>104</y>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <items>
+      <item>Item 1</item>
+      <item>Item 2</item>
+    </items>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_4</name>
+    <text>Status</text>
+    <x>699</x>
+    <y>62</y>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="20.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>Combo Box</name>
+    <pv_name>$(P)$(R):Channel</pv_name>
+    <x>57</x>
+    <y>62</y>
+    <width>133</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="18.0">
+      </font>
+    </font>
+    <items>
+      <item>Channel 1</item>
+      <item>Channel 2</item>
+      <item>Channel 3</item>
+    </items>
+    <items_from_pv>false</items_from_pv>
+  </widget>
+  <widget type="tabs" version="2.0.0">
+    <name>Tabs</name>
+    <tabs>
+      <tab>
+        <name>Channel</name>
+        <children>
+          <widget type="label" version="2.0.0">
+            <name>Label_38</name>
+            <text>SP1 low</text>
+            <x>23</x>
+            <y>61</y>
+            <height>18</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="textupdate" version="2.0.0">
+            <name>Text Update_14</name>
+            <pv_name>$(P)$(R):RSP_SP1_LOW</pv_name>
+            <x>131</x>
+            <y>60</y>
+            <width>120</width>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+            <format>2</format>
+          </widget>
+          <widget type="textentry" version="3.0.0">
+            <name>Text Entry_4</name>
+            <pv_name>$(P)$(R):SSP_SP1_LOW</pv_name>
+            <x>302</x>
+            <y>62</y>
+            <width>120</width>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+            <format>2</format>
+          </widget>
+          <widget type="led" version="2.0.0">
+            <name>LED</name>
+            <pv_name>$(P)$(R):RSS_SP1</pv_name>
+            <x>107</x>
+            <y>13</y>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_15</name>
+            <text>SP1:</text>
+            <x>21</x>
+            <y>13</y>
+            <width>76</width>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_14</name>
+            <text>SP2:</text>
+            <x>137</x>
+            <y>13</y>
+            <width>68</width>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="led" version="2.0.0">
+            <name>LED_1</name>
+            <pv_name>$(P)$(R):RSS_SP2</pv_name>
+            <x>215</x>
+            <y>13</y>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_39</name>
+            <text>SP1 high</text>
+            <x>23</x>
+            <y>100</y>
+            <height>18</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="textupdate" version="2.0.0">
+            <name>Text Update_16</name>
+            <pv_name>$(P)$(R):RSP_SP1_HIGH</pv_name>
+            <x>131</x>
+            <y>99</y>
+            <width>120</width>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+            <format>2</format>
+          </widget>
+          <widget type="textentry" version="3.0.0">
+            <name>Text Entry_6</name>
+            <pv_name>$(P)$(R):SSP_SP1_HIGH</pv_name>
+            <x>302</x>
+            <y>101</y>
+            <width>120</width>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+            <format>2</format>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_40</name>
+            <text>SP2 low</text>
+            <x>23</x>
+            <y>132</y>
+            <height>18</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="textupdate" version="2.0.0">
+            <name>Text Update_17</name>
+            <pv_name>$(P)$(R):RSP_SP2_LOW</pv_name>
+            <x>131</x>
+            <y>131</y>
+            <width>120</width>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+            <format>2</format>
+          </widget>
+          <widget type="textentry" version="3.0.0">
+            <name>Text Entry_7</name>
+            <pv_name>$(P)$(R):SSP_SP2_LOW</pv_name>
+            <x>302</x>
+            <y>133</y>
+            <width>120</width>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+            <format>2</format>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_41</name>
+            <text>SP2 high</text>
+            <x>23</x>
+            <y>166</y>
+            <height>18</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="textupdate" version="2.0.0">
+            <name>Text Update_18</name>
+            <pv_name>$(P)$(R):RSP_SP2_HIGH</pv_name>
+            <x>131</x>
+            <y>165</y>
+            <width>120</width>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+            <format>2</format>
+          </widget>
+          <widget type="textentry" version="3.0.0">
+            <name>Text Entry_8</name>
+            <pv_name>$(P)$(R):SSP_SP2_HIGH</pv_name>
+            <x>302</x>
+            <y>167</y>
+            <width>120</width>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+            <format>2</format>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>IONIVAC</name>
+        <children>
+          <widget type="label" version="2.0.0">
+            <name>Label_11</name>
+            <text>HV Set</text>
+            <x>25</x>
+            <y>24</y>
+            <width>101</width>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="bool_button" version="2.0.0">
+            <name>Boolean Button_4</name>
+            <pv_name>$(P)$(R):SHV</pv_name>
+            <x>126</x>
+            <y>24</y>
+            <width>70</width>
+            <height>20</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_12</name>
+            <text>Degas</text>
+            <x>25</x>
+            <y>64</y>
+            <width>60</width>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="bool_button" version="2.0.0">
+            <name>Boolean Button_5</name>
+            <pv_name>$(P)$(R):SDG</pv_name>
+            <x>126</x>
+            <y>64</y>
+            <width>70</width>
+            <height>20</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_13</name>
+            <text>Keylock</text>
+            <x>245</x>
+            <y>24</y>
+            <width>96</width>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="bool_button" version="2.0.0">
+            <name>Boolean Button_6</name>
+            <pv_name>$(P)$(R):SKL</pv_name>
+            <x>355</x>
+            <y>24</y>
+            <width>70</width>
+            <height>20</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_24</name>
+            <text>Gas correction(CH3)</text>
+            <x>24</x>
+            <y>106</y>
+            <width>204</width>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="textupdate" version="2.0.0">
+            <name>Text Update_7</name>
+            <pv_name>$(P)$(R):RGC</pv_name>
+            <x>228</x>
+            <y>106</y>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="textentry" version="3.0.0">
+            <name>Text Entry_1</name>
+            <pv_name>$(P)$(R):SGC</pv_name>
+            <x>352</x>
+            <y>106</y>
+            <width>90</width>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+            <format>5</format>
+          </widget>
+        </children>
+      </tab>
+    </tabs>
+    <x>57</x>
+    <y>500</y>
+    <width>502</width>
+    <height>264</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="20.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_15</name>
+    <pv_name>$(P)$(R):RPV</pv_name>
+    <x>441</x>
+    <y>62</y>
+    <width>176</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="20.0">
+      </font>
+    </font>
+    <format>2</format>
+  </widget>
+</display>

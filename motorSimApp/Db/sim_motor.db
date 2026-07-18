@@ -1,0 +1,24 @@
+record(motor, "$(P)$(M)")
+{
+	field(DESC, "sk9 sim")
+	field(DTYP, "asynMotor")
+	field(VELO, "1")
+	field(VBAS, ".1")
+	field(ACCL, ".2")
+	field(OUT,	"@asyn(motorSim1, 0)")
+	field(MRES,	"0.01")
+	field(PREC,	"5")
+	field(EGU,	"mm")
+	field(DHLM,	"100")
+	field(DLLM,	"0")
+}
+
+record(bo, "$(P)$(M)_able")
+{
+	field(DESC, "Control Motor Enable/Disable")
+	field(PINI, "YES")
+	field(OUT, "$(P)$(M).DISP")
+	field(ZNAM, "Enable")
+	field(ONAM, "Disable")
+
+}

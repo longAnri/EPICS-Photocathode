@@ -1,0 +1,673 @@
+# Read Command
+record(bi, "$(P)$(R):getBEEP")
+{
+    field(DESC, "Power beep status")
+    field(DTYP, "stream")
+    field(INP,  "@MFP4000.proto getBEEP() $(PORT)")
+    field(ZNAM, "OFF")
+    field(ONAM, "ON")
+    field(SCAN, "1 second")
+}
+
+record(bo, "$(P)$(R):setBEEP")
+{
+    field(DESC, "Power beep status")
+    field(DTYP, "stream")
+    field(OUT,  "@MFP4000.proto setBEEP() $(PORT)")
+    field(ZNAM, "OFF")
+    field(ONAM, "ON")
+    field(VAL, "1")
+}
+
+record(ai, "$(P)$(R):gVolt1")
+{
+    field(DESC, "1 Channels")
+    field(DTYP, "stream")
+    field(INP,  "@MFP4000.proto getAPVOLT($(P)$(R)) $(PORT)")
+    field(EGU,  "V")
+	field(PREC,	"3")
+	field(HIHI,	"75")
+	field(HHSV,	"MAJOR")
+	field(HIGH,	"70")
+	field(HSV,	"MINOR")
+    field(SCAN, "1 second")
+	field(PINI,	"YES")
+    field(FLNK, "$(P)$(R):gVolt2")
+}
+
+record(ai, "$(P)$(R):gVolt2")
+{
+    field(DESC, "2 Channels")
+    field(EGU,  "V")
+	field(PREC,	"3")
+	field(HIHI,	"75")
+	field(HHSV,	"MAJOR")
+	field(HIGH,	"70")
+	field(HSV,	"MINOR")
+	field(PINI,	"YES")
+    field(FLNK, "$(P)$(R):gVolt3")
+}
+
+record(ai, "$(P)$(R):gVolt3")
+{
+    field(DESC, "3 Channels")
+    field(EGU,  "V")
+	field(PREC,	"3")
+	field(HIHI,	"75")
+	field(HHSV,	"MAJOR")
+	field(HIGH,	"70")
+	field(HSV,	"MINOR")
+	field(PINI,	"YES")
+    field(FLNK, "$(P)$(R):gVolt4")
+}
+
+record(ai, "$(P)$(R):gVolt4")
+{
+	field(DESC, "4 Channels")
+    field(EGU,  "V")
+	field(PREC,	"3")
+	field(HIHI,	"75")
+	field(HHSV,	"MAJOR")
+	field(HIGH,	"70")
+	field(HSV,	"MINOR")
+	field(PINI,	"YES")
+    field(FLNK, "$(P)$(R):gVolt5")
+}
+
+record(ai, "$(P)$(R):gVolt5")
+{
+    field(DESC, "5 Channels")
+	field(PREC,	"3")
+    field(EGU,  "V")
+	field(HIHI,	"75")
+	field(HHSV,	"MAJOR")
+	field(HIGH,	"70")
+	field(HSV,	"MINOR")
+	field(PINI,	"YES")
+}
+
+record(ao, "$(P)$(R):sVolt1")
+{
+    field(DESC, "1 Channels")
+    field(EGU,  "V")
+	field(PREC,	"3")
+	field(VAL,	"13")
+	field(FLNK,	"$(P)$(R):ApplyVolt")
+}
+
+record(ao, "$(P)$(R):sVolt2")
+{
+    field(DESC, "2 Channels")
+    field(EGU,  "V")
+	field(PREC,	"3")
+	field(VAL,	"14")
+	field(FLNK,	"$(P)$(R):ApplyVolt")
+}
+
+record(ao, "$(P)$(R):sVolt3")
+{
+    field(DESC, "3 Channels")
+    field(EGU,  "V")
+	field(PREC,	"3")
+	field(VAL,	"13")
+	field(FLNK,	"$(P)$(R):ApplyVolt")
+}
+
+record(ao, "$(P)$(R):sVolt4")
+{
+	field(DESC, "4 Channels")
+    field(EGU,  "V")
+	field(PREC,	"3")
+	field(VAL,	"15")
+	field(FLNK,	"$(P)$(R):ApplyVolt")
+}
+
+record(ao, "$(P)$(R):sVolt5")
+{
+    field(DESC, "5 Channels")
+	field(PREC,	"3")
+    field(EGU,  "V")
+	field(VAL,	"16")
+	field(FLNK,	"$(P)$(R):ApplyVolt")
+}
+
+#record(bo, "$(P)$(R):ApplyVolt")
+#{
+#    field(DESC, "Apply all channel voltages")
+#    field(DTYP, "stream")
+#    field(OUT,  "@MFP4000.proto setAPVOLT($(P)$(R)) $(PORT)")
+#	field(ZNAM, "Off")
+#    field(ONAM, "Apply")
+#	field(VAL,	"0")
+#}
+record(calcout, "$(P)$(R):ApplyVolt")
+{
+    field(DESC, "Apply all channel voltages")
+
+    field(INPA, "$(P)$(R):sVolt1")
+    field(INPB, "$(P)$(R):sVolt2")
+    field(INPC, "$(P)$(R):sVolt3")
+    field(INPD, "$(P)$(R):sVolt4")
+    field(INPE, "$(P)$(R):sVolt5")
+
+    field(CALC, "0")
+    field(DTYP, "stream")
+	field(PINI,	"YES")
+    field(OUT, "@MFP4000.proto setAPVOLT $(PORT)")
+}
+
+record(ai, "$(P)$(R):gCur1")
+{
+    field(DESC, "1 Channels")
+    field(DTYP, "stream")
+    field(INP,  "@MFP4000.proto getAPCUR($(P)$(R)) $(PORT)")
+    field(EGU,  "A")
+	field(PREC,	"4")
+	field(HIHI,	"5.9")
+	field(HHSV,	"MAJOR")
+	field(HIGH,	"5.7")
+	field(HSV,	"MINOR")
+    field(SCAN, "1 second")
+    field(FLNK, "$(P)$(R):gCur2")
+}
+
+record(ai, "$(P)$(R):gCur2")
+{
+    field(DESC, "2 Channels")
+    field(EGU,  "A")
+	field(PREC,	"4")
+	field(HIHI,	"5.9")
+	field(HHSV,	"MAJOR")
+	field(HIGH,	"5.7")
+	field(HSV,	"MINOR")
+    field(FLNK, "$(P)$(R):gCur3")
+}
+
+record(ai, "$(P)$(R):gCur3")
+{
+    field(DESC, "3 Channels")
+    field(EGU,  "A")
+	field(PREC,	"4")
+	field(HIHI,	"5.9")
+	field(HHSV,	"MAJOR")
+	field(HIGH,	"5.7")
+	field(HSV,	"MINOR")
+    field(FLNK, "$(P)$(R):gCur4")
+}
+record(ai, "$(P)$(R):gCur4")
+{
+    field(DESC, "4 Channels")
+    field(EGU,  "A")
+	field(PREC,	"4")
+	field(HIHI,	"5.9")
+	field(HHSV,	"MAJOR")
+	field(HIGH,	"5.7")
+	field(HSV,	"MINOR")
+    field(FLNK, "$(P)$(R):gCur5")
+}
+
+record(ai, "$(P)$(R):gCur5")
+{
+    field(DESC, "5 Channels")
+    field(EGU,  "A")
+	field(PREC,	"4")
+	field(HIHI,	"5.9")
+	field(HHSV,	"MAJOR")
+	field(HIGH,	"5.7")
+	field(HSV,	"MINOR")
+}
+
+record(ao, "$(P)$(R):sCur1")
+{
+    field(DESC, "1 Channels")
+    field(EGU,  "A")
+	field(PREC,	"4")
+	field(VAL,	"5.7")
+    field(FLNK, "$(P)$(R):ApplyCur")
+}
+
+record(ao, "$(P)$(R):sCur2")
+{
+    field(DESC, "2 Channels")
+    field(EGU,  "A")
+	field(PREC,	"4")
+	field(VAL,	"5.8")
+    field(FLNK, "$(P)$(R):ApplyCur")
+}
+
+record(ao, "$(P)$(R):sCur3")
+{
+    field(DESC, "3 Channels")
+    field(EGU,  "A")
+	field(PREC,	"4")
+	field(VAL,	"5.5")
+    field(FLNK, "$(P)$(R):ApplyCur")
+}
+record(ao, "$(P)$(R):sCur4")
+{
+    field(DESC, "4 Channels")
+    field(EGU,  "A")
+	field(PREC,	"4")
+	field(VAL,	"5.6")
+    field(FLNK, "$(P)$(R):ApplyCur")
+}
+
+record(ao, "$(P)$(R):sCur5")
+{
+    field(DESC, "5 Channels")
+    field(EGU,  "A")
+	field(PREC,	"4")
+	field(VAL,	"5.4")
+	field(FLNK,	"$(P)$(R):ApplyCur")
+}
+
+record(calcout, "$(P)$(R):ApplyCur")
+{
+    field(DESC, "Apply all channel voltages")
+
+    field(INPA, "$(P)$(R):sCur1")
+    field(INPB, "$(P)$(R):sCur2")
+    field(INPC, "$(P)$(R):sCur3")
+    field(INPD, "$(P)$(R):sCur4")
+    field(INPE, "$(P)$(R):sCur5")
+
+    field(CALC, "0")
+    field(DTYP, "stream")
+    field(PINI, "YES")
+    field(OUT, "@MFP4000.proto setAPCUR $(PORT)")
+}
+
+record(bi, "$(P)$(R):gOut1")
+{
+    field(DESC, "1 Channels")
+    field(DTYP, "stream")
+    field(INP,  "@MFP4000.proto getAPOUT($(P)$(R)) $(PORT)")
+    field(ZNAM, "Off")
+    field(ONAM, "On")
+    field(SCAN, "1 second")
+    field(FLNK, "$(P)$(R):gOut2")
+}
+
+record(bi, "$(P)$(R):gOut2")
+{
+    field(DESC, "2 Channels")
+    field(ZNAM, "Off")
+    field(ONAM, "On")
+    field(FLNK, "$(P)$(R):gOut3")
+}
+record(bi, "$(P)$(R):gOut3")
+{
+    field(DESC, "3 Channels")
+    field(ZNAM, "Off")
+    field(ONAM, "On")
+    field(FLNK, "$(P)$(R):gOut4")
+}
+
+record(bi, "$(P)$(R):gOut4")
+{
+    field(DESC, "4 Channels")
+    field(ZNAM, "Off")
+    field(ONAM, "On")
+    field(FLNK, "$(P)$(R):gOut5")
+}
+
+record(bi, "$(P)$(R):gOut5")
+{
+    field(DESC, "5 Channels")
+    field(ZNAM, "Off")
+    field(ONAM, "On")
+}
+
+record(bo, "$(P)$(R):sOut1")
+{
+    field(DESC, "1 Channels")
+    field(ZNAM, "Off")
+    field(ONAM, "On")
+    field(VAL,	"0")
+    field(FLNK, "$(P)$(R):ApplyOut")
+}
+
+record(bo, "$(P)$(R):sOut2")
+{
+    field(DESC, "2 Channels")
+    field(ZNAM, "Off")
+    field(ONAM, "On")
+	field(VAL,	"0")
+    field(FLNK, "$(P)$(R):ApplyOut")
+}
+record(bo, "$(P)$(R):sOut3")
+{
+    field(DESC, "3 Channels")
+    field(ZNAM, "Off")
+    field(ONAM, "On")
+	field(VAL,	"0")
+    field(FLNK, "$(P)$(R):ApplyOut")
+}
+
+record(bo, "$(P)$(R):sOut4")
+{
+    field(DESC, "4 Channels")
+    field(ZNAM, "Off")
+    field(ONAM, "On")
+	field(VAL,	"0")
+    field(FLNK, "$(P)$(R):ApplyOut")
+}
+
+record(bo, "$(P)$(R):sOut5")
+{
+    field(DESC, "5 Channels")
+    field(ZNAM, "Off")
+    field(ONAM, "On")
+	field(VAL,	"0")
+	field(FLNK,	"$(P)$(R):ApplyOut")
+}
+
+record(calcout, "$(P)$(R):ApplyOut")
+{
+    field(DESC, "Apply all channel voltages")
+
+    field(INPA, "$(P)$(R):sOut1")
+    field(INPB, "$(P)$(R):sOut2")
+    field(INPC, "$(P)$(R):sOut3")
+    field(INPD, "$(P)$(R):sOut4")
+    field(INPE, "$(P)$(R):sOut5")
+
+    field(CALC, "0")
+    field(DTYP, "stream")
+    field(PINI, "YES")
+    field(OUT, "@MFP4000.proto setAPOUT $(PORT)")
+}
+
+record(bi, "$(P)$(R):gSense1")
+{
+    field(DESC, "1 Channels")
+    field(DTYP, "stream")
+    field(INP,  "@MFP4000.proto getAPSENSE($(P)$(R)) $(PORT)")
+    field(ZNAM, "Off")
+    field(ONAM, "On")
+    field(SCAN, "1 second")
+    field(FLNK, "$(P)$(R):gSense2")
+}
+
+record(bi, "$(P)$(R):gSense2")
+{
+    field(DESC, "2 Channels")
+    field(ZNAM, "Off")
+    field(ONAM, "On")
+    field(FLNK, "$(P)$(R):gSense3")
+}
+
+record(bi, "$(P)$(R):gSense3")
+{
+    field(DESC, "3 Channels")
+    field(ZNAM, "Off")
+    field(ONAM, "On")
+    field(FLNK, "$(P)$(R):gSense4")
+}
+
+record(bi, "$(P)$(R):gSense4")
+{
+    field(DESC, "4 Channels")
+    field(ZNAM, "Off")
+    field(ONAM, "On")
+    field(FLNK, "$(P)$(R):gSense5")
+}
+
+record(bi, "$(P)$(R):gSense5")
+{
+    field(DESC, "5 Channels")
+    field(ZNAM, "Off")
+    field(ONAM, "On")
+}
+
+record(bo, "$(P)$(R):sSense1")
+{
+    field(DESC, "1 Channels")
+    field(ZNAM, "Off")
+    field(ONAM, "On")
+    field(VAL,	"0")
+    field(FLNK, "$(P)$(R):ApplySense")
+}
+
+record(bo, "$(P)$(R):sSense2")
+{
+    field(DESC, "2 Channels")
+    field(ZNAM, "Off")
+    field(ONAM, "On")
+	field(VAL,	"0")
+    field(FLNK, "$(P)$(R):ApplySense")
+}
+
+record(bo, "$(P)$(R):sSense3")
+{
+    field(DESC, "3 Channels")
+    field(ZNAM, "Off")
+    field(ONAM, "On")
+	field(VAL,	"0")
+    field(FLNK, "$(P)$(R):ApplySense")
+}
+
+record(bo, "$(P)$(R):sSense4")
+{
+    field(DESC, "4 Channels")
+    field(ZNAM, "Off")
+    field(ONAM, "On")
+	field(VAL,	"0")
+    field(FLNK, "$(P)$(R):ApplySense")
+}
+
+record(bo, "$(P)$(R):sSense5")
+{
+    field(DESC, "5 Channels")
+    field(ZNAM, "Off")
+    field(ONAM, "On")
+	field(VAL,	"0")
+	field(FLNK,	"$(P)$(R):ApplySense")
+}
+
+record(calcout, "$(P)$(R):ApplySense")
+{
+    field(DESC, "Apply all channel voltages")
+
+    field(INPA, "$(P)$(R):sSense1")
+    field(INPB, "$(P)$(R):sSense2")
+    field(INPC, "$(P)$(R):sSense3")
+    field(INPD, "$(P)$(R):sSense4")
+    field(INPE, "$(P)$(R):sSense5")
+
+    field(CALC, "0")
+    field(DTYP, "stream")
+    field(PINI, "YES")
+    field(OUT, "@MFP4000.proto setAPSENSE $(PORT)")
+}
+
+
+record(ai, "$(P)$(R):gActVolt")
+{
+    field(DESC, "Actual Volt")
+    field(DTYP, "stream")
+    field(INP,  "@MFP4000.proto getMVOLT() $(PORT)")
+    field(PREC,	"3")
+	field(EGU,  "V")
+    field(SCAN, "1 second")
+}
+
+record(ai, "$(P)$(R):gActVolt1")
+{
+    field(DESC, "1 Channels")
+    field(DTYP, "stream")
+    field(INP,  "@MFP4000.proto getMVOLTA($(P)$(R)) $(PORT)")
+    field(EGU,  "V")
+	field(PREC,	"3")
+    field(SCAN, "1 second")
+    field(FLNK, "$(P)$(R):gActVolt2")
+}
+
+record(ai, "$(P)$(R):gActVolt2")
+{
+    field(DESC, "2 Channels")
+    field(EGU,  "V")
+	field(PREC,	"3")
+    field(FLNK, "$(P)$(R):gActVolt3")
+}
+
+record(ai, "$(P)$(R):gActVolt3")
+{
+    field(DESC, "3 Channels")
+    field(EGU,  "V")
+	field(PREC,	"3")
+    field(FLNK, "$(P)$(R):gActVolt4")
+}
+record(ai, "$(P)$(R):gActVolt4")
+{
+    field(DESC, "4 Channels")
+    field(EGU,  "V")
+	field(PREC,	"3")
+    field(FLNK, "$(P)$(R):gActVolt5")
+}
+
+record(ai, "$(P)$(R):gActVolt5")
+{
+    field(DESC, "5 Channels")
+	field(PREC,	"3")
+    field(EGU,  "V")
+}
+
+record(ai, "$(P)$(R):gActCur")
+{
+    field(DESC, "Actual Cur")
+    field(DTYP, "stream")
+    field(INP,  "@MFP4000.proto getMCUR() $(PORT)")
+    field(EGU,  "A")
+	field(PREC,	"4")
+    field(SCAN, "1 second")
+}
+
+record(ai, "$(P)$(R):gActCur1")
+{
+    field(DESC, "1 Channels")
+    field(DTYP, "stream")
+    field(INP,  "@MFP4000.proto getMCURA($(P)$(R)) $(PORT)")
+    field(EGU,  "A")
+	field(PREC,	"4")
+    field(SCAN, "1 second")
+    field(FLNK, "$(P)$(R):gActCur2")
+}
+record(ai, "$(P)$(R):gActCur2")
+{
+    field(DESC, "2 Channels")
+    field(EGU,  "A")
+	field(PREC,	"4")
+    field(FLNK, "$(P)$(R):gActCur3")
+}
+
+record(ai, "$(P)$(R):gActCur3")
+{
+    field(DESC, "3 Channels")
+    field(EGU,  "A")
+	field(PREC,	"4")
+    field(FLNK, "$(P)$(R):gActCur4")
+}
+
+record(ai, "$(P)$(R):gActCur4")
+{
+    field(DESC, "4 Channels")
+    field(EGU,  "A")
+	field(PREC,	"4")
+    field(FLNK, "$(P)$(R):gActCur5")
+}
+
+record(ai, "$(P)$(R):gActCur5")
+{
+    field(DESC, "5 Channels")
+    field(EGU,  "A")
+	field(PREC,	"4")
+}
+
+record(bi, "$(P)$(R):gOutp")
+{
+    field(DESC, "Output status")
+    field(DTYP, "stream")
+    field(INP,  "@MFP4000.proto getOUTP($(P)$(R)) $(PORT)")
+    field(ZNAM, "Off")
+    field(ONAM, "On")
+    field(SCAN, "1 second")
+}
+
+record(bo, "$(P)$(R):sOutp")
+{
+    field(DESC, "Output status")
+    field(DTYP, "stream")
+    field(OUT,  "@MFP4000.proto setOUTP($(P)$(R)) $(PORT)")
+    field(ZNAM, "Off")
+    field(ONAM, "On")
+	field(VAL,	"0")
+}
+
+record(ai, "$(P)$(R):gVolt")
+{
+    field(DESC, "Current Volt")
+    field(DTYP, "stream")
+    field(INP,  "@MFP4000.proto getVOLT($(P)$(R)) $(PORT)")
+    field(EGU,  "V")
+	field(PREC,	"3")
+    field(SCAN, "1 second")
+}
+
+record(ao, "$(P)$(R):sVolt")
+{
+    field(DESC, "Current Volt")
+    field(DTYP, "stream")
+    field(OUT,  "@MFP4000.proto setVOLT($(P)$(R)) $(PORT)")
+    field(EGU,  "V")
+	field(PREC,	"3")
+	field(VAL,	"15")
+}
+
+record(ai, "$(P)$(R):gCur")
+{
+    field(DESC, "Current Volt")
+    field(DTYP, "stream")
+    field(INP,  "@MFP4000.proto getCur($(P)$(R)) $(PORT)")
+    field(EGU,  "A")
+	field(PREC,	"4")
+    field(SCAN, "1 second")
+}
+
+record(ao, "$(P)$(R):sCur")
+{
+    field(DESC, "Current Volt")
+    field(DTYP, "stream")
+    field(OUT,  "@MFP4000.proto setCur($(P)$(R)) $(PORT)")
+    field(EGU,  "A")
+	field(VAL,	"5")
+	field(PREC,	"4")
+}
+
+record(mbbi, "$(P)$(R):gInst")
+{
+    field(DESC, "Current Inst")
+    field(DTYP, "stream")
+    field(INP,  "@MFP4000.proto getINST($(P)$(R)) $(PORT)")
+    field(ZRST, "CH1")
+    field(ONST, "CH2")
+    field(TWST, "CH3")
+    field(THST, "CH4")
+    field(FRST, "CH5")
+    field(SCAN, "1 second")
+}
+
+record(mbbo, "$(P)$(R):sInst")
+{
+    field(DESC, "Current Inst")
+    field(DTYP, "stream")
+    field(OUT,  "@MFP4000.proto setINST($(P)$(R)) $(PORT)")
+    field(ZRST, "CH1")
+    field(ONST, "CH2")
+    field(TWST, "CH3")
+    field(THST, "CH4")
+    field(FRST, "CH5")
+	field(PINI,	"YES")
+	field(VAL,	"0")
+}
+

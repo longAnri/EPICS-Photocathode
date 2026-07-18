@@ -1,0 +1,78 @@
+record(ai, "$(S):Dose")
+{ 
+    field(DTYP, "asynFloat64")
+    field(INP,"@asyn($(P)_REG_IN 0)FLOAT32_LE")
+    field(HIGH, "0.30")
+    field(HSV, "MINOR")
+    field(HIHI, "0.35")
+    field(HHSV, "MAJOR")
+    field(SCAN, "I/O Intr")
+    field(FLNK, "$(S):Status")
+}
+
+record(mbbi, "$(S):Units")
+{
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(P)_REG_IN 2)INT16")
+    field(ZRVL, "1")
+    field(ZRST, "CPS")
+    field(ONVL, "2")
+    field(ONST, "CPM")
+    field(TWVL, "3")
+    field(TWST, " uSv/h")
+    field(SCAN, "I/O Intr")
+}
+
+record(ao, "$(S):UnitSet")
+{
+    field(DTYP, "asynInt32")
+    field(OUT,"@asyn($(P)_REG_OUT 0)INT16")
+    field(FLNK, "$(S):Units")
+    field(SCAN, "Passive")
+    field(VAL, "3")
+}
+
+record(ao, "$(S):AlarmSet")
+{
+    field(DTYP, "asynInt32")
+    field(OUT,"@asyn($(P)_REG_OUT 7)INT16")
+    field(SCAN, "Passive")
+    field(VAL, "0.0")
+}
+
+record(calc, "$(S):Status")
+{
+    field(INPA, "$(S):Dose")
+    field(CALC, "(A < 0.30) ? 0 : (A < 0.35 ? 1 : 2)")
+    field(FLNK, "$(S):States")
+}
+
+record(mbbi, "$(S):States")
+{
+    field(INP, "$(S):Status")
+    # Alarm states
+    field(TWSV, "MAJOR")
+
+    # Display niceties
+    field(ZRST, "Normal")
+    field(ONST, "Serious")
+    field(TWST, "Danger")
+}
+
+record(ai, "$(S):AlarmValue")
+{
+    field(DESC, "Set Alarm Value of $(S):Dose")
+    info(autosaveFields, "VAL")
+    field(VAL, "1")
+    field(PINI, "YES")
+}
+
+# Alarm PV
+record(calc, "$(S):Alarm")
+{
+  field(INPA, "$(S):AlarmValue")
+  field(INPB, "$(S):Dose")
+  field(CALC, "A>B?0:1")
+  field(SCAN, "5 second")
+}
+

@@ -1,0 +1,8 @@
+record(bo, "$(P)$(R)")
+{
+	field(DTYP, "asynInt32")
+	field(OUT, "@asyn($(PORT) $(OFFSET))INT16") 
+	field(ZNAM,"$(ZNAM)")
+    field(ONAM,"$(ONAM)")
+
+}

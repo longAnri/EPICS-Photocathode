@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>Display</name>
+  <macros>
+    <P>SQM</P>
+  </macros>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <class>TITLE</class>
+    <text>SQM160</text>
+    <x use_class="true">0</x>
+    <y use_class="true">0</y>
+    <width>550</width>
+    <height>31</height>
+    <font use_class="true">
+      <font name="Header 1" family="Liberation Sans" style="BOLD" size="22.0">
+      </font>
+    </font>
+    <foreground_color use_class="true">
+      <color name="Text" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <transparent use_class="true">true</transparent>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_1</name>
+    <text>Version</text>
+    <y>50</y>
+    <width>70</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update</name>
+    <pv_name>$(P):Version</pv_name>
+    <x>60</x>
+    <y>50</y>
+    <width>200</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_2</name>
+    <text>Film</text>
+    <y>80</y>
+    <width>60</width>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Entry</name>
+    <pv_name>$(P):filmNumber</pv_name>
+    <x>60</x>
+    <y>80</y>
+  </widget>
+  <widget type="tabs" version="2.0.0">
+    <name>Tabs</name>
+    <tabs>
+      <tab>
+        <name>Avg Rate</name>
+        <children>
+          <widget type="databrowser" version="2.0.0">
+            <name>Data Browser</name>
+            <file>Average_Rate.plt</file>
+            <y>22</y>
+            <width>528</width>
+          </widget>
+          <widget type="textupdate" version="2.0.0">
+            <name>Text Update_13</name>
+            <pv_name>$(P):Ave_Rate</pv_name>
+            <x>435</x>
+            <y>22</y>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>Sensor Rate</name>
+        <children>
+          <widget type="textentry" version="3.0.0">
+            <name>Text Entry_1</name>
+            <pv_name>$(P):Sensor</pv_name>
+            <x>96</x>
+            <y>6</y>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_6</name>
+            <text>Sensor</text>
+            <x>36</x>
+            <y>6</y>
+            <width>60</width>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_7</name>
+            <text>Rate</text>
+            <x>282</x>
+            <y>6</y>
+            <width>60</width>
+          </widget>
+          <widget type="textupdate" version="2.0.0">
+            <name>Text Update_4</name>
+            <pv_name>$(P):rate</pv_name>
+            <x>342</x>
+            <y>6</y>
+          </widget>
+          <widget type="databrowser" version="2.0.0">
+            <name>Data Browser_1</name>
+            <file>Sensor_Rate.plt</file>
+            <x>20</x>
+            <y>42</y>
+            <width>504</width>
+            <height>280</height>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>Avg Thickness</name>
+        <children>
+          <widget type="databrowser" version="2.0.0">
+            <name>Data Browser_2</name>
+            <file>Average_Thickness.plt</file>
+            <x>10</x>
+            <y>22</y>
+            <width>510</width>
+            <height>290</height>
+          </widget>
+          <widget type="textupdate" version="2.0.0">
+            <name>Text Update_14</name>
+            <pv_name>$(P):aveThickness</pv_name>
+            <x>419</x>
+            <y>4</y>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>Sensor Thickness</name>
+        <children>
+          <widget type="label" version="2.0.0">
+            <name>Label_9</name>
+            <text>Sensor Thickness</text>
+            <x>258</x>
+            <y>12</y>
+            <width>130</width>
+          </widget>
+          <widget type="textupdate" version="2.0.0">
+            <name>Text Update_6</name>
+            <pv_name>$(P):thickness</pv_name>
+            <x>386</x>
+            <y>12</y>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_10</name>
+            <text>Sensor</text>
+            <x>14</x>
+            <y>12</y>
+            <width>60</width>
+          </widget>
+          <widget type="textentry" version="3.0.0">
+            <name>Text Entry_2</name>
+            <pv_name>$(P):thickSensor</pv_name>
+            <x>94</x>
+            <y>12</y>
+          </widget>
+          <widget type="databrowser" version="2.0.0">
+            <name>Data Browser_3</name>
+            <file>Sensor_Thickness.plt</file>
+            <x>8</x>
+            <y>42</y>
+            <width>512</width>
+            <height>264</height>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>Sensor Data</name>
+        <children>
+          <widget type="textentry" version="3.0.0">
+            <name>Text Entry_3</name>
+            <pv_name>$(P):Sensor</pv_name>
+            <x>98</x>
+            <y>32</y>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_11</name>
+            <text>Sensor</text>
+            <x>38</x>
+            <y>32</y>
+            <width>60</width>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_12</name>
+            <text>Rate</text>
+            <x>38</x>
+            <y>62</y>
+            <width>60</width>
+          </widget>
+          <widget type="textupdate" version="2.0.0">
+            <name>Text Update_7</name>
+            <pv_name>$(P):rate</pv_name>
+            <x>98</x>
+            <y>62</y>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_13</name>
+            <text>Avg Thickness</text>
+            <x>38</x>
+            <y>92</y>
+          </widget>
+          <widget type="textupdate" version="2.0.0">
+            <name>Text Update_8</name>
+            <pv_name>$(P):aveThickness</pv_name>
+            <x>168</x>
+            <y>92</y>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_14</name>
+            <text>freqSensor</text>
+            <x>38</x>
+            <y>122</y>
+            <width>80</width>
+          </widget>
+          <widget type="textentry" version="3.0.0">
+            <name>Text Entry_4</name>
+            <pv_name>$(P):freqSensor</pv_name>
+            <x>138</x>
+            <y>122</y>
+            <width>120</width>
+          </widget>
+          <widget type="textupdate" version="2.0.0">
+            <name>Text Update_9</name>
+            <pv_name>$(P):frequency</pv_name>
+            <x>138</x>
+            <y>152</y>
+            <width>120</width>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_15</name>
+            <text>frequency</text>
+            <x>38</x>
+            <y>152</y>
+            <width>70</width>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_16</name>
+            <text>Sensor Thickness</text>
+            <x>38</x>
+            <y>212</y>
+            <width>130</width>
+          </widget>
+          <widget type="textupdate" version="2.0.0">
+            <name>Text Update_10</name>
+            <pv_name>$(P):thickness</pv_name>
+            <x>208</x>
+            <y>212</y>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_17</name>
+            <text>thickSensor</text>
+            <x>38</x>
+            <y>182</y>
+            <width>90</width>
+          </widget>
+          <widget type="textentry" version="3.0.0">
+            <name>Text Entry_5</name>
+            <pv_name>$(P):thickSensor</pv_name>
+            <x>208</x>
+            <y>182</y>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_18</name>
+            <text>Crystal Life</text>
+            <x>39</x>
+            <y>269</y>
+            <width>130</width>
+          </widget>
+          <widget type="textupdate" version="2.0.0">
+            <name>Text Update_12</name>
+            <pv_name>$(P):crystal</pv_name>
+            <x>209</x>
+            <y>269</y>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_19</name>
+            <text>CrstalSensor</text>
+            <x>39</x>
+            <y>239</y>
+            <width>90</width>
+          </widget>
+          <widget type="textentry" version="3.0.0">
+            <name>Text Entry_6</name>
+            <pv_name>$(P):statusSensor</pv_name>
+            <x>209</x>
+            <y>239</y>
+          </widget>
+        </children>
+      </tab>
+    </tabs>
+    <y>130</y>
+    <width>550</width>
+    <height>370</height>
+    <active_tab>2</active_tab>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_3</name>
+    <text>Density</text>
+    <x>570</x>
+    <y>170</y>
+    <width>60</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_1</name>
+    <pv_name>$(P):gDensity</pv_name>
+    <x>570</x>
+    <y>190</y>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_4</name>
+    <text>Final Thick(kA)</text>
+    <x>570</x>
+    <y>220</y>
+    <width>110</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_2</name>
+    <pv_name>$(P):gFinalThickness</pv_name>
+    <x>570</x>
+    <y>240</y>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_5</name>
+    <text>Avg. Thick(kA)</text>
+    <x>570</x>
+    <y>270</y>
+    <width>110</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_3</name>
+    <pv_name>$(P):aveThickness</pv_name>
+    <x>570</x>
+    <y>290</y>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_2</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(P):zeroTime</pv_name>
+        <value>1</value>
+        <description>WritePV</description>
+      </action>
+    </actions>
+    <text>ZeroTime</text>
+    <x>270</x>
+    <y>90</y>
+    <width>68</width>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="bool_button" version="2.0.0">
+    <name>Boolean Button</name>
+    <pv_name>$(P):setSource</pv_name>
+    <x>270</x>
+    <y>50</y>
+    <width>118</width>
+    <off_label>Open Shutter</off_label>
+    <on_label>Open Shutter</on_label>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_3</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(P):zeroAverage</pv_name>
+        <value>1</value>
+        <description>WritePV</description>
+      </action>
+    </actions>
+    <text>ZeroRTH</text>
+    <x>369</x>
+    <y>90</y>
+    <width>68</width>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+</display>

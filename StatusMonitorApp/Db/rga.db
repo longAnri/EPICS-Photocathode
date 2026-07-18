@@ -1,0 +1,149 @@
+record(longin, "$(S)_Vac:$(R):Reset") {
+  field(SCAN, "Passive")
+  field(DTYP, "stream")
+  field(INP, "@rga.proto reset port")
+  field(FLNK, "$(S)_Vac:$(R):PPS PP")
+}
+
+record(longin, "$(S)_Vac:$(R):AScan_Pts") {
+  field(DESC, "Analog scan points")
+  field(SCAN, "Passive")
+  field(DTYP, "stream")
+  field(INP, "@rga.proto ap_rdbk port")
+}
+
+record(calc, "$(S)_Vac:$(R):AScan_Bytes") {
+#  field(SCAN, "2 second")
+  field(INPA, "$(S)_Vac:$(R):AScan_Pts PP")
+  field(CALC, "A*4+1")
+  field(FLNK, "$(S)_Vac:$(R):PPS PP")
+}
+
+record(ai, "$(S)_Vac:$(R):PPS") {
+  field(DESC, "Partial Pressure Sensitivity")
+#  field(SCAN, "5 second")
+  field(DTYP, "stream")
+  field(INP, "@rga.proto sp_rdbk port")
+  field(PINI, "YES")
+}
+
+record(calc, "$(S)_Vac:$(R):FactSens") {
+  field(DESC, "Factor sensitivity")
+  field(SCAN, "Passive")
+  field(INPA, "$(S)_Vac:$(R):PPS CP")
+  field(INPB, "1.0e-16")
+  field(CALC, "A?B*1000/A:0")
+}
+
+record(waveform, "$(S)_Vac:$(R):AScan_Single") {
+  field(DESC, "1 single analog scan")
+  field(FTVL, "LONG")
+  field(NELM, "2000")
+#  field(SCAN, "10 second")
+  field(DTYP, "stream")
+  field(INP, "@rga.proto ascan_1 port")
+  field(FLNK, "$(S)_Vac:$(R):num PP")
+}
+
+record(calc, "$(S)_Vac:$(R):Num") {
+  field(SCAN, "Passive")
+  field(INPA, "$(S)_Vac:$(R):AScan_Trig.NORD NPP")
+  field(CALC, "A")
+  field(FLNK, "$(S)_Vac:$(R):UpdateCount PP")
+}
+
+record(calc, "$(S)_Vac:$(R):UpdateCount") {
+  field(SCAN, "Passive")
+  field(INPA, "$(S)_Vac:$(R):UpdateCount NPP")
+  field(CALC, "A+1")
+  field(FLNK, "$(S)_Vac:$(R):PP_Mass PP")
+}
+
+record(acalcout, "$(S)_Vac:$(R):PP_Mass") {
+  field(DESC, "Partial pressure - mass")
+  field(NELM, "2000")
+  field(INPA, "$(S)_Vac:$(R):PPS PP")
+  field(INAA, "$(S)_Vac:$(R):AScan_Single PP")
+  field(CALC, "AA*1.0e-13")
+  field(PREC, "12")
+  field(EGU, "Torr")
+}
+
+record(ao, "$(S)_Vac:$(R):Mass_MNO") {
+  field(VAL, "02")
+}
+
+record(longin, "$(S)_Vac:$(R):Mass_MN") {
+  field(SCAN, "5 second")
+  field(DTYP, "stream")
+  field(INP, "@rga.proto m_meas($(S)_Vac:$(R):Mass_MNO) port ")
+#  field(FLNK, "$(S)_Vac:$(R):PartPN PP")
+#  field(VAL, "02")
+}
+
+record(calc, "$(S)_Vac:$(R):PartPN") {
+  field(SCAN, "5 second")
+  field(INPA, "$(S)_Vac:$(R):PPS")
+  field(INPB, "$(S)_Vac:$(R):Mass_MN")
+  field(CALC, "A?(B*1e-13)/A:0")
+  field(PREC, "12")
+  field(EGU, "Torr")
+#   field(FLNK, "$(S)_Vac:$(R):Histo_PartPN PP")
+}
+
+record(compress, "$(S)_Vac:$(R):Histo_PartPN") {
+  field(DESC, "Pressure Buf")
+  field(SCAN, "5 second")
+  field(ALG,  "Circular Buffer")
+  field(NSAM, "2000")
+  field(INP,  "$(S)_Vac:$(R):PartPN ")
+  field(PREC, "12")
+}
+
+record(ai, "$(S)_Vac:$(R):FL") {
+  field(DESC, "Filament -Electron emission I")
+  field(SCAN, "5 second")
+  field(DTYP, "stream")
+  field(INP, "@rga.proto fl_rdbk port")
+  field(PINI, "YES")
+}
+
+record(ao, "$(S)_Vac:$(R):FLSet") {
+  field(DESC, "Filament on off")
+  field(DTYP, "stream")
+  field(OUT, "@rga.proto fl port")
+  field(VAL, "1")
+  field(FLNK, "$(S)_Vac:$(R):FL PP")
+}
+
+record(calc, "$(S)_Vac:$(R):Scan") {
+  field(INPA, "$(S)_Vac:$(R):FL CPP")
+  field(CALC, "A=0?0:4")
+  field(FLNK, "$(S)_Vac:$(R):fout1")
+}
+
+record(dfanout, "$(S)_Vac:$(R):fout1") {
+  field(DOL, "$(S)_Vac:$(R):Scan")
+  field(OMSL, "closed_loop")
+  field(OUTA, "$(S)_Vac:$(R):Mass_M2.SCAN PP") 
+  field(OUTB, "$(S)_Vac:$(R):Mass_M12.SCAN PP") 
+  field(OUTC, "$(S)_Vac:$(R):Mass_M14.SCAN PP") 
+  field(OUTD, "$(S)_Vac:$(R):Mass_M15.SCAN PP") 
+  field(OUTE, "$(S)_Vac:$(R):Mass_M16.SCAN PP") 
+  field(OUTF, "$(S)_Vac:$(R):Mass_M17.SCAN PP") 
+  field(OUTG, "$(S)_Vac:$(R):Mass_M18.SCAN PP") 
+  field(OUTH, "$(S)_Vac:$(R):Mass_M26.SCAN PP") 
+  field(FLNK, "$(S)_Vac:$(R):fout2")
+}
+
+record(dfanout, "$(S)_Vac:$(R):fout2") {
+  field(DOL, "$(S)_Vac:$(R):Scan")
+  field(OMSL, "closed_loop")
+  field(OUTA, "$(S)_Vac:$(R):Mass_M28.SCAN PP") 
+  field(OUTB, "$(S)_Vac:$(R):Mass_M29.SCAN PP") 
+  field(OUTC, "$(S)_Vac:$(R):Mass_M32.SCAN PP") 
+  field(OUTD, "$(S)_Vac:$(R):Mass_M40.SCAN PP") 
+  field(OUTE, "$(S)_Vac:$(R):Mass_M41.SCAN PP") 
+  field(OUTF, "$(S)_Vac:$(R):Mass_M44.SCAN PP") 
+  field(OUTG, "$(S)_Vac:$(R):Mass_M69.SCAN PP") 
+}

@@ -1,0 +1,67 @@
+#
+record(mbbo, "$(P)$(R):Channel")
+{
+    field(DESC, "Select Channel")
+#    field(ONVL, "1")
+    field(ONST, "Channel 1")
+#    field(TWVL, "2")
+    field(TWST, "Channel 2")
+#    field(THVL,	"3")
+    field(THST,	"Channel 3")
+    field(VAL, "3")
+    field(PINI,	"YES")
+    field(FLNK, "$(P)$(R):RPV")
+}
+
+record(ai, "$(P)$(R):RPV")
+{
+    field(DESC, "Reading pressure")
+    field(DTYP, "stream")
+    field(INP, "@test.proto readPressure($(P)$(R)) $(PORT)")
+    field(SCAN, "1 second")
+    field(FLNK, "$(P)$(R):Status")
+}
+record(stringin, "$(P)$(R):Status_Raw")
+{
+    field(DESC, "Status as string")
+}
+record(mbbi, "$(P)$(R):Status")
+{
+    field(DESC, "status of channel")
+    field(ZRVL, "0")
+    field(ZRST, "OK")
+    field(ONVL, "1")
+    field(ONST, "BelowRange")
+    field(TWVL, "2")
+    field(TWST, "AboveRange")
+    field(THVL, "3")
+    field(THST, "ErrLo")
+    field(FRVL, "4")
+    field(FRST, "ErrHi")
+    field(FVVL, "5")
+    field(FVST, "SensorOff")
+    field(SXVL, "6")
+    field(SXST, "HVon")
+    field(SVVL, "7")
+    field(SVST, "SensorErr")
+    field(EIVL, "9")
+    field(EIST, "NoSensor")
+    field(TEVL, "10")
+    field(TEST, "NoTrig")
+    field(TVVL, "12")
+    field(TVST, "ErrPi")
+    field(FFVL, "15")
+    field(FFST, "OkDegas")
+}
+
+record(ai, "$(P)$(R):RVN")
+{
+    field(DESC, "the version number")
+    field(DTYP, "stream")
+    field(INP, "@test.proto readVersion $(PORT)")
+    field(PREC, "2")
+    field(SCAN, "1 second")
+}
+
+
+

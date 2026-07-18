@@ -1,0 +1,9 @@
+record(ai, "$(P)$(R)") {
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PORT) $(OFFSET))$(DATA_TYPE)")
+    field(EGU, "$(EGU)")
+    field(PREC, "1")
+    field(ASLO, "0.1")
+    field(AOFF, "0")
+	field(SCAN, "I/O Intr")
+}

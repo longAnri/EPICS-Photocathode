@@ -1,0 +1,138 @@
+# Stream Device Protocol for the SQM-160 Film Thickness Monitor
+# Long Feng 11/6/2024
+
+replytimeout = 200;
+readtimeout  = 200;
+
+
+
+getVersion {
+  out "!#@%<crc14>";
+  in  "!0AMON Ver %f%*2r";
+}
+
+getFilmPar {
+    out "!%%A%(\$1:filmNumber)d?%<crc14>";
+    in  "!%*2r%(\$1:gFilmNumber)d%8c"
+#        " %(\$1:gFilmNumber)d"
+        " %(\$1:gDensity)f"
+        " %(\$1:gFilmTooling)d"
+        " %(\$1:gZ-Ratio)f"
+        " %(\$1:gFinalThickness)f"
+        " %(\$1:gThicknessSetpoint)f"
+        " %(\$1:gTimeSetpoint)d"
+        " %(\$1:gSensorAve)d"
+        "%*2r";
+}
+
+setFilmPar {
+    out "!XA%(A)02d%(\$1:sFilmName)-8s %(C)05.2f %(D)03d %(E)06.3f %(F)08.3f %(G)08.3f %(H)04d %(J)02d%<crc14>";
+    in "!%*4r";
+}
+
+getSys1_Par {
+    out "!$B?%<crc14>";
+    in  "!%*2r"
+        " %f"
+        " %(\$1:gSimMode)d"
+        " %(\$1:gFreqMode)d"
+        " %(\$1:gRateRes)d"
+        " %(\$1:gRateFilter)d"
+        " %(\$1:gCrTool1)d"
+        " %(\$1:gCrTool2)d"
+        " %(\$1:gCrTool3)d"
+        " %(\$1:gCrTool4)d"
+        " %(\$1:gCrTool5)d"
+        " %(\$1:gCrTool6)d"
+        " %*2r";
+}
+
+setSys1_Par {
+	out "!HB %(A)f %(B)d %(C)d %(D)d %(E)d %(F)d %(G)d %(H)d %(I)d %(J)d %(K)d%<crc14>";
+	in "!%*4r";
+}
+
+getSys2_Par {
+    out "!$C?%<crc14>";
+    in  "!%*2r"
+        " %f"
+        " %(\$1:gMaxFreq)f"
+        " %(\$1:gMinRate)f"
+        " %(\$1:gMaxRate)f"
+        " %(\$1:gMinThick)f"
+        " %(\$1:gMaxThick)f"
+        " %(\$1:gEtchMode)d%*2r";
+
+}
+
+setSys2_Par {
+	out "!IC %(A).3f %(B).3f %(C).3f (D).2f %(E).3f (F).3f %(G)d%<crc14>";
+	in "!%*4r";
+}
+
+Active_Film {
+  out "!$D%d%<crc14>";
+  in  "!%*4r";
+}
+ 
+Channels {
+  out "!#J%<crc14>";
+  in  "!%*2r%d%*2r";
+}
+
+Rate {
+  out "!%%L%(\$1:Sensor)1d?%<crc14>";
+  in  "!%*2r%f %*2r";
+}
+
+Ave_Rate {
+  out "!#M%<crc14>";
+  in  "!%*2r%f %*2r";
+}
+
+Thickness {
+  out "!$N%(\$1:thickSensor)1d%<crc14>";
+  in  "!%*2r%f %*2r";
+}
+
+Ave_Thickness {
+  out "!#O%<crc14>";
+  in  "!%*2r%f %*2r";
+}
+
+Frequency {
+  out "!$P%(\$1:freqSensor)1d%<crc14>";
+  in "!%*2r%11f%*2r";
+}
+
+Crystal {
+  out "!$R%(\$1:statusSensor)1d%<crc14>";
+  in  "!%*2r %f%*2r";
+}
+
+Zero_Average {
+  out "!#S%<crc14>";
+  in  "!%*4r";
+}
+
+Zero_Time {
+  out "!#T%<crc14>";
+  in  "!%*4r";
+}
+
+Set_Source { out "!$U%1d%<crc14>"; in "!%*4r";}
+
+Read_Source {
+  out "!$U?%<crc14>";
+  in  "!%*2r%1d%*2r";
+}
+
+Power_Up {
+  out "!#Y%<crc14>";
+  in  "!%*2r%1d%*2r";
+}
+
+Default {
+  out "!#Z%<crc14>";
+  in  "!%*4r";
+}
